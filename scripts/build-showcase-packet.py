@@ -49,6 +49,16 @@ def lint(t: dict) -> None:
     openers = [t[f].split("\n")[0].strip().lower() for f in fields]
     if len(set(openers)) < 3:
         sys.exit(f"{t['key']}: X and LinkedIn share an opening sentence")
+    # Discovery, not decoration. The first pass shipped four X posts that never said the word
+    # Omarchy and carried no hashtags, on a term that is currently trending. A post about an
+    # Omarchy plugin that never names Omarchy is invisible to everyone looking for one.
+    if "omarchy" not in t["x_post"].lower():
+        sys.exit(f"{t['key']}/x_post: never names Omarchy")
+    if t["x_post"].count("#") < 3:
+        sys.exit(f"{t['key']}/x_post: fewer than 3 hashtags, that is the discovery surface")
+    for f in ("li_personal", "li_company"):
+        if "omarchy" not in t[f].lower():
+            sys.exit(f"{t['key']}/{f}: never names Omarchy")
 
 def main() -> None:
     ap = argparse.ArgumentParser()
