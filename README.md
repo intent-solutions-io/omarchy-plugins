@@ -11,6 +11,8 @@
 [![Template: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/jeremylongshore/omarchy-widget-template/blob/main/LICENSE)
 [![Gates: 9](https://img.shields.io/badge/pre--submit%20gates-9-0969da)](#the-gate-lane)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5S225PTME)
+
 ---
 
 ## What this is
