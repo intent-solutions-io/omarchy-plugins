@@ -57,3 +57,30 @@ have rolled past them.
    users, which argues for X, but the LinkedIn copy carries the engineering argument
    and this set's differentiator is engineering. The referrer split settles it, and
    it settles it for every campaign after this one.
+
+## Packets sent
+
+Nine packets to `ezekiel@intentsolutions.io`, CC `jeremy@intentsolutions.io`, on
+2026-08-25, in this order. Individual plugins first, the template, then the portfolio
+page last, because the portfolio packet reads as a summary and a summary lands better
+once a few of the parts have gone out.
+
+| # | Packet | Message id |
+| --: | --- | --- |
+| 1 | `pit-wall` | `<2d670a08-4e0a-61c7-28a1-c9256746d5e9@intentsolutions.io>` |
+| 2 | `bazaar` | `<c1358517-5266-9080-6190-ed24f1ac15fe@intentsolutions.io>` |
+| 3 | `crew-chief` | `<d12f7285-95fb-e79e-5896-b41c9ba13caa@intentsolutions.io>` |
+| 4 | `wait-state` | `<905aa8c3-ebd6-bd78-f85a-07653f6b12ad@intentsolutions.io>` |
+| 5 | `docket` | `<b25bc072-222d-2211-6a9d-fff836755b1a@intentsolutions.io>` |
+| 6 | `mlb-booth` | `<8815516e-0785-6132-2eb5-45ba7d6e5502@intentsolutions.io>` |
+| 7 | `x-files` | `<1067fe56-2a8b-74f0-a708-9e4fd0ec57f7@intentsolutions.io>` |
+| 8 | `widget-template` | `<4149514e-2394-b8a3-8209-113016190693@intentsolutions.io>` |
+| 9 | `umbrella` | `<5712883c-2975-bc02-9abb-5f8a8f5d33cc@intentsolutions.io>` |
+
+**Listening Post got no packet.** Its marketplace submission
+([#1229](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/1229)) is open
+with `needs-fixes` on an unresolved request forgery finding, and there is no listing page
+for a packet to link. Pushing it publicly while a marketplace reviewer has a documented,
+open security finding against it costs more than one fewer post. The packet builder still
+covers the case: given a plugin absent from the catalog it emits a HOLD banner rather than
+a link. See `002-LS-BLOK` for what closes it.
