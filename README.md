@@ -24,23 +24,21 @@ This repository is the **Intent Solutions organization landing page** for the Om
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-08-25T18:12:41.735Z`, across 1366 listed plugins. Regenerate with `bash scripts/refresh-metrics.sh`; do not edit this table by hand.
+Marketplace data generated at `2026-08-25T23:50:47.145Z`, across 1415 listed plugins. Regenerate with `bash scripts/refresh-metrics.sh`; do not edit this table by hand.
 
 | Plugin | What it does | Source | Category | Views | Copies | Hearts |
 | --- | --- | --- | --- | --: | --: | --: |
-| **Bazaar** | The plugin marketplace itself, in the bar. Search 1,300+ listings, read a plugin's detail, copy its install command, without opening a browser. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.bazaar) | 199 | 20 | 0 |
-| **Pit Wall** | The Formula 1 race weekend on the bar. Countdown to the next session, live timing during one, and the pill goes quiet between race weekends. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.pit-wall) | 113 | 19 | 3 |
-| **Wait State** | Linux PSI pressure stall information in the bar. Shows when the machine is stalled on IO, memory or CPU, which load average cannot tell you. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.wait-state) | 100 | 9 | 0 |
-| **MLB Booth** | Live baseball on the bar. Score, half inning, base state and count for the game you follow, collapsing to nothing on an off day. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 92 | 2 | 1 |
-| **X Files** | The replies to your own X posts, read from the desktop. A drainable queue so a conversation does not get lost in the feed. | [repo](https://github.com/jeremylongshore/omarchy-x-files-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.x-files) | 90 | 1 | 1 |
-| **Docket** | The GitHub pull requests actually waiting on you, as a queue. Review requests and your own PRs with a changed state, not a notification firehose. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.docket) | 89 | 3 | 1 |
-| **Crew Chief** | Which of your AI coding agent sessions is blocked on you. Reads session state across running agents so a waiting prompt does not sit unseen. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.crew-chief) | 66 | 8 | 1 |
-| **Listening Post** | A curated AI vendor release radar. Model releases, pricing changes and status incidents from 29 sources, in four lanes, quiet when nothing shipped. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | not listed | not listed | not listed | not listed |
+| **Bazaar** | The plugin marketplace itself, in the bar. Search 1,300+ listings, read a plugin's detail, copy its install command, without opening a browser. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.bazaar) | 209 | 20 | 0 |
+| **Pit Wall** | The Formula 1 race weekend on the bar. Countdown to the next session, live timing during one, and the pill goes quiet between race weekends. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.pit-wall) | 115 | 19 | 3 |
+| **Wait State** | Linux PSI pressure stall information in the bar. Shows when the machine is stalled on IO, memory or CPU, which load average cannot tell you. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.wait-state) | 106 | 9 | 0 |
+| **MLB Booth** | Live baseball on the bar. Score, half inning, base state and count for the game you follow, collapsing to nothing on an off day. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 95 | 2 | 1 |
+| **X Files** | The replies to your own X posts, read from the desktop. A drainable queue so a conversation does not get lost in the feed. | [repo](https://github.com/jeremylongshore/omarchy-x-files-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.x-files) | 113 | 2 | 1 |
+| **Docket** | The GitHub pull requests actually waiting on you, as a queue. Review requests and your own PRs with a changed state, not a notification firehose. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.docket) | 113 | 3 | 1 |
+| **Crew Chief** | Which of your AI coding agent sessions is blocked on you. Reads session state across running agents so a waiting prompt does not sit unseen. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.crew-chief) | 88 | 9 | 2 |
+| **Listening Post** | A curated AI vendor release radar. Model releases, pricing changes and status incidents from 29 sources, in four lanes, quiet when nothing shipped. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.listening-post) | 199 | 9 | 0 |
 | **Widget Template** | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the nine-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | n/a | n/a | n/a |
 
-**7 of 8 listed and verified** on the marketplace, 749 views, 62 copies, 7 hearts.
-
-Not currently in the catalog: Listening Post. See [000-docs/002-LS-BLOK-listening-post-listing-blocked.md](000-docs/002-LS-BLOK-listening-post-listing-blocked.md) for why, and what unblocks it.
+**8 of 8 listed and verified** on the marketplace, 1038 views, 73 copies, 8 hearts.
 
 ### Install
 
@@ -61,6 +59,8 @@ omarchy plugin add https://github.com/jeremylongshore/omarchy-x-files-entry.git 
 omarchy plugin add https://github.com/jeremylongshore/omarchy-docket-entry.git --enable
 # Crew Chief
 omarchy plugin add https://github.com/jeremylongshore/omarchy-crew-chief-entry.git --enable
+# Listening Post
+omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable
 ```
 <!-- METRICS:END -->
 
