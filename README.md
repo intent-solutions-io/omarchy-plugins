@@ -24,21 +24,21 @@ This repository is the **Intent Solutions organization landing page** for the Om
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-08-27T22:17:05.350Z`, across 1559 listed plugins. Regenerate with `bash scripts/refresh-metrics.sh`; do not edit this table by hand.
+Marketplace data generated at `2026-08-27T23:43:23.526Z`, across 1573 listed plugins. Regenerate with `bash scripts/refresh-metrics.sh`; do not edit this table by hand.
 
 | Plugin | What it does | Source | Category | Views | Copies | Hearts |
 | --- | --- | --- | --- | --: | --: | --: |
 | **Bazaar** | The plugin marketplace itself, in the bar. Search 1,300+ listings, read a plugin's detail, copy its install command, without opening a browser. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.bazaar) | 219 | 23 | 0 |
-| **Pit Wall** | The Formula 1 race weekend on the bar. Countdown to the next session, live timing during one, and the pill goes quiet between race weekends. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.pit-wall) | 122 | 19 | 3 |
+| **Pit Wall** | The Formula 1 race weekend on the bar. Countdown to the next session, live timing during one, and the pill goes quiet between race weekends. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.pit-wall) | 123 | 19 | 3 |
 | **Wait State** | Linux PSI pressure stall information in the bar. Shows when the machine is stalled on IO, memory or CPU, which load average cannot tell you. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.wait-state) | 108 | 9 | 0 |
 | **MLB Booth** | Live baseball on the bar. Score, half inning, base state and count for the game you follow, collapsing to nothing on an off day. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 99 | 2 | 1 |
 | **X Files** | The replies to your own X posts, read from the desktop. A drainable queue so a conversation does not get lost in the feed. | [repo](https://github.com/jeremylongshore/omarchy-x-files-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.x-files) | 129 | 2 | 1 |
-| **Docket** | The GitHub pull requests actually waiting on you, as a queue. Review requests and your own PRs with a changed state, not a notification firehose. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.docket) | 124 | 3 | 1 |
-| **Crew Chief** | Which of your AI coding agent sessions is blocked on you. Reads session state across running agents so a waiting prompt does not sit unseen. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.crew-chief) | 102 | 10 | 2 |
+| **Docket** | The GitHub pull requests actually waiting on you, as a queue. Review requests and your own PRs with a changed state, not a notification firehose. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.docket) | 125 | 3 | 1 |
+| **Crew Chief** | Which of your AI coding agent sessions is blocked on you. Reads session state across running agents so a waiting prompt does not sit unseen. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.crew-chief) | 103 | 11 | 2 |
 | **Listening Post** | A curated AI vendor release radar. Model releases, pricing changes and status incidents from 29 sources, in four lanes, quiet when nothing shipped. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | [Widgets](https://omarchyplugins.com/plugin.html?id=io.github.jeremylongshore.listening-post) | 351 | 12 | 0 |
 | **Widget Template** | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the nine-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | n/a | n/a | n/a |
 
-**8 of 8 listed and verified** on the marketplace, 1254 views, 80 copies, 8 hearts.
+**8 of 8 listed and verified** on the marketplace, 1257 views, 81 copies, 8 hearts.
 
 ### Install
 
@@ -63,6 +63,21 @@ omarchy plugin add https://github.com/jeremylongshore/omarchy-crew-chief-entry.g
 omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable
 ```
 <!-- METRICS:END -->
+
+### Submitted, pending marketplace review
+
+These entries have passed their repository gates and have open marketplace
+submissions. They are intentionally kept out of the generated catalog above
+until the marketplace lists them; the catalog only represents verified listings.
+
+| Plugin | What it does | Source | Submission |
+| --- | --- | --- | --- |
+| **Loose Ends** | A private local queue for small commitments that are easy to lose between work sessions. | [repo](https://github.com/jeremylongshore/omarchy-loose-ends-entry) | [#2899](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2899) |
+| **Capture Conveyor** | A local capture lane that turns a quick thought into a deliberate next destination. | [repo](https://github.com/jeremylongshore/omarchy-capture-conveyor-entry) | [#2900](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2900) |
+| **Workspace Storyboard** | A compact view of the active workspaces and the work each one is holding. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [#2901](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2901) |
+| **Quiet Queue** | A deliberate focus interval that owns Do Not Disturb only for as long as it is active. | [repo](https://github.com/jeremylongshore/omarchy-quiet-queue-entry) | [#2902](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2902) |
+| **Flow Boundary** | A private local ledger for intentional starts and stops in a workday. | [repo](https://github.com/jeremylongshore/omarchy-flow-boundary-entry) | [#2903](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2903) |
+| **Desk Transition** | Safe local monitor-scene controls for arranging active displays or returning focus to the laptop panel. | [repo](https://github.com/jeremylongshore/omarchy-desk-transition-entry) | [#2921](https://github.com/HANCORE-linux/omarchy-plugin-marketplace/issues/2921) |
 
 ## One shared architecture
 
