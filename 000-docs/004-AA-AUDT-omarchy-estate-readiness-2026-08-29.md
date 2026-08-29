@@ -133,10 +133,36 @@ cd /home/jeremy/000-projects/omarchy
 bash scripts/refresh-metrics.sh --check
 ```
 
+## Postmortem: why the local-state findings escaped
+
+The original lane covered QML rendering, remote input, command construction,
+runtime availability, output bounds, and a real shell load. It did **not**
+model filesystem object identity. The first remediation round then compounded
+the gap by accepting `umask 077`, `[[ -f ]]`, `stat`, a timeout, and
+`mktemp + mv` as a complete answer. Those controls improve permissions and
+availability, but each can close a descriptor and later reopen a mutable
+pathname. A same-UID competitor can replace the final entry, temporary entry,
+or an ancestor directory between those operations.
+
+Controls shipped after this audit:
+
+- Canonical contributing lane commit `a3ab4eb` adds C41 (fail-closed mutable
+  state lifecycle) and C42 (bounded local recurring scans), with C41 regression
+  coverage proving a `mktemp + mv` helper blocks instead of passing.
+- Widget template commit `516ccd8` vendors both gates and adds the rule to its
+  security-review prompt and developer documentation.
+- `/omarchy-ship` and its submission auditor now require a descriptor-bound
+  lifecycle plus hostile final-entry, temp-entry, parent-swap, FIFO, and
+  oversized-input proof before a stateful plugin can be CLEAN.
+
+The gates are deliberately not described as a substitute for review. C41 blocks
+the unsafe common shapes and requires evidence; the submission auditor must
+still independently establish whether the descriptor lifecycle actually binds
+the object it reads or writes.
+
 ## Honest public status
 
 Use this until the ordered program closes: **"16 maintained Omarchy plugin
 repositories; 9 live marketplace listings; all local suites currently green;
 marketplace verification and production-render certification are tracked per
 exact commit."**
-
