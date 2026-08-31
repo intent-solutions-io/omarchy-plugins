@@ -10,7 +10,7 @@
       "id": "io.github.jeremylongshore.bazaar",
       "name": "Bazaar",
       "repo": "omarchy-bazaar-entry",
-      "pitch": "The plugin marketplace itself, in the bar. Search 1,300+ listings, read a plugin's detail, copy its install command, without opening a browser."
+      "pitch": "The plugin marketplace itself, in the bar. Search 2,000+ listings, read a plugin's detail, and copy its install command without opening a browser."
     },
     {
       "id": "io.github.jeremylongshore.pit-wall",
@@ -53,10 +53,52 @@
       "name": "Listening Post",
       "repo": "omarchy-listening-post-entry",
       "pitch": "A curated AI vendor release radar. Model releases, pricing changes and status incidents from 29 sources, in four lanes, quiet when nothing shipped."
+    },
+    {
+      "id": "io.github.jeremylongshore.desk-transition",
+      "name": "Desk Transition",
+      "repo": "omarchy-desk-transition-entry",
+      "pitch": "Safe local monitor scenes for changing display arrangements and returning focus to the laptop panel without memorizing Hyprland commands."
+    },
+    {
+      "id": "io.github.jeremylongshore.foundry",
+      "name": "Foundry",
+      "repo": "omarchy-foundry-entry",
+      "pitch": "Turn a product idea into a governed Omarchy plugin workspace with deliberate scaffolding, validation, and an evidence-first path to submission."
+    },
+    {
+      "id": "io.github.jeremylongshore.loose-ends",
+      "name": "Loose Ends",
+      "repo": "omarchy-loose-ends-entry",
+      "pitch": "A private local queue for small commitments that are easy to lose between work sessions, with fast capture and deliberate clearing."
+    },
+    {
+      "id": "io.github.jeremylongshore.capture-conveyor",
+      "name": "Capture Conveyor",
+      "repo": "omarchy-capture-conveyor-entry",
+      "pitch": "A local capture lane that turns a quick thought into a deliberate next destination without opening a project manager or browser."
+    },
+    {
+      "id": "io.github.jeremylongshore.workspace-storyboard",
+      "name": "Workspace Storyboard",
+      "repo": "omarchy-workspace-storyboard-entry",
+      "pitch": "See the work held by each Hyprland workspace, jump to one, and follow a local re-entry trail when the desktop context gets scattered."
+    },
+    {
+      "id": "io.github.jeremylongshore.quiet-queue",
+      "name": "Quiet Queue",
+      "repo": "omarchy-quiet-queue-entry",
+      "pitch": "Start a deliberate focus interval that owns Do Not Disturb only while the session is active, then restores the prior notification state."
+    },
+    {
+      "id": "io.github.jeremylongshore.flow-boundary",
+      "name": "Flow Boundary",
+      "repo": "omarchy-flow-boundary-entry",
+      "pitch": "A private local ritual for marking intentional starts and stops, with visible FLOW or PAUSE state and a short transition history."
     }
   ],
   "template": {
     "repo": "omarchy-widget-template",
-    "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the nine-gate pre-submit lane and CI, so a new widget starts already passing."
+    "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing."
   }
 }

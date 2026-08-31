@@ -30,7 +30,7 @@ STATS_URL="$(python3 -c 'import json;print(json.load(open("plugins.json"))["mark
 
 fetch() { # url dest: fail loudly, never write a partial file
   local code
-  code="$(curl -sS --max-time 60 -o "$2" -w '%{http_code}' "$1")" || { echo "FETCH FAILED: $1" >&2; exit 2; }
+  code="$(curl -sS --location --max-redirs 5 --max-time 60 -o "$2" -w '%{http_code}' "$1")" || { echo "FETCH FAILED: $1" >&2; exit 2; }
   [ "$code" = "200" ] || { echo "FETCH $1 returned HTTP $code" >&2; exit 2; }
   python3 -c "import json,sys;json.load(open(sys.argv[1]))" "$2" || { echo "FETCH $1 is not JSON" >&2; exit 2; }
 }
@@ -82,7 +82,7 @@ block.append("| Plugin | What it does | Source | Category | Views | Copies | Hea
 block.append("| --- | --- | --- | --- | --: | --: | --: |")
 block.extend(rows)
 block.append("")
-block.append(f"**{len(listed)} of {len(cfg['plugins'])} listed and verified** on the marketplace, "
+block.append(f"**{len(listed)} of {len(cfg['plugins'])} listed** on the marketplace, "
              f"{tot_v} views, {tot_c} copies, {tot_h} hearts.")
 if unlisted:
     block.append("")
