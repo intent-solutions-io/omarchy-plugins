@@ -16,10 +16,12 @@ PAGES_ROOT = ROOT / "site" / "plugins"
 
 
 def esc(value: object) -> str:
+    """Escape a value for safe inclusion in generated HTML."""
     return html.escape(str(value if value is not None else ""), quote=True)
 
 
 def page_for(plugin: dict[str, object]) -> str:
+    """Render the permanent public detail page for one plugin."""
     listed = plugin["lifecycle"] == "listed"
     status = "Listed" if listed else "In review"
     status_class = "listed" if listed else "review"
@@ -64,15 +66,15 @@ def page_for(plugin: dict[str, object]) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{esc(plugin['pitch'])}">
-  <meta name="theme-color" content="#f2eee4">
-  <meta property="og:title" content="{esc(plugin['name'])} | Omarchy Plugin Works">
+  <meta name="theme-color" content="#f6f6f4">
+  <meta property="og:title" content="{esc(plugin['name'])} | Intent Solutions Omarchy Plugins">
   <meta property="og:description" content="{esc(plugin['pitch'])}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
   <meta property="og:image" content="{esc(plugin['previewUrl'])}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="{esc(canonical)}">
-  <title>{esc(plugin['name'])} | Omarchy Plugin Works</title>
+  <title>{esc(plugin['name'])} | Intent Solutions Omarchy Plugins</title>
   <link rel="icon" href="../../assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../../assets/styles.css">
   <script src="../../assets/detail.js" defer></script>
@@ -80,11 +82,11 @@ def page_for(plugin: dict[str, object]) -> str:
 <body class="detail-page" data-install-command="{esc(install)}">
   <a class="skip-link" href="#plugin-detail">Skip to plugin details</a>
   <header class="site-header">
-    <a class="wordmark" href="../../"><span class="wordmark-mark" aria-hidden="true">O/</span><span>OMA PLUGIN WORKS</span></a>
+    <a class="wordmark" href="../../" aria-label="Intent Solutions Omarchy Plugins home"><span class="wordmark-company">Intent Solutions</span><span class="wordmark-product">Omarchy Plugins</span></a>
     <nav aria-label="Primary navigation"><a href="../../#catalog">All plugins</a><a href="{esc(plugin['repoUrl'])}">GitHub</a><a href="{esc(primary_url)}">Marketplace</a></nav>
   </header>
   <main id="plugin-detail" class="plugin-detail">
-    <p class="detail-breadcrumb"><a href="../../#catalog">Collection</a> / {esc(plugin['category'])}</p>
+    <p class="detail-breadcrumb"><a href="../../#catalog">All plugins</a> / {esc(plugin['category'])}</p>
     <section class="detail-hero">
       <div>
         <span class="status-badge {status_class}">{status}</span>
@@ -100,12 +102,12 @@ def page_for(plugin: dict[str, object]) -> str:
     {metrics_markup}
     {install_block}
     <section class="detail-proof" aria-labelledby="proof-title">
-      <p class="eyebrow">Public proof</p>
-      <h2 id="proof-title">Follow the work to its source.</h2>
+      <p class="eyebrow">Verify it yourself</p>
+      <h2 id="proof-title">Follow the work to the source.</h2>
       <div><a href="{esc(plugin['repoUrl'])}"><strong>GitHub repository</strong><span>Code, tests, documentation, and release history</span></a><a href="{esc(primary_url)}"><strong>{primary_label}</strong><span>The authority for marketplace lifecycle status</span></a></div>
     </section>
   </main>
-  <footer><div><span class="wordmark-mark" aria-hidden="true">O/</span><p>Part of the <a href="../../">Intent Solutions Omarchy collection</a>.</p></div><p><a href="https://intentsolutions.io">Intent Solutions</a></p></footer>
+  <footer><div><p class="footer-brand">Intent Solutions Omarchy Plugins</p><p>Open source, real screenshots, and marketplace status with receipts.</p></div><p><a href="https://intentsolutions.io">Intent Solutions</a></p></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
@@ -113,6 +115,7 @@ def page_for(plugin: dict[str, object]) -> str:
 
 
 def main() -> int:
+    """Write detail pages or verify that committed pages are current."""
     mode = sys.argv[1] if len(sys.argv) > 1 else "write"
     data = json.loads(DATA_PATH.read_text())
     expected = {plugin["slug"]: page_for(plugin) for plugin in data["plugins"]}
