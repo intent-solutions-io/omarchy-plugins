@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Jeremy Longshore's Omarchy plugins, view official marketplace status, inspect source, and follow what is shipping next.">
+  <meta name="theme-color" content="#f2eee4">
+  <meta property="og:title" content="Intent Solutions Omarchy Plugin Works">
+  <meta property="og:description" content="Small tools for a focused desktop. Official marketplace links, public source, previews, and shipping status in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oma.intentsolutions.io/">
+  <meta property="og:image" content="https://oma.intentsolutions.io/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Omarchy Plugin Works | Intent Solutions</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Skip to plugin catalog</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Intent Solutions Omarchy Plugin Works home">
+      <span class="wordmark-mark" aria-hidden="true">O/</span>
+      <span>OMA PLUGIN WORKS</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#catalog">Plugins</a>
+      <a href="#ledger">Delivery ledger</a>
+      <a href="https://github.com/intent-solutions-io/omarchy-plugins">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Intent Solutions / Omarchy Quattro</p>
+        <h1 id="hero-title">Small tools.<br><em>Visible work.</em></h1>
+        <p class="hero-lede">A field guide to Jeremy Longshore's Omarchy plugins. See what each tool does, inspect its source, open its official marketplace listing, and follow the next release through review.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#catalog">Explore the collection</a>
+          <a class="button button-quiet" id="marketplace-author-link" href="https://plugins.omarchy.org/index.html?author=jeremylongshore">Official marketplace profile</a>
+        </div>
+      </div>
+
+      <aside class="signal-board" aria-label="Portfolio shipping status">
+        <div class="signal-board-heading">
+          <span>PUBLIC SIGNAL</span>
+          <span class="signal-live"><i aria-hidden="true"></i> LIVE</span>
+        </div>
+        <div class="signal-counts">
+          <div><strong id="listed-count">15</strong><span>listed</span></div>
+          <div><strong id="review-count">1</strong><span>in review</span></div>
+          <div><strong>12</strong><span>shared gates</span></div>
+        </div>
+        <ol class="shipping-rail" aria-label="Plugin shipping path">
+          <li class="complete"><span>01</span>Source</li>
+          <li class="complete"><span>02</span>Test</li>
+          <li class="active"><span>03</span>Review</li>
+          <li><span>04</span>Listed</li>
+        </ol>
+        <p><strong>Now at review:</strong> omaTrail, a hunting-first frontier survival game with Green Monitor and Color Deluxe modes.</p>
+      </aside>
+    </section>
+
+    <section class="trust-strip" aria-label="Portfolio principles">
+      <p><span>01</span> Public source</p>
+      <p><span>02</span> Real screenshots</p>
+      <p><span>03</span> Official listing links</p>
+      <p><span>04</span> Status with receipts</p>
+    </section>
+
+    <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2 id="catalog-title">Tools that earn their bar space.</h2>
+        </div>
+        <p id="catalog-summary">Loading the current public catalog...</p>
+      </div>
+
+      <div class="catalog-controls" aria-label="Filter plugins">
+        <div class="filter-group" id="status-filters" aria-label="Filter by marketplace status">
+          <button class="filter active" type="button" data-status="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-status="listed" aria-pressed="false">Listed</button>
+          <button class="filter" type="button" data-status="under-review" aria-pressed="false">In review</button>
+        </div>
+        <label class="search-control">
+          <span class="visually-hidden">Search plugins</span>
+          <input id="plugin-search" type="search" placeholder="Search the collection" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+      </div>
+
+      <div class="category-filters" id="category-filters" aria-label="Filter by category"></div>
+      <p class="result-status" id="result-status" role="status" aria-live="polite"></p>
+      <div class="plugin-grid" id="plugin-grid" aria-busy="true"></div>
+
+      <noscript>
+        <p class="notice">JavaScript is needed to render the generated plugin catalog. The complete source list is also available in the repository README.</p>
+      </noscript>
+    </section>
+
+    <section class="template-callout" id="template" aria-labelledby="template-title">
+      <div class="template-index" aria-hidden="true">00</div>
+      <div>
+        <p class="eyebrow">The common chassis</p>
+        <h2 id="template-title">Start from the proven shape.</h2>
+        <p id="template-pitch">The shared widget template puts the component architecture, offline tests, security patterns, and release gates in place before feature work begins.</p>
+      </div>
+      <a class="button button-dark" id="template-link" href="https://github.com/jeremylongshore/omarchy-widget-template">Use the template</a>
+    </section>
+
+    <section class="ledger-section" id="ledger" aria-labelledby="ledger-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Public delivery ledger</p>
+          <h2 id="ledger-title">The outcome, not the internal chatter.</h2>
+        </div>
+        <p>This ledger publishes only facts already visible in GitHub and the official marketplace. Private planning, credentials, and internal notes stay private.</p>
+      </div>
+
+      <div class="ledger-grid">
+        <article>
+          <span class="ledger-state done">Complete</span>
+          <p class="ledger-number">15 / 15</p>
+          <h3>Original collection listed</h3>
+          <p>Every plugin in the original portfolio has an official marketplace page and public source repository.</p>
+        </article>
+        <article>
+          <span class="ledger-state done">Complete</span>
+          <p class="ledger-number">16 / 16</p>
+          <h3>Visual proof published</h3>
+          <p>Every maintained plugin repository carries a marketplace-scale preview of the real interface.</p>
+        </article>
+        <article class="current">
+          <span class="ledger-state review">In review</span>
+          <p class="ledger-number">01</p>
+          <h3>omaTrail marketplace decision</h3>
+          <p>The repository is public and automated validation passed. The marketplace review record remains the authority for listing status.</p>
+          <a href="https://github.com/omacom/omarchy-plugin-marketplace/issues/5498">Open review record</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <span class="wordmark-mark" aria-hidden="true">O/</span>
+      <p>Built in public by <a href="https://github.com/jeremylongshore">Jeremy Longshore</a> at <a href="https://intentsolutions.io">Intent Solutions</a>.</p>
+    </div>
+    <p>Marketplace data: <time id="data-freshness">loading</time></p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
