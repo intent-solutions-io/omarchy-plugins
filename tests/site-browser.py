@@ -16,6 +16,7 @@ def assert_page(page, *, mobile: bool = False) -> None:
     assert page.locator(".plugin-card").count() == 16
     assert "15 official listings" in page.locator("#catalog-summary").inner_text()
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
+    assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
 
     if mobile:
         overflow = page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
@@ -66,6 +67,29 @@ with sync_playwright() as playwright:
     social.wait_for_load_state("networkidle")
     social.evaluate("window.scrollTo(0, 0)")
     social.screenshot(path="site/assets/og-card.png")
+
+    detail = desktop_context.new_page()
+    detail.goto(f"{BASE_URL}/plugins/bazaar/")
+    detail.wait_for_load_state("networkidle")
+    assert detail.locator("h1").inner_text() == "Bazaar"
+    detail.screenshot(path=OUTPUT_DIR / "detail-bazaar.png", full_page=True)
+    detail.locator("[data-detail-copy]").click()
+    assert detail.evaluate("navigator.clipboard.readText()") == "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable"
+
+    review_detail = desktop_context.new_page()
+    review_detail.goto(f"{BASE_URL}/plugins/omatrail/")
+    review_detail.wait_for_load_state("networkidle")
+    assert review_detail.locator("h1").inner_text() == "omaTrail"
+    assert review_detail.get_by_text("In review", exact=True).count() == 1
+    assert review_detail.locator("[data-detail-copy]").count() == 0
+
+    failed = desktop_context.new_page()
+    failed.route("**/data/plugins.json", lambda route: route.abort())
+    failed.goto(BASE_URL)
+    failed.wait_for_load_state("networkidle")
+    assert failed.get_by_text("The catalog could not load.").count() == 1
+    failed.locator("#plugin-search").fill("test")
+    assert failed.get_by_text("The catalog could not load.").count() == 1
 
     browser.close()
 

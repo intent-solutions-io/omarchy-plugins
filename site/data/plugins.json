@@ -10,6 +10,7 @@
     {
       "id": "io.github.jeremylongshore.bazaar",
       "name": "Bazaar",
+      "slug": "bazaar",
       "repo": "omarchy-bazaar-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-bazaar-entry",
       "pitch": "The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands.",
@@ -26,7 +27,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "metrics": {
-        "views": 292,
+        "views": 293,
         "copies": 36,
         "hearts": 0
       }
@@ -34,6 +35,7 @@
     {
       "id": "io.github.jeremylongshore.pit-wall",
       "name": "Pit Wall",
+      "slug": "pit-wall",
       "repo": "omarchy-pit-wall-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-pit-wall-entry",
       "pitch": "A Formula 1 race-weekend command post with countdowns, live order, gaps, flags, safety-car state, local-time schedules, and championship standings.",
@@ -59,6 +61,7 @@
     {
       "id": "io.github.jeremylongshore.wait-state",
       "name": "Wait State",
+      "slug": "wait-state",
       "repo": "omarchy-wait-state-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-wait-state-entry",
       "pitch": "CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked.",
@@ -76,7 +79,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
       "metrics": {
-        "views": 146,
+        "views": 147,
         "copies": 9,
         "hearts": 0
       }
@@ -84,6 +87,7 @@
     {
       "id": "io.github.jeremylongshore.mlb-booth",
       "name": "MLB Booth",
+      "slug": "mlb-booth",
       "repo": "omarchy-mlb-booth-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-mlb-booth-entry",
       "pitch": "Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race.",
@@ -109,6 +113,7 @@
     {
       "id": "io.github.jeremylongshore.x-files",
       "name": "X Files",
+      "slug": "x-files",
       "repo": "omarchy-x-files-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-x-files-entry",
       "pitch": "Replies to your own X posts as a drainable queue of questions, gripes, and asks, with representative quotes and a hard API-spend cap.",
@@ -133,6 +138,7 @@
     {
       "id": "io.github.jeremylongshore.docket",
       "name": "Docket",
+      "slug": "docket",
       "repo": "omarchy-docket-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-docket-entry",
       "pitch": "GitHub pull requests as an obligation queue: reviews waiting on you, your blocked work, and branches ready to merge, oldest first.",
@@ -157,6 +163,7 @@
     {
       "id": "io.github.jeremylongshore.crew-chief",
       "name": "Crew Chief",
+      "slug": "crew-chief",
       "repo": "omarchy-crew-chief-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-crew-chief-entry",
       "pitch": "Claude Code, Codex, Herdr, and other agent sessions as a local attention queue. See working, blocked, and done, then focus the project that needs you.",
@@ -181,6 +188,7 @@
     {
       "id": "io.github.jeremylongshore.listening-post",
       "name": "Listening Post",
+      "slug": "listening-post",
       "repo": "omarchy-listening-post-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-listening-post-entry",
       "pitch": "Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts.",
@@ -198,7 +206,7 @@
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "metrics": {
-        "views": 463,
+        "views": 464,
         "copies": 19,
         "hearts": 0
       }
@@ -206,6 +214,7 @@
     {
       "id": "io.github.jeremylongshore.desk-transition",
       "name": "Desk Transition",
+      "slug": "desk-transition",
       "repo": "omarchy-desk-transition-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-desk-transition-entry",
       "pitch": "Two safe Hyprland display actions: arrange active outputs left-to-right or focus the built-in panel, with a preview before anything changes.",
@@ -230,6 +239,7 @@
     {
       "id": "io.github.jeremylongshore.foundry",
       "name": "Foundry",
+      "slug": "foundry",
       "repo": "omarchy-foundry-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-foundry-entry",
       "pitch": "Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates.",
@@ -255,6 +265,7 @@
     {
       "id": "io.github.jeremylongshore.loose-ends",
       "name": "Loose Ends",
+      "slug": "loose-ends",
       "repo": "omarchy-loose-ends-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-loose-ends-entry",
       "pitch": "Scan local Git repositories for uncommitted edits, unpushed commits, old stashes, detached heads, and interrupted operations, oldest first.",
@@ -279,6 +290,7 @@
     {
       "id": "io.github.jeremylongshore.capture-conveyor",
       "name": "Capture Conveyor",
+      "slug": "capture-conveyor",
       "repo": "omarchy-capture-conveyor-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-capture-conveyor-entry",
       "pitch": "Turn Omarchy screenshots into a keyboard-first inbox: view recent captures, capture or OCR a region, copy paths, and reveal files.",
@@ -303,6 +315,7 @@
     {
       "id": "io.github.jeremylongshore.workspace-storyboard",
       "name": "Workspace Storyboard",
+      "slug": "workspace-storyboard",
       "repo": "omarchy-workspace-storyboard-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry",
       "pitch": "Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history.",
@@ -328,6 +341,7 @@
     {
       "id": "io.github.jeremylongshore.quiet-queue",
       "name": "Quiet Queue",
+      "slug": "quiet-queue",
       "repo": "omarchy-quiet-queue-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-quiet-queue-entry",
       "pitch": "A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session.",
@@ -352,6 +366,7 @@
     {
       "id": "io.github.jeremylongshore.flow-boundary",
       "name": "Flow Boundary",
+      "slug": "flow-boundary",
       "repo": "omarchy-flow-boundary-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-flow-boundary-entry",
       "pitch": "Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history.",
@@ -376,6 +391,7 @@
     {
       "id": "io.github.jeremylongshore.omatrail",
       "name": "omaTrail",
+      "slug": "omatrail",
       "repo": "omarchy-omatrail-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-omatrail-entry",
       "pitch": "An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics.",

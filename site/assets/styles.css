@@ -759,6 +759,202 @@ h1 em {
   text-underline-offset: 4px;
 }
 
+.plugin-detail {
+  width: min(calc(100% - 32px), var(--max));
+  margin: 0 auto;
+  padding: 38px 0 110px;
+}
+
+.detail-breadcrumb {
+  margin-bottom: 56px;
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.detail-breadcrumb a {
+  color: var(--cobalt);
+  text-underline-offset: 4px;
+}
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 90px);
+}
+
+.detail-hero h1 {
+  margin: 24px 0;
+  font-size: clamp(4rem, 9vw, 8rem);
+}
+
+.detail-lede {
+  max-width: 600px;
+  margin-bottom: 30px;
+  color: var(--ink-muted);
+  font-size: 1.12rem;
+}
+
+.detail-preview {
+  margin: 0;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  box-shadow: 12px 12px 0 var(--cobalt);
+}
+
+.detail-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detail-preview figcaption {
+  padding: 10px 14px;
+  color: #b8c1cf;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+}
+
+.detail-facts {
+  margin: 84px 0 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.detail-facts div {
+  padding: 22px;
+  border-right: 1px solid var(--ink);
+}
+
+.detail-facts div:last-child {
+  border-right: 0;
+}
+
+.detail-facts dt {
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.detail-facts dd {
+  margin: 8px 0 0;
+  font-family: var(--display);
+  font-size: 2rem;
+}
+
+.detail-install,
+.detail-proof {
+  margin-top: 86px;
+  padding: 44px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.detail-install h2,
+.detail-proof h2 {
+  margin-bottom: 26px;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+}
+
+.detail-install > p:last-child {
+  margin: 18px 0 0;
+  color: #b8c1cf;
+  font-size: 0.82rem;
+}
+
+.detail-install.review-panel {
+  color: var(--ink);
+  background: #fff5ef;
+  box-shadow: inset 7px 0 0 var(--orange);
+}
+
+.detail-install.review-panel > p:last-of-type {
+  max-width: 680px;
+  color: var(--ink-muted);
+}
+
+.install-command {
+  border: 1px solid #5e6878;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.install-command code {
+  padding: 18px;
+  overflow-x: auto;
+  color: #a8f0d3;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.install-command button {
+  padding: 0 20px;
+  border: 0;
+  border-left: 1px solid #5e6878;
+  color: var(--white);
+  background: var(--cobalt);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.detail-proof {
+  color: var(--ink);
+  background: transparent;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.detail-proof > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.detail-proof > div a {
+  padding: 24px;
+  border-right: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-decoration: none;
+}
+
+.detail-proof > div a:last-child {
+  border-right: 0;
+}
+
+.detail-proof > div a:hover {
+  color: var(--white);
+  background: var(--cobalt);
+}
+
+.detail-proof strong {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.detail-proof span {
+  color: var(--ink-muted);
+  font-size: 0.86rem;
+}
+
+.detail-proof a:hover span {
+  color: #d6e0ff;
+}
+
 footer {
   min-height: 120px;
   padding: 28px max(16px, calc((100vw - var(--max)) / 2));
@@ -822,7 +1018,7 @@ footer a {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -847,6 +1043,10 @@ footer a {
   .template-callout .button {
     grid-column: 2;
     justify-self: start;
+  }
+
+  .detail-hero {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -926,6 +1126,39 @@ footer a {
   footer > div {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .detail-facts,
+  .detail-proof > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-facts div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .detail-facts div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .detail-install,
+  .detail-proof {
+    padding: 30px 22px;
+  }
+
+  .detail-proof {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .install-command {
+    grid-template-columns: 1fr;
+  }
+
+  .install-command button {
+    min-height: 46px;
+    border-top: 1px solid #5e6878;
+    border-left: 0;
   }
 }
 

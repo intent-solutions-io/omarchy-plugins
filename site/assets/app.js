@@ -13,7 +13,14 @@
     status: "all",
     category: "all",
     query: "",
+    loadState: "loading",
   };
+
+  const allowedExternalHosts = new Set([
+    "github.com",
+    "plugins.omarchy.org",
+    "raw.githubusercontent.com",
+  ]);
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -28,6 +35,16 @@
     return new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(value || 0);
   }
 
+  function safeExternalUrl(value) {
+    try {
+      const url = new URL(String(value || ""));
+      if (url.protocol !== "https:" || !allowedExternalHosts.has(url.hostname)) return "";
+      return url.href;
+    } catch {
+      return "";
+    }
+  }
+
   function showToast(message) {
     toast.textContent = message;
     toast.classList.add("visible");
@@ -37,9 +54,9 @@
 
   function marketplaceAction(plugin) {
     if (plugin.lifecycle === "listed") {
-      return `<a href="${escapeHtml(plugin.marketplaceUrl)}" target="_blank" rel="noreferrer">Marketplace</a>`;
+      return `<a href="${escapeHtml(safeExternalUrl(plugin.marketplaceUrl))}" target="_blank" rel="noreferrer">Marketplace</a>`;
     }
-    return `<a href="${escapeHtml(plugin.submissionUrl)}" target="_blank" rel="noreferrer">Review record</a>`;
+    return `<a href="${escapeHtml(safeExternalUrl(plugin.submissionUrl))}" target="_blank" rel="noreferrer">Review record</a>`;
   }
 
   function metricsRow(plugin) {
@@ -61,7 +78,7 @@
       : "";
     return `<article class="plugin-card${review ? " review-card" : ""}" data-plugin-id="${escapeHtml(plugin.id)}">
       <div class="card-preview">
-        <img src="${escapeHtml(plugin.previewUrl)}" alt="${escapeHtml(plugin.name)} plugin interface preview" width="1280" height="720" loading="lazy">
+        <img src="${escapeHtml(safeExternalUrl(plugin.previewUrl))}" alt="${escapeHtml(plugin.name)} plugin interface preview" width="1280" height="720" loading="lazy">
       </div>
       <div class="card-body">
         <div class="card-meta">
@@ -72,8 +89,9 @@
         <p class="pitch">${escapeHtml(plugin.pitch)}</p>
         ${metricsRow(plugin)}
         <div class="card-actions">
+          <a href="plugins/${encodeURIComponent(plugin.slug)}/">Details</a>
           ${marketplaceAction(plugin)}
-          <a href="${escapeHtml(plugin.repoUrl)}" target="_blank" rel="noreferrer">Source</a>
+          <a href="${escapeHtml(safeExternalUrl(plugin.repoUrl))}" target="_blank" rel="noreferrer">Source</a>
           ${copyButton}
         </div>
       </div>
@@ -113,6 +131,7 @@
   }
 
   function render() {
+    if (state.loadState === "failed") return;
     const visible = filteredPlugins();
     grid.innerHTML = visible.length
       ? visible.map(pluginCard).join("")
@@ -164,22 +183,36 @@
       if (!Array.isArray(data.plugins)) throw new Error("Catalog does not contain plugins");
 
       state.plugins = data.plugins;
+      state.loadState = "ready";
       const listed = data.plugins.filter((plugin) => plugin.lifecycle === "listed").length;
       const inReview = data.plugins.filter((plugin) => plugin.lifecycle === "under-review").length;
       document.querySelector("#listed-count").textContent = listed;
       document.querySelector("#review-count").textContent = inReview;
       document.querySelector("#catalog-summary").textContent = `${listed} official listings, ${inReview} release in review, and public source for every plugin.`;
       document.querySelector("#data-freshness").textContent = formatFreshness(data.generatedAt);
-      document.querySelector("#marketplace-author-link").href = data.publisher.marketplaceUrl;
-      document.querySelector("#template-link").href = data.template.repoUrl;
+      const marketplaceAuthorUrl = safeExternalUrl(data.publisher.marketplaceUrl);
+      const templateUrl = safeExternalUrl(data.template.repoUrl);
+      if (marketplaceAuthorUrl) document.querySelector("#marketplace-author-link").href = marketplaceAuthorUrl;
+      if (templateUrl) document.querySelector("#template-link").href = templateUrl;
       document.querySelector("#template-pitch").textContent = data.template.pitch;
 
       buildCategoryFilters(data.plugins);
       grid.setAttribute("aria-busy", "false");
       render();
     } catch (error) {
+      state.loadState = "failed";
       grid.setAttribute("aria-busy", "false");
-      grid.innerHTML = `<div class="empty-state"><h3>The catalog could not load.</h3><p>${escapeHtml(error.message)}</p><a href="https://github.com/intent-solutions-io/omarchy-plugins">Open the repository catalog</a></div>`;
+      const empty = document.createElement("div");
+      empty.className = "empty-state";
+      const heading = document.createElement("h3");
+      heading.textContent = "The catalog could not load.";
+      const detail = document.createElement("p");
+      detail.textContent = error instanceof Error ? error.message : "Unknown catalog error";
+      const repositoryLink = document.createElement("a");
+      repositoryLink.href = "https://github.com/intent-solutions-io/omarchy-plugins";
+      repositoryLink.textContent = "Open the repository catalog";
+      empty.append(heading, detail, repositoryLink);
+      grid.replaceChildren(empty);
       resultStatus.textContent = "Catalog unavailable";
     }
   }

@@ -61,6 +61,7 @@ for e in cfg["plugins"]:
         public_plugins.append({
             "id": pid,
             "name": name,
+            "slug": repo.removeprefix("omarchy-").removesuffix("-entry"),
             "repo": repo,
             "repoUrl": gh,
             "pitch": e["pitch"],
@@ -85,6 +86,7 @@ for e in cfg["plugins"]:
     public_plugins.append({
         "id": pid,
         "name": name,
+        "slug": repo.removeprefix("omarchy-").removesuffix("-entry"),
         "repo": repo,
         "repoUrl": gh,
         "pitch": e["pitch"],
@@ -189,3 +191,5 @@ if not site_path.exists() or site_path.read_text() != site_json:
     changed.append(str(site_path))
 print(f"updated: {len(listed)}/{len(cfg['plugins'])} listed, {tot_v} views, {tot_c} copies, {tot_h} hearts; files: {', '.join(changed) if changed else 'none'}.")
 PY
+
+python3 scripts/build-site-pages.py "$MODE"

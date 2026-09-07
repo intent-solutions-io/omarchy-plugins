@@ -20,7 +20,7 @@
 
 ## What this is
 
-This repository owns the **Intent Solutions public portfolio** for the Omarchy plugin work. Nothing installs from here. Each plugin ships and develops in its own repository and moves through the marketplace independently. The website and this README are the two public views of one structured inventory.
+This repository owns the **Intent Solutions public portfolio** for the Omarchy plugin work. Nothing installs from here. Each plugin ships and develops in its own repository and moves through the marketplace independently. The website gives every plugin a permanent detail page beneath `oma.intentsolutions.io/plugins/`, and this README provides the compact catalog view of the same structured inventory.
 
 [Omarchy](https://omarchy.org) is DHH's opinionated Arch and Hyprland desktop. **Quattro** is its plugin system: a bar widget is a [Quickshell](https://quickshell.org) QML component that Omarchy loads into a slot on the bar, with an optional panel that opens under it. A plugin is a git repository with a `manifest.json`, and you install one by pointing Omarchy at the URL.
 
@@ -31,14 +31,14 @@ Marketplace data generated at `2026-09-07T11:24:36.620Z`, across 2599 listed plu
 
 | Plugin | What it does | Source | Category | Views | Copies | Hearts |
 | --- | --- | --- | --- | --: | --: | --: |
-| **Bazaar** | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 292 | 36 | 0 |
+| **Bazaar** | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 293 | 36 | 0 |
 | **Pit Wall** | A Formula 1 race-weekend command post with countdowns, live order, gaps, flags, safety-car state, local-time schedules, and championship standings. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.pit-wall) | 156 | 22 | 3 |
-| **Wait State** | CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.wait-state) | 146 | 9 | 0 |
+| **Wait State** | CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.wait-state) | 147 | 9 | 0 |
 | **MLB Booth** | Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 126 | 9 | 1 |
 | **X Files** | Replies to your own X posts as a drainable queue of questions, gripes, and asks, with representative quotes and a hard API-spend cap. | [repo](https://github.com/jeremylongshore/omarchy-x-files-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.x-files) | 164 | 2 | 1 |
 | **Docket** | GitHub pull requests as an obligation queue: reviews waiting on you, your blocked work, and branches ready to merge, oldest first. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.docket) | 165 | 4 | 1 |
 | **Crew Chief** | Claude Code, Codex, Herdr, and other agent sessions as a local attention queue. See working, blocked, and done, then focus the project that needs you. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.crew-chief) | 170 | 14 | 2 |
-| **Listening Post** | Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.listening-post) | 463 | 19 | 0 |
+| **Listening Post** | Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.listening-post) | 464 | 19 | 0 |
 | **Desk Transition** | Two safe Hyprland display actions: arrange active outputs left-to-right or focus the built-in panel, with a preview before anything changes. | [repo](https://github.com/jeremylongshore/omarchy-desk-transition-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.desk-transition) | 209 | 14 | 2 |
 | **Foundry** | Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates. | [repo](https://github.com/jeremylongshore/omarchy-foundry-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.foundry) | 120 | 4 | 0 |
 | **Loose Ends** | Scan local Git repositories for uncommitted edits, unpushed commits, old stashes, detached heads, and interrupted operations, oldest first. | [repo](https://github.com/jeremylongshore/omarchy-loose-ends-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.loose-ends) | 87 | 3 | 1 |
@@ -49,7 +49,7 @@ Marketplace data generated at `2026-09-07T11:24:36.620Z`, across 2599 listed plu
 | **omaTrail** | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [under review](https://github.com/omacom/omarchy-plugin-marketplace/issues/5498) | n/a | n/a | n/a |
 | **Widget Template** | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | n/a | n/a | n/a |
 
-**15 of 16 listed** on the marketplace, 2905 views, 157 copies, 14 hearts.
+**15 of 16 listed** on the marketplace, 2908 views, 157 copies, 14 hearts.
 
 Not currently in the catalog: omaTrail. Follow the linked review record for current status.
 
