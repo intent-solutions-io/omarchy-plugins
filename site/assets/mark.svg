@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OMA Plugin Works mark">
+  <rect width="64" height="64" rx="12" fill="#2458e6"/>
+  <circle cx="25" cy="32" r="12" fill="none" stroke="#f7f3ea" stroke-width="6"/>
+  <path d="M39 48 51 16" stroke="#ff6b35" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,32 @@
+name: site-ci
+
+on:
+  pull_request:
+    paths:
+      - "site/**"
+      - "plugins.json"
+      - "scripts/check-site.sh"
+      - "tests/site-data.test.mjs"
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "plugins.json"
+      - "scripts/check-site.sh"
+      - "tests/site-data.test.mjs"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the static portfolio
+        run: bash scripts/check-site.sh

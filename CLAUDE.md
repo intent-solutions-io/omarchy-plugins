@@ -4,12 +4,11 @@ Guidance for Claude Code working in this repository.
 
 ## What this repo is
 
-The Intent Solutions **organization landing page** for the Omarchy Quattro plugin work.
-It follows the same convention as `intent-solutions-io/claude-code-plugins-plus`,
-`claude-code-slack-channel` and `irsb`: public, description points at the live work, README
-is the catalog. **No plugin code lives here and nothing installs from here.**
+The Intent Solutions **public portfolio** for the Omarchy Quattro plugin work. It owns the
+README catalog and the static site published at `oma.intentsolutions.io`. **No plugin code
+lives here and nothing installs from here.**
 
-The nine repos it presents all live under `jeremylongshore`:
+The plugin repos it presents all live under `jeremylongshore`:
 
 | Repo | Role |
 | --- | --- |
@@ -21,25 +20,34 @@ The nine repos it presents all live under `jeremylongshore`:
 | `omarchy-x-files-entry` | X Files |
 | `omarchy-docket-entry` | Docket |
 | `omarchy-crew-chief-entry` | Crew Chief |
-| `omarchy-listening-post-entry` | Listening Post. **Not listed.** See `000-docs/002-LS-BLOK`. |
+| `omarchy-listening-post-entry` | Listening Post |
+| `omarchy-desk-transition-entry` | Desk Transition |
+| `omarchy-foundry-entry` | Foundry |
+| `omarchy-loose-ends-entry` | Loose Ends |
+| `omarchy-capture-conveyor-entry` | Capture Conveyor |
+| `omarchy-workspace-storyboard-entry` | Workspace Storyboard |
+| `omarchy-quiet-queue-entry` | Quiet Queue |
+| `omarchy-flow-boundary-entry` | Flow Boundary |
+| `omarchy-omatrail-entry` | omaTrail. Under marketplace review until the official listing appears. |
 
 All are cloned as siblings under `~/000-projects/`.
 
 ## The one rule about the README
 
 **Never hand-edit the block between `<!-- METRICS:START -->` and `<!-- METRICS:END -->`.**
-It is generated. `scripts/refresh-metrics.sh` owns it, a scheduled workflow reruns it daily,
-and the same script runs as `--check` on every pull request, so a hand edit fails CI.
+It is generated. `scripts/refresh-metrics.sh` owns it and a scheduled workflow reruns it
+daily. Pull requests run `scripts/check-site.sh` to prove the committed README and site
+snapshot agree without racing live counters.
 
 ```bash
 bash scripts/refresh-metrics.sh          # rewrite from the live endpoints
-bash scripts/refresh-metrics.sh --check  # exit 1 if stale or hand-edited
+bash scripts/refresh-metrics.sh --check  # compare both surfaces with a live snapshot
 ```
 
 To add or remove a plugin, edit `plugins.json` and rerun the script. Do not add a row by
-hand and do not put an install command in the README by hand: install commands are read out
-of the marketplace catalog's own `installCommand` field precisely so this page cannot print
-a command the listing disagrees with.
+hand, edit `site/data/plugins.json`, or put an install command in the README by hand.
+Install commands are read out of the marketplace catalog's own `installCommand` field so
+neither public surface can print a command the listing disagrees with.
 
 The freshness stamp in the generated block is the **catalog's own `generatedAt`**, not the
 local clock. That is what makes two consecutive runs byte-identical. Do not replace it with
@@ -58,10 +66,9 @@ local clock. That is what makes two consecutive runs byte-identical. Do not repl
 
 ## Things that are true and easy to get wrong
 
-- **Listening Post is not missing by accident.** Submission issue
-  `HANCORE-linux/omarchy-plugin-marketplace#1229` is open with `needs-fixes` on an
-  unresolved SSRF finding. Do not "fix" the metrics table to hide the row, and do not
-  promote that plugin publicly until the issue closes.
+- **omaTrail is not listed yet.** Submission issue
+  `omacom/omarchy-plugin-marketplace#5498` is validated and awaiting human review. Show it
+  as under review until the official catalog contains its id.
 - **The marketplace moves fast.** It passed 1,363 listings on 2026-08-25 and gains dozens a
   day. Any count in a doc here is a snapshot with the jq filter printed next to it. Re-derive
   before citing.
