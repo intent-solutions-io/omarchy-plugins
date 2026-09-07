@@ -91,4 +91,25 @@ A 1.0 candidate is acceptable only when:
 5. Product, engineering, content, and legal authorities are named and have recorded dispositions.
 6. Marketplace verification applies to the exact candidate revision.
 
-Current acceptance status: **not evaluated**. No implementation exists.
+## Candidate execution snapshot
+
+An implementation now exists in the local `omarchy-omatrail-entry` repository
+on branch `main`. It is an uncommitted development candidate,
+so it has no exact candidate revision and cannot cross the release acceptance
+boundary.
+
+The implementation traceability matrix in `tests/RTM.md` is the authority for
+the current criterion counts. The local automated lane records its exact test
+and coverage totals in the implementation repository after each final run.
+That lane includes 10,000 generated hunting fields, 100,000 full-journey
+balance runs over both rules profiles, hostile state-file race cases, a dirty
+and unapproved twenty-frame matrix over both rules and visual profiles, and a
+targeted live hunting, hidden-timer, focus, restart,
+process, TCP, RSS, and open-hide lifecycle receipt. These results do not replace
+clean-SHA regeneration, full system lifecycle and device-input scenarios,
+complete-run privacy observation, frame and latency measurements, provenance
+review, or human historical and affected-group review.
+
+Current acceptance status: **candidate evaluated in part, not accepted**. The
+criterion-by-criterion evidence and limitations are maintained in
+`tests/RTM.md` in the implementation repository. Human review remains required.
