@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
+@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap";
 
 :root {
   --canvas: #f6f6f4;
@@ -13,8 +13,8 @@
   --orange-soft: #fff0e8;
   --green: #08745a;
   --green-soft: #dff5ed;
-  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --sans: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", consolas, "Liberation Mono", monospace;
+  --sans: "IBM Plex Sans", "Segoe UI", helvetica, arial, sans-serif;
   --max: 1240px;
   --shadow: 5px 5px 0 var(--ink);
 }
@@ -34,7 +34,7 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.65;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 a {

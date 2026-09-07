@@ -9,6 +9,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def assert_page(page, *, mobile: bool = False) -> None:
+    """Verify catalog behavior for a desktop or mobile browser page."""
     page.goto(BASE_URL)
     page.wait_for_load_state("networkidle")
     page.locator(".plugin-card").first.wait_for()

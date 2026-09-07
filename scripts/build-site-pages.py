@@ -16,10 +16,12 @@ PAGES_ROOT = ROOT / "site" / "plugins"
 
 
 def esc(value: object) -> str:
+    """Escape a value for safe inclusion in generated HTML."""
     return html.escape(str(value if value is not None else ""), quote=True)
 
 
 def page_for(plugin: dict[str, object]) -> str:
+    """Render the permanent public detail page for one plugin."""
     listed = plugin["lifecycle"] == "listed"
     status = "Listed" if listed else "In review"
     status_class = "listed" if listed else "review"
@@ -113,6 +115,7 @@ def page_for(plugin: dict[str, object]) -> str:
 
 
 def main() -> int:
+    """Write detail pages or verify that committed pages are current."""
     mode = sys.argv[1] if len(sys.argv) > 1 else "write"
     data = json.loads(DATA_PATH.read_text())
     expected = {plugin["slug"]: page_for(plugin) for plugin in data["plugins"]}
