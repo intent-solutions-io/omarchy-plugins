@@ -93,6 +93,8 @@ test("site shell includes discovery, delivery, accessibility, and domain contrac
   assert.match(html, /id="catalog"/);
   assert.match(html, /id="ledger"/);
   assert.match(html, /class="skip-link"/);
+  assert.match(html, /Intent Solutions Omarchy Plugins/);
+  assert.doesNotMatch(html, /O\/|OMA PLUGIN WORKS|Omarchy Plugin Works|wordmark-mark/);
   assert.match(css, /prefers-reduced-motion/);
   assert.equal(cname, "oma.intentsolutions.io");
 });
@@ -104,6 +106,8 @@ test("every plugin has a generated permanent detail page", async () => {
     assert.ok(detail.includes(plugin.repoUrl), `missing repo link for ${plugin.name}`);
     assert.ok(detail.includes(plugin.marketplaceUrl || plugin.submissionUrl), `missing marketplace authority for ${plugin.name}`);
     assert.ok(detail.includes(plugin.pitch.replaceAll("&", "&amp;")), `missing pitch for ${plugin.name}`);
+    assert.ok(detail.includes("Intent Solutions Omarchy Plugins"), `missing site brand for ${plugin.name}`);
+    assert.doesNotMatch(detail, /O\/|OMA PLUGIN WORKS|Omarchy Plugin Works|wordmark-mark/);
     if (plugin.installCommand) assert.ok(detail.includes(plugin.installCommand), `missing install command for ${plugin.name}`);
   }
 });

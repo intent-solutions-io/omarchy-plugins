@@ -1,4 +1,4 @@
-# Omarchy Plugin Works
+# Intent Solutions Omarchy Plugins
 
 > Sixteen plugins for **Omarchy Quattro**, plus the widget template they are all built from. Fifteen are live in the marketplace and omaTrail is under review. Every repository ships the same security lane, and every network body parses in a file a unit test can load without a shell.
 

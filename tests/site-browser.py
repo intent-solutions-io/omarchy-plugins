@@ -13,6 +13,10 @@ def assert_page(page, *, mobile: bool = False) -> None:
     page.wait_for_load_state("networkidle")
     page.locator(".plugin-card").first.wait_for()
 
+    assert "Intent Solutions" in page.locator(".wordmark").inner_text()
+    assert "Omarchy Plugins" in page.locator(".wordmark").inner_text()
+    assert page.locator(".wordmark-mark").count() == 0
+    assert "Omarchy Plugin Works" not in page.locator("body").inner_text()
     assert page.locator(".plugin-card").count() == 16
     assert "15 official listings" in page.locator("#catalog-summary").inner_text()
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
@@ -62,6 +66,18 @@ with sync_playwright() as playwright:
     assert_page(mobile, mobile=True)
     assert not mobile_errors, mobile_errors
 
+    for width, height in ((375, 812), (768, 1024), (1024, 768)):
+        responsive_errors = []
+        responsive = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
+        responsive.on("console", lambda message: responsive_errors.append(message.text) if message.type == "error" else None)
+        responsive.goto(BASE_URL)
+        responsive.wait_for_load_state("networkidle")
+        responsive.locator(".plugin-card").first.wait_for()
+        assert responsive.locator(".plugin-card").count() == 16
+        assert not responsive.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
+        assert not responsive_errors, responsive_errors
+        responsive.close()
+
     social = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
     social.goto(BASE_URL)
     social.wait_for_load_state("networkidle")
@@ -72,6 +88,8 @@ with sync_playwright() as playwright:
     detail.goto(f"{BASE_URL}/plugins/bazaar/")
     detail.wait_for_load_state("networkidle")
     assert detail.locator("h1").inner_text() == "Bazaar"
+    assert "Intent Solutions Omarchy Plugins" in detail.locator("body").inner_text().replace("\n", " ")
+    assert detail.locator(".wordmark-mark").count() == 0
     detail.screenshot(path=OUTPUT_DIR / "detail-bazaar.png", full_page=True)
     detail.locator("[data-detail-copy]").click()
     assert detail.evaluate("navigator.clipboard.readText()") == "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable"
