@@ -10,7 +10,7 @@ blueprint:
   reviewers: []
   approvers: []
   generatedAt: 2026-09-06
-  updatedAt: 2026-09-06
+  updatedAt: 2026-09-07
   classification: public-draft
   sourceRefs: [OMT-PRD-001, OMT-ARCH-001, OMT-GAME-001, OMT-AC-001, SR-003, SR-004, SR-008]
   assumptions: [A-001, A-003]
@@ -141,4 +141,42 @@ Suspend release testing if:
 
 Each run records test ID, requirement/risk/control IDs, source revision, environment, resolved inputs, test data or seed set, expected result, actual result, status, limitation, timestamp, operator, and evidence path. `Skipped` and `unproven` are never reported as `passed`.
 
-Current execution status: **not started**.
+## Execution snapshot
+
+Execution continues against the uncommitted local branch `main` in
+`omarchy-omatrail-entry`. The candidate covers pure
+journey and hunting rules, 10,000 deterministic hunting fields, QML source
+contracts, bounded save parsing, a descriptor-bound state helper, and same-UID
+file and parent-directory swap races. Exact automated counts and coverage are
+recorded in the plugin repository after each final lane rather than projected
+in this Blueprint.
+
+TEST-007 ran 100,000 fixed seeds through the public journey dispatcher and
+genuine hunting results across all 480 rules-profile, policy, difficulty,
+occupation, and departure-month cells. Every run reached victory or loss.
+Completion was 4.58 percent reckless, 56.28 percent naive, 82.56 percent
+skilled hunting-heavy, 77.22 percent skilled hunting-light, and 51.82 percent
+exploit-seeking. The exploit policy remained below both skilled policies in
+each rules profile and earned a substantially lower median score. The
+aggregate report SHA-256 is
+`776ddabcd55a089c6292a799f5fd60f8dacd8b753168ac237ae394e41fbbde7a`.
+Serial and multi-worker sentinel reports are asserted to remain byte-identical.
+
+The dirty development tree has passed the real Buzz Omarchy validator with zero
+`qmllint` errors and loaded through live shell IPC without plugin QML warnings.
+A twenty-frame matrix is specified to cover river, ending, hunting, event, and
+trail fixtures across both rules profiles and Green Monitor and Color Deluxe
+over one source fingerprint. Every
+1280 by 720 PNG reconciles with a hash-bound receipt and retained raw shell log.
+Visual inspection caught and corrected a save/profile override, a
+scaled-viewport trail overflow, and a clipped hunting instruction before the
+matrix run. A targeted live lifecycle run now proves hunting advance, hidden
+timer shutdown, reopen and resume, exact persisted-state restoration across a
+shell restart, and no added persistent child process or Quickshell TCP
+connection. It also records whole-shell RSS and open-hide timing. Exact
+clean-revision regeneration, install, enable, disable, remove, reinstall,
+owner-approved preview, real device input, complete-run privacy observation,
+frame pacing, latency, and long-soak performance remain outstanding.
+
+Current execution status: **in progress, candidate evidence only**. No release
+or acceptance verdict is granted by this snapshot.

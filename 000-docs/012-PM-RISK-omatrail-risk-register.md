@@ -10,7 +10,7 @@ blueprint:
   reviewers: []
   approvers: []
   generatedAt: 2026-09-06
-  updatedAt: 2026-09-06
+  updatedAt: 2026-09-07
   classification: public-draft
   sourceRefs: [OMT-PRD-001, OMT-ARCH-001, OMT-GAME-001, OMT-TEST-001, OMT-PLAY-001, SR-003, SR-004, SR-009]
   assumptions: [A-001, A-002, A-003, A-004]
@@ -40,13 +40,13 @@ Likelihood and impact use 1 to 5 ordinal scales. Exposure is `likelihood x impac
 
 | ID | Cause and event | Consequence | Inherent L/I | Controls | Residual L/I | Owner | Status and trigger | Review |
 |---|---|---|---|---|---|---|---|---|
-| RISK-001 | The name, marketing, prose, or assets are too close to a commercial property. | Takedown, rejection, reputational or legal cost. | 3/5 high | CTRL-005; original content; legal review before listing. | 1/5 moderate | Legal owner TBD | Open; trigger on any similarity concern or complaint. | Before public preview and listing |
+| RISK-001 | The name, marketing, prose, or assets are too close to a commercial property. | Takedown, rejection, reputational or legal cost. | 3/5 high | CTRL-005; original expression; functional-observation boundary; public design and provenance record; legal review before listing. | 1/5 moderate | Legal owner TBD | Partly mitigated by independent implementation and provenance record; legal disposition remains open. | Before public preview and listing |
 | RISK-002 | QML or JavaScript failure occurs inside the shared long-running shell. | Desktop-shell instability or loss of trust. | 3/5 high | Pure engine, bounded inputs, lifecycle tests, no second shell. | 1/5 moderate | Engineering owner TBD | Open; zero uncaught errors required. | Each phase gate |
 | RISK-003 | Overlay focus or keys leak to the underlying desktop. | Unintended commands or user input. | 3/5 high | Explicit focus state machine, pause on focus loss, system matrix. | 1/5 moderate | Engineering owner TBD | Open; any leak suspends release testing. | Each runtime candidate |
 | RISK-004 | Save write or migration corrupts an expedition. | Progress loss or silent overwrite. | 3/4 high | CTRL-002; atomic replace, last-good backup, version gates, recovery tests. | 1/4 low | Engineering owner TBD | Open; any silent overwrite is release-blocking. | Each save-schema change |
 | RISK-005 | Hunting is boring, awkward, or too shallow. | Core product promise fails. | 3/5 high | Hunting-first prototype and PLAY-001 gate. | 2/4 moderate | Game-design owner TBD | Open; prototype misses enjoyment or control threshold. | Hunting gate |
 | RISK-006 | Hunting is too difficult or excludes some motor/visual users. | Frustration and inaccessible progression. | 3/4 high | Remapping, assists, mouse alternative, extended time, hunting-light viability. | 2/3 moderate | Accessibility owner TBD | Open; critical task failure or comfort report. | Hunting and beta gates |
-| RISK-007 | Hunting is always optimal and trivializes store, trade, and ration choices. | Strategy collapses and replayability falls. | 4/4 high | Time/ammo/risk/carry/spoilage costs, policy simulation, balance beta. | 2/3 moderate | Game-design owner TBD | Open; exploit policy dominates skilled policies. | Every balance change |
+| RISK-007 | Hunting is always optimal and trivializes store, trade, and ration choices. | Strategy collapses and replayability falls. | 4/4 high | Time/ammo/risk/carry/spoilage costs, policy simulation, balance beta. | 2/3 moderate | Game-design owner TBD | Mitigated in candidate simulation; reopen if exploit survival or median score exceeds either skilled policy. | Every balance change |
 | RISK-008 | Random events feel arbitrary or erase good decisions. | Players attribute loss to unfairness. | 3/4 high | Seeded RNG, bounded effects, visible modifiers, post-outcome explanation. | 2/3 moderate | Product owner | Open; repeated opaque-frustration finding. | Vertical slice and beta |
 | RISK-009 | Historical simplification or stereotyped depiction harms represented peoples. | Harm, misinformation, rejection, reputational loss. | 3/5 high | CTRL-006; sourced claims, specific nations, human review, no generic encounter category. | 2/4 moderate | Content owner TBD | Open; disputed claim or reviewer objection. | Each content freeze |
 | RISK-010 | Green Monitor effects reduce readability or cause discomfort. | Eye strain, motion discomfort, inaccessible text. | 3/4 high | Clean pixels, reduced motion, adjustable/off CRT, profile playtest. | 1/3 low | Design owner TBD | Open; any comfort blocker. | Each visual milestone |
@@ -67,7 +67,7 @@ Likelihood and impact use 1 to 5 ordinal scales. Exposure is `likelihood x impac
 | CTRL-004 | Treat content as bounded data and reject invalid references. | proposed | TEST-009 schema and graph report |
 | CTRL-005 | Prove asset and content provenance and obtain name/marketing review. | proposed | Provenance ledger and legal disposition |
 | CTRL-006 | Source historical claims and obtain affected-group content review. | proposed | Claim register and human review record |
-| CTRL-007 | Keep display profiles semantically equivalent and accessible. | proposed | TEST-010 through TEST-012 and PLAY-006/007 |
+| CTRL-007 | Keep display profiles semantically equivalent and accessible. | implemented with candidate source, differential, reduced-motion, and dual-render evidence; human playtest pending | TEST-010 through TEST-012 and PLAY-006/007 |
 
 ## Review and acceptance
 
