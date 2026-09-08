@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-07T11:24:36.620Z",
-  "catalogSize": 2599,
+  "generatedAt": "2026-09-08T16:36:31.967Z",
+  "catalogSize": 2754,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -27,7 +27,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "metrics": {
-        "views": 293,
+        "views": 298,
         "copies": 36,
         "hearts": 0
       }
@@ -53,7 +53,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
       "metrics": {
-        "views": 156,
+        "views": 158,
         "copies": 22,
         "hearts": 3
       }
@@ -79,7 +79,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
       "metrics": {
-        "views": 147,
+        "views": 150,
         "copies": 9,
         "hearts": 0
       }
@@ -105,9 +105,9 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
       "metrics": {
-        "views": 126,
+        "views": 127,
         "copies": 9,
-        "hearts": 1
+        "hearts": 2
       }
     },
     {
@@ -180,7 +180,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
       "metrics": {
-        "views": 170,
+        "views": 172,
         "copies": 14,
         "hearts": 2
       }
@@ -206,7 +206,7 @@
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "metrics": {
-        "views": 464,
+        "views": 469,
         "copies": 19,
         "hearts": 0
       }
@@ -231,7 +231,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
       "metrics": {
-        "views": 209,
+        "views": 212,
         "copies": 14,
         "hearts": 2
       }
@@ -257,7 +257,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "metrics": {
-        "views": 120,
+        "views": 123,
         "copies": 4,
         "hearts": 0
       }
@@ -307,7 +307,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
       "metrics": {
-        "views": 134,
+        "views": 135,
         "copies": 7,
         "hearts": 0
       }
@@ -333,7 +333,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "metrics": {
-        "views": 249,
+        "views": 255,
         "copies": 7,
         "hearts": 2
       }
@@ -358,7 +358,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
       "metrics": {
-        "views": 130,
+        "views": 132,
         "copies": 3,
         "hearts": 0
       }
@@ -383,7 +383,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "metrics": {
-        "views": 294,
+        "views": 295,
         "copies": 4,
         "hearts": 1
       }
