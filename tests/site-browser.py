@@ -19,7 +19,8 @@ def assert_page(page, *, mobile: bool = False) -> None:
     assert page.locator(".wordmark-mark").count() == 0
     assert "Omarchy Plugin Works" not in page.locator("body").inner_text()
     assert page.locator(".plugin-card").count() == 16
-    assert "15 official listings" in page.locator("#catalog-summary").inner_text()
+    assert "16 official listings" in page.locator("#catalog-summary").inner_text()
+    assert "no releases waiting on review" in page.locator("#catalog-summary").inner_text()
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
     assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
 
@@ -30,8 +31,8 @@ def assert_page(page, *, mobile: bool = False) -> None:
         return
 
     page.get_by_role("button", name="In review").click()
-    assert page.locator(".plugin-card").count() == 1
-    assert page.locator(".plugin-card h3").inner_text() == "omaTrail"
+    assert page.locator(".plugin-card").count() == 0
+    assert page.get_by_text("No plugins match those filters.").count() == 1
 
     page.get_by_role("button", name="All", exact=True).click()
     page.locator("#plugin-search").fill("MLB")
@@ -95,12 +96,12 @@ with sync_playwright() as playwright:
     detail.locator("[data-detail-copy]").click()
     assert detail.evaluate("navigator.clipboard.readText()") == "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable"
 
-    review_detail = desktop_context.new_page()
-    review_detail.goto(f"{BASE_URL}/plugins/omatrail/")
-    review_detail.wait_for_load_state("networkidle")
-    assert review_detail.locator("h1").inner_text() == "omaTrail"
-    assert review_detail.get_by_text("In review", exact=True).count() == 1
-    assert review_detail.locator("[data-detail-copy]").count() == 0
+    omatrail_detail = desktop_context.new_page()
+    omatrail_detail.goto(f"{BASE_URL}/plugins/omatrail/")
+    omatrail_detail.wait_for_load_state("networkidle")
+    assert omatrail_detail.locator("h1").inner_text() == "omaTrail"
+    assert omatrail_detail.get_by_text("Listed", exact=True).count() == 1
+    assert omatrail_detail.locator("[data-detail-copy]").count() == 1
 
     failed = desktop_context.new_page()
     failed.route("**/data/plugins.json", lambda route: route.abort())

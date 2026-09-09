@@ -188,7 +188,10 @@
       const inReview = data.plugins.filter((plugin) => plugin.lifecycle === "under-review").length;
       document.querySelector("#listed-count").textContent = listed;
       document.querySelector("#review-count").textContent = inReview;
-      document.querySelector("#catalog-summary").textContent = `${listed} official listings, ${inReview} release in review, and public source for every plugin.`;
+      const reviewSummary = inReview === 0
+        ? "no releases waiting on review"
+        : `${inReview} ${inReview === 1 ? "release" : "releases"} in review`;
+      document.querySelector("#catalog-summary").textContent = `${listed} official listings, ${reviewSummary}, and public source for every plugin.`;
       document.querySelector("#data-freshness").textContent = formatFreshness(data.generatedAt);
       const marketplaceAuthorUrl = safeExternalUrl(data.publisher.marketplaceUrl);
       const templateUrl = safeExternalUrl(data.template.repoUrl);
