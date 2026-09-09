@@ -30,14 +30,12 @@ def page_for(plugin: dict[str, object]) -> str:
     install = plugin.get("installCommand")
     install_block = (
         f"""<section class="detail-install" aria-labelledby="install-title">
-          <p class="eyebrow">Install</p>
           <h2 id="install-title">Add it from the verified source.</h2>
           <div class="install-command"><code>{esc(install)}</code><button type="button" data-detail-copy>Copy command</button></div>
           <p>Review the source and requested capabilities before installing any community plugin.</p>
         </section>"""
         if install
         else f"""<section class="detail-install review-panel" aria-labelledby="install-title">
-          <p class="eyebrow">Marketplace status</p>
           <h2 id="install-title">Review is still in progress.</h2>
           <p>There is no official marketplace install command yet. Follow the public review record for the current decision.</p>
           <a class="button button-primary" href="{esc(primary_url)}">Open review record</a>
@@ -105,7 +103,6 @@ def page_for(plugin: dict[str, object]) -> str:
     {metrics_markup}
     {install_block}
     <section class="detail-proof" aria-labelledby="proof-title">
-      <p class="eyebrow">Verify it yourself</p>
       <h2 id="proof-title">Follow the work to the source.</h2>
       <div><a href="{esc(plugin['repoUrl'])}"><strong>GitHub repository</strong><span>Code, tests, documentation, and release history</span></a><a href="{esc(primary_url)}"><strong>{primary_label}</strong><span>The authority for marketplace lifecycle status</span></a></div>
     </section>
