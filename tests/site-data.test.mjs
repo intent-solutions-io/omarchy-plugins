@@ -38,11 +38,12 @@ test("generated site inventory matches the canonical config", () => {
 test("public lifecycle separates listings from marketplace review", () => {
   const listed = data.plugins.filter((plugin) => plugin.lifecycle === "listed");
   const review = data.plugins.filter((plugin) => plugin.lifecycle === "under-review");
-  assert.equal(listed.length, 15);
-  assert.equal(review.length, 1);
-  assert.equal(review[0].name, "omaTrail");
-  assert.equal(review[0].submissionUrl, "https://github.com/omacom/omarchy-plugin-marketplace/issues/5498");
-  assert.equal(review[0].marketplaceUrl, null);
+  assert.equal(listed.length, 16);
+  assert.equal(review.length, 0);
+  const omatrail = listed.find((plugin) => plugin.name === "omaTrail");
+  assert.ok(omatrail);
+  assert.equal(omatrail.marketplaceUrl, "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail");
+  assert.ok(omatrail.installCommand);
 });
 
 test("listed entries use official marketplace and public GitHub links", () => {

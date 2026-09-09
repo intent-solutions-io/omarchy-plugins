@@ -116,10 +116,9 @@
       "id": "io.github.jeremylongshore.omatrail",
       "name": "omaTrail",
       "repo": "omarchy-omatrail-entry",
-      "lifecycle": "under-review",
-      "category": "Games",
-      "tags": ["game", "offline", "retro"],
-      "submissionUrl": "https://github.com/omacom/omarchy-plugin-marketplace/issues/5498",
+      "lifecycle": "listed",
+      "category": "Kids",
+      "tags": ["games", "kids", "quickshell"],
       "pitch": "An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics."
     }
   ],

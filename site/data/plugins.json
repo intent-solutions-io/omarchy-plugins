@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-08T16:36:31.967Z",
-  "catalogSize": 2754,
+  "generatedAt": "2026-09-09T03:07:33.531Z",
+  "catalogSize": 2866,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -53,7 +53,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
       "metrics": {
-        "views": 158,
+        "views": 159,
         "copies": 22,
         "hearts": 3
       }
@@ -155,7 +155,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-docket-entry/main/preview.png",
       "metrics": {
-        "views": 165,
+        "views": 166,
         "copies": 4,
         "hearts": 1
       }
@@ -180,7 +180,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
       "metrics": {
-        "views": 172,
+        "views": 174,
         "copies": 14,
         "hearts": 2
       }
@@ -206,7 +206,7 @@
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "metrics": {
-        "views": 469,
+        "views": 470,
         "copies": 19,
         "hearts": 0
       }
@@ -257,7 +257,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "metrics": {
-        "views": 123,
+        "views": 127,
         "copies": 4,
         "hearts": 0
       }
@@ -282,7 +282,7 @@
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
       "metrics": {
-        "views": 87,
+        "views": 89,
         "copies": 3,
         "hearts": 1
       }
@@ -333,7 +333,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "metrics": {
-        "views": 255,
+        "views": 258,
         "copies": 7,
         "hearts": 2
       }
@@ -383,7 +383,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "metrics": {
-        "views": 295,
+        "views": 296,
         "copies": 4,
         "hearts": 1
       }
@@ -395,20 +395,24 @@
       "repo": "omarchy-omatrail-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-omatrail-entry",
       "pitch": "An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics.",
-      "lifecycle": "under-review",
-      "category": "Games",
+      "lifecycle": "listed",
+      "category": "Kids",
       "tags": [
-        "game",
-        "offline",
-        "retro"
+        "games",
+        "kids",
+        "quickshell"
       ],
-      "marketplaceUrl": null,
-      "submissionUrl": "https://github.com/omacom/omarchy-plugin-marketplace/issues/5498",
-      "installCommand": null,
-      "verificationStatus": "pending",
-      "version": null,
+      "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail",
+      "submissionUrl": null,
+      "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-omatrail-entry.git --enable",
+      "verificationStatus": "verified",
+      "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-omatrail-entry/main/preview.png",
-      "metrics": null
+      "metrics": {
+        "views": 65,
+        "copies": 5,
+        "hearts": 0
+      }
     }
   ],
   "template": {

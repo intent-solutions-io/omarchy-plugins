@@ -28,7 +28,7 @@ The plugin repos it presents all live under `jeremylongshore`:
 | `omarchy-workspace-storyboard-entry` | Workspace Storyboard |
 | `omarchy-quiet-queue-entry` | Quiet Queue |
 | `omarchy-flow-boundary-entry` | Flow Boundary |
-| `omarchy-omatrail-entry` | omaTrail. Under marketplace review until the official listing appears. |
+| `omarchy-omatrail-entry` | omaTrail. Listed in the official marketplace. |
 
 All are cloned as siblings under `~/000-projects/`.
 
@@ -66,9 +66,8 @@ local clock. That is what makes two consecutive runs byte-identical. Do not repl
 
 ## Things that are true and easy to get wrong
 
-- **omaTrail is not listed yet.** Submission issue
-  `omacom/omarchy-plugin-marketplace#5498` is validated and awaiting human review. Show it
-  as under review until the official catalog contains its id.
+- **omaTrail is listed.** The official catalog contains
+  `io.github.jeremylongshore.omatrail`. Treat the live catalog as lifecycle authority.
 - **The marketplace moves fast.** It passed 1,363 listings on 2026-08-25 and gains dozens a
   day. Any count in a doc here is a snapshot with the jq filter printed next to it. Re-derive
   before citing.
