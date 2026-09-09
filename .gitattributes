@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+
+site/data/plugins.json linguist-generated
+site/plugins/** linguist-generated

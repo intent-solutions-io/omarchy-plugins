@@ -166,6 +166,14 @@ python3 -m http.server 4173 --directory site
 
 Then open `http://127.0.0.1:4173`. Run `bash scripts/check-site.sh` before publishing. GitHub Pages deploys `site/` after a change reaches `main`; `site/CNAME` declares `oma.intentsolutions.io`. DNS must point that hostname at the Pages host before the custom domain resolves.
 
+## Maintainers wanted
+
+The Omarchy plugin ecosystem is growing, and we are looking for dependable
+users who want to review issues, test releases, and keep individual plugins
+healthy. Start with a small pull request or [open a maintainer interest issue](https://github.com/intent-solutions-io/omarchy-plugins/issues/new?template=maintainer_interest.md&title=Maintainer%20interest%3A%20).
+Tell us which plugins you use and how you want to help. Consistent contributors
+can earn maintainer responsibility.
+
 ## Research
 
 - [`000-docs/001-RL-NEXT-next-omarchy-plugin-concepts.md`](000-docs/001-RL-NEXT-next-omarchy-plugin-concepts.md): three specced concepts, chosen against live catalog saturation counts and the HCI literature on peripheral displays, rather than against what looks good in a screenshot.

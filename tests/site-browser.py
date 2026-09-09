@@ -25,6 +25,9 @@ def assert_page(page, *, mobile: bool = False) -> None:
     assert "no releases waiting on review" in page.locator("#catalog-summary").inner_text()
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
     assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
+    maintainer_link = page.get_by_role("link", name="Help maintain a plugin")
+    assert maintainer_link.count() == 1
+    assert "maintainer_interest.md" in maintainer_link.get_attribute("href")
 
     if mobile:
         overflow = page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
