@@ -11,7 +11,8 @@ title: "Maintainer interest: "
 ## How would you like to help?
 
 Examples include reproducing issues, reviewing documentation, testing releases,
-reviewing code, or keeping marketplace listings accurate.
+reviewing code, or reporting inaccurate marketplace listings so the generated
+portfolio can be refreshed through its owning workflow.
 
 ## Relevant contributions or experience
 
