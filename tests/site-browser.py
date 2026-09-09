@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
@@ -6,6 +7,7 @@ from playwright.sync_api import sync_playwright
 BASE_URL = "http://127.0.0.1:4173"
 OUTPUT_DIR = Path("/tmp/oma-site-browser")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+PLUGINS = json.loads((Path(__file__).parents[1] / "site/data/plugins.json").read_text())["plugins"]
 
 
 def assert_page(page, *, mobile: bool = False) -> None:
@@ -29,6 +31,10 @@ def assert_page(page, *, mobile: bool = False) -> None:
         assert not overflow
         page.screenshot(path=OUTPUT_DIR / "mobile.png", full_page=True)
         return
+
+    page.keyboard.press("/")
+    assert page.evaluate("document.activeElement.id") == "plugin-search"
+    page.keyboard.press("Escape")
 
     page.get_by_role("button", name="In review").click()
     assert page.locator(".plugin-card").count() == 0
@@ -86,22 +92,29 @@ with sync_playwright() as playwright:
     social.evaluate("window.scrollTo(0, 0)")
     social.screenshot(path="site/assets/og-card.png")
 
+    detail_errors = []
     detail = desktop_context.new_page()
-    detail.goto(f"{BASE_URL}/plugins/bazaar/")
-    detail.wait_for_load_state("networkidle")
-    assert detail.locator("h1").inner_text() == "Bazaar"
-    assert "Intent Solutions Omarchy Plugins" in detail.locator("body").inner_text().replace("\n", " ")
-    assert detail.locator(".wordmark-mark").count() == 0
-    detail.screenshot(path=OUTPUT_DIR / "detail-bazaar.png", full_page=True)
-    detail.locator("[data-detail-copy]").click()
-    assert detail.evaluate("navigator.clipboard.readText()") == "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable"
+    detail.on("console", lambda message: detail_errors.append(message.text) if message.type == "error" else None)
+    for plugin in PLUGINS:
+        detail.goto(f"{BASE_URL}/plugins/{plugin['slug']}/")
+        detail.wait_for_load_state("networkidle")
+        assert detail.locator("h1").inner_text() == plugin["name"]
+        assert detail.get_by_text("Listed", exact=True).count() == 1
+        assert detail.locator("[data-detail-copy]").count() == 1
+        assert not detail.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
+        assert detail.locator(".detail-preview img").evaluate("image => image.complete && image.naturalWidth > 0")
+        if plugin["slug"] in {"bazaar", "omatrail"}:
+            detail.evaluate("window.scrollTo(0, 0)")
+            detail.screenshot(path=OUTPUT_DIR / f"detail-{plugin['slug']}.png", full_page=True)
+        detail.locator("[data-detail-copy]").click()
+        assert detail.evaluate("navigator.clipboard.readText()") == plugin["installCommand"]
+    assert not detail_errors, detail_errors
 
-    omatrail_detail = desktop_context.new_page()
-    omatrail_detail.goto(f"{BASE_URL}/plugins/omatrail/")
-    omatrail_detail.wait_for_load_state("networkidle")
-    assert omatrail_detail.locator("h1").inner_text() == "omaTrail"
-    assert omatrail_detail.get_by_text("Listed", exact=True).count() == 1
-    assert omatrail_detail.locator("[data-detail-copy]").count() == 1
+    for plugin in PLUGINS:
+        mobile.goto(f"{BASE_URL}/plugins/{plugin['slug']}/")
+        mobile.wait_for_load_state("networkidle")
+        assert mobile.locator("h1").inner_text() == plugin["name"]
+        assert not mobile.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
 
     failed = desktop_context.new_page()
     failed.route("**/data/plugins.json", lambda route: route.abort())
