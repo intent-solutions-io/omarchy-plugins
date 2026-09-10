@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-09T16:34:07.000Z",
-  "catalogSize": 2876,
+  "generatedAt": "2026-09-10T16:24:54.623Z",
+  "catalogSize": 2913,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -27,8 +27,8 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "metrics": {
-        "views": 299,
-        "copies": 36,
+        "views": 304,
+        "copies": 37,
         "hearts": 0
       }
     },
@@ -53,7 +53,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
       "metrics": {
-        "views": 161,
+        "views": 162,
         "copies": 22,
         "hearts": 3
       }
@@ -79,7 +79,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
       "metrics": {
-        "views": 150,
+        "views": 153,
         "copies": 9,
         "hearts": 0
       }
@@ -102,10 +102,10 @@
       "submissionUrl": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-mlb-booth-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
       "metrics": {
-        "views": 128,
+        "views": 130,
         "copies": 9,
         "hearts": 2
       }
@@ -130,7 +130,7 @@
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-x-files-entry/main/preview.png",
       "metrics": {
-        "views": 164,
+        "views": 165,
         "copies": 2,
         "hearts": 1
       }
@@ -180,7 +180,7 @@
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
       "metrics": {
-        "views": 175,
+        "views": 178,
         "copies": 14,
         "hearts": 2
       }
@@ -206,8 +206,8 @@
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "metrics": {
-        "views": 472,
-        "copies": 19,
+        "views": 475,
+        "copies": 20,
         "hearts": 0
       }
     },
@@ -231,7 +231,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
       "metrics": {
-        "views": 216,
+        "views": 217,
         "copies": 14,
         "hearts": 2
       }
@@ -257,8 +257,8 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "metrics": {
-        "views": 128,
-        "copies": 4,
+        "views": 133,
+        "copies": 5,
         "hearts": 0
       }
     },
@@ -282,7 +282,7 @@
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
       "metrics": {
-        "views": 89,
+        "views": 90,
         "copies": 3,
         "hearts": 1
       }
@@ -333,7 +333,7 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "metrics": {
-        "views": 262,
+        "views": 268,
         "copies": 8,
         "hearts": 2
       }
@@ -383,8 +383,8 @@
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "metrics": {
-        "views": 296,
-        "copies": 4,
+        "views": 299,
+        "copies": 6,
         "hearts": 1
       }
     },
@@ -409,9 +409,9 @@
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-omatrail-entry/main/preview.png",
       "metrics": {
-        "views": 90,
-        "copies": 5,
-        "hearts": 0
+        "views": 142,
+        "copies": 8,
+        "hearts": 2
       }
     }
   ],
