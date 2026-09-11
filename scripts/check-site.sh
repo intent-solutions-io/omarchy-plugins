@@ -4,6 +4,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 node --check site/assets/app.js
 node --check site/assets/detail.js
+node --check site/assets/beacon-signup.js
 python3 -m py_compile scripts/catalog_pipeline.py scripts/fetch_github_metadata.py scripts/build-site-pages.py tests/test_catalog_pipeline.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/site-data.test.mjs

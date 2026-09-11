@@ -9,6 +9,7 @@ const css = await readFile(new URL("../site/assets/styles.css", import.meta.url)
 const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
 const cname = (await readFile(new URL("../site/CNAME", import.meta.url), "utf8")).trim();
 const beacon = await readFile(new URL("../site/the-beacon-wakes/index.html", import.meta.url), "utf8");
+const beaconSignup = await readFile(new URL("../site/assets/beacon-signup.js", import.meta.url), "utf8");
 const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
 
@@ -157,7 +158,18 @@ test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
   assert.match(beaconDemo, /<title>The Beacon Wakes/);
   assert.match(beaconDemo, /assets\/index-[^"']+\.js/);
   assert.match(beaconDemo, /assets\/index-[^"']+\.css/);
-  assert.doesNotMatch(beacon, /<form|type="email"|href="[^"]*checkout|buy now|download now/i);
+  assert.match(beacon, /id="beacon-signup"/);
+  assert.match(beacon, /name="firstName"/);
+  assert.match(beacon, /name="lastName"/);
+  assert.match(beacon, /name="email" type="email"/);
+  assert.match(beacon, /name="consent" type="checkbox"/);
+  assert.match(beacon, /Adults only/);
+  assert.match(beacon, /Parent or guardian first name/);
+  assert.match(beacon, /Parent or guardian last name/);
+  assert.match(beacon, /class="beacon-release-link"/);
+  assert.match(beaconSignup, /beacon-release-updates-v1/);
+  assert.match(beaconSignup, /https:\/\/intentsolutions\.io\/api\/forms\/beacon-signup/);
+  assert.doesNotMatch(beacon, /name="(?:child|learner)|href="[^"]*checkout|buy now|download now/i);
   assert.match(beacon, /https:\/\/oma\.intentsolutions\.io\/the-beacon-wakes\//);
   assert.doesNotMatch(beacon, /omaQuest|OmaQuest|OMAQUEST/);
   assert.match(beaconRedirect, /url=\.\.\/the-beacon-wakes\//);

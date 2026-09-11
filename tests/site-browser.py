@@ -160,14 +160,48 @@ with sync_playwright() as playwright:
         (desktop_context.new_page(), {"width": 1440, "height": 1000}, "beacon-desktop.png"),
         (browser.new_page(viewport={"width": 390, "height": 844}), {"width": 390, "height": 844}, "beacon-mobile.png"),
     ):
+        submitted_signup = {}
+        if filename == "beacon-desktop.png":
+            def capture_signup(route):
+                submitted_signup.update(json.loads(route.request.post_data))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"}))
+
+            page.route("https://intentsolutions.io/api/forms/beacon-signup", capture_signup)
         page.set_viewport_size(viewport)
         page.goto(f"{BASE_URL}/the-beacon-wakes/")
         page.wait_for_load_state("networkidle")
         assert page.get_by_role("heading", name="The Beacon Wakes").count() == 1
         assert page.locator("#parent-guide").count() == 1
+        assert page.locator("#parent-updates").count() == 1
         assert page.get_by_text("No email required", exact=True).count() == 1
+        if filename == "beacon-mobile.png":
+            assert page.get_by_role("link", name="Release updates").is_visible()
+        if filename == "beacon-desktop.png":
+            page.locator('[name="firstName"]').fill("Jordan")
+            page.locator('[name="lastName"]').fill("Rivera")
+            page.locator('[name="email"]').fill("parent@example.test")
+            page.locator('[name="consent"]').check()
+            page.get_by_role("button", name="Send my confirmation").click()
+            page.get_by_text("Check your email and confirm within 48 hours.", exact=False).wait_for()
+            assert submitted_signup == {
+                "firstName": "Jordan",
+                "lastName": "Rivera",
+                "email": "parent@example.test",
+                "consent": True,
+                "consentVersion": "beacon-release-updates-v1",
+                "source": "website",
+                "website": "",
+            }
+            page.evaluate("document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0)")
+            page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
+            page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+            page.goto(f"{BASE_URL}/the-beacon-wakes/?signup=invalid")
+            page.get_by_text("That confirmation link is invalid or expired.", exact=False).wait_for()
+            assert page.locator("#beacon-form-status").evaluate("element => document.activeElement === element")
+            page.wait_for_function("document.querySelector('#parent-updates').getBoundingClientRect().top < innerHeight / 3")
         assert_no_overflow(page)
-        page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+        if filename != "beacon-desktop.png":
+            page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
 
     demo = browser.new_page(viewport={"width": 1440, "height": 900})
