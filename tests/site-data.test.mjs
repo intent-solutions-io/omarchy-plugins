@@ -9,6 +9,7 @@ const css = await readFile(new URL("../site/assets/styles.css", import.meta.url)
 const readme = await readFile(new URL("../README.md", import.meta.url), "utf8");
 const cname = (await readFile(new URL("../site/CNAME", import.meta.url), "utf8")).trim();
 const beacon = await readFile(new URL("../site/the-beacon-wakes/index.html", import.meta.url), "utf8");
+const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
 
 test("generated site inventory matches the canonical config", () => {
@@ -103,7 +104,7 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.match(html, /id="ledger"/);
   assert.match(html, /id="family-filters"/);
   assert.match(html, /id="featured-project"/);
-  assert.match(html, /href="the-beacon-wakes\/"/);
+  assert.match(html, /href="the-beacon-wakes\/play\/"/);
   assert.match(html, /<h2 id="beacon-feature-title">The Beacon Wakes<\/h2>/);
   assert.match(html, /STATIC_CATALOG:START/);
   assert.match(html, /Complete plugin index/);
@@ -144,14 +145,18 @@ test("public product branding keeps the capital T in omaTrail", async () => {
   assert.ok(!publicText.includes("OMATRAIL"));
 });
 
-test("The Beacon Wakes parent handoff is honest and ungated", () => {
+test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
   assert.match(beacon, /<h1 id="beacon-title">The Beacon<br>Wakes<\/h1>/);
   assert.match(beacon, /by Intent Solutions/i);
   assert.match(beacon, /id="parent-guide"/);
   assert.match(beacon, /No email required/);
   assert.match(beacon, /No child account/);
-  assert.match(beacon, /No checkout yet/);
-  assert.match(beacon, /in release testing/i);
+  assert.match(beacon, /No checkout inside play/);
+  assert.match(beacon, /browser demo is live/i);
+  assert.match(beacon, /href="play\/"/);
+  assert.match(beaconDemo, /<title>The Beacon Wakes/);
+  assert.match(beaconDemo, /assets\/index-[^"']+\.js/);
+  assert.match(beaconDemo, /assets\/index-[^"']+\.css/);
   assert.doesNotMatch(beacon, /<form|type="email"|href="[^"]*checkout|buy now|download now/i);
   assert.match(beacon, /https:\/\/oma\.intentsolutions\.io\/the-beacon-wakes\//);
   assert.doesNotMatch(beacon, /omaQuest|OmaQuest|OMAQUEST/);

@@ -31,7 +31,7 @@ def assert_catalog(page, *, mobile: bool = False) -> None:
     assert page.locator(".source-facts").count() == len(PLUGINS)
     assert page.locator(".manifest-aligned").count() == len(PLUGINS)
     assert page.locator("#featured-project").count() == 1
-    assert page.get_by_role("link", name="Explore The Beacon Wakes").get_attribute("href") == "the-beacon-wakes/"
+    assert page.get_by_role("link", name="Play The Beacon Wakes").get_attribute("href") == "the-beacon-wakes/play/"
     assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
     assert page.get_by_role("link", name="Help maintain a plugin").count() == 1
     assert_no_overflow(page)
@@ -169,6 +169,30 @@ with sync_playwright() as playwright:
         assert_no_overflow(page)
         page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
+
+    demo = browser.new_page(viewport={"width": 1440, "height": 900})
+    demo.goto(f"{BASE_URL}/the-beacon-wakes/play/")
+    demo.wait_for_load_state("networkidle")
+    assert demo.get_by_role("heading", name="The Beacon Wakes").count() == 1
+    demo.get_by_role("button", name="Press Enter to launch demo").click()
+    demo.keyboard.type("find the quiet frequency")
+    demo.keyboard.type("wake the field receiver")
+    assert demo.locator("#completion-stamp").inner_text() == "SIGNAL TRAIL ONLINE"
+    assert demo.locator("#result-signals").inner_text() == "2"
+    assert demo.get_by_role("button", name="Parent: see the full game").count() == 1
+    assert_no_overflow(demo)
+    demo.screenshot(path=OUTPUT_DIR / "beacon-demo-complete.png", full_page=True)
+    demo.close()
+
+    mobile_demo = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=1)
+    mobile_demo.goto(f"{BASE_URL}/the-beacon-wakes/play/")
+    mobile_demo.wait_for_load_state("networkidle")
+    mobile_demo.get_by_role("button", name="Press Enter to launch demo").click()
+    touch_input = mobile_demo.get_by_role("textbox", name="Phone or tablet keyboard")
+    assert touch_input.is_visible()
+    assert_no_overflow(mobile_demo)
+    mobile_demo.screenshot(path=OUTPUT_DIR / "beacon-demo-mobile.png", full_page=True)
+    mobile_demo.close()
 
     legacy = browser.new_page()
     legacy.goto(f"{BASE_URL}/omaquest/")
