@@ -4,18 +4,20 @@ on:
   pull_request:
     paths:
       - ".github/workflows/**"
+      - "README.md"
       - "site/**"
       - "plugins.json"
-      - "scripts/check-site.sh"
-      - "tests/site-data.test.mjs"
+      - "scripts/**"
+      - "tests/**"
   push:
     branches: [main]
     paths:
       - ".github/workflows/**"
+      - "README.md"
       - "site/**"
       - "plugins.json"
-      - "scripts/check-site.sh"
-      - "tests/site-data.test.mjs"
+      - "scripts/**"
+      - "tests/**"
 
 permissions:
   contents: read

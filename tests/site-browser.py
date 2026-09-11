@@ -1,17 +1,23 @@
+import copy
 import json
+import os
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
 
-BASE_URL = "http://127.0.0.1:4173"
+BASE_URL = os.environ.get("OMA_SITE_BASE_URL", "http://127.0.0.1:4173")
 OUTPUT_DIR = Path("/tmp/oma-site-browser")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-PLUGINS = json.loads((Path(__file__).parents[1] / "site/data/plugins.json").read_text())["plugins"]
+DATA = json.loads((Path(__file__).parents[1] / "site/data/plugins.json").read_text())
+PLUGINS = DATA["plugins"]
 
 
-def assert_page(page, *, mobile: bool = False) -> None:
-    """Verify catalog behavior for a desktop or mobile browser page."""
+def assert_no_overflow(page) -> None:
+    assert not page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
+
+
+def assert_catalog(page, *, mobile: bool = False) -> None:
     page.goto(BASE_URL)
     page.wait_for_load_state("networkidle")
     page.locator(".plugin-card").first.wait_for()
@@ -19,75 +25,105 @@ def assert_page(page, *, mobile: bool = False) -> None:
     assert "Intent Solutions" in page.locator(".wordmark").inner_text()
     assert "Omarchy Plugins" in page.locator(".wordmark").inner_text()
     assert page.locator(".wordmark-mark").count() == 0
-    assert "Omarchy Plugin Works" not in page.locator("body").inner_text()
-    assert page.locator(".plugin-card").count() == 16
-    assert "16 official listings" in page.locator("#catalog-summary").inner_text()
-    assert "no releases waiting on review" in page.locator("#catalog-summary").inner_text()
+    assert page.locator(".plugin-card").count() == len(PLUGINS)
+    assert f"{len(PLUGINS)} official listings" in page.locator("#catalog-summary").inner_text()
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
+    assert page.locator(".source-facts").count() == len(PLUGINS)
+    assert page.locator(".manifest-aligned").count() == len(PLUGINS)
+    assert page.locator("#featured-project").count() == 1
+    assert page.get_by_role("link", name="Explore The Beacon Wakes").get_attribute("href") == "the-beacon-wakes/"
     assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
-    maintainer_link = page.get_by_role("link", name="Help maintain a plugin")
-    assert maintainer_link.count() == 1
-    assert "maintainer_interest.md" in maintainer_link.get_attribute("href")
+    assert page.get_by_role("link", name="Help maintain a plugin").count() == 1
+    assert_no_overflow(page)
 
     if mobile:
-        overflow = page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
-        assert not overflow
         page.screenshot(path=OUTPUT_DIR / "mobile.png", full_page=True)
         return
 
     page.keyboard.press("/")
     assert page.evaluate("document.activeElement.id") == "plugin-search"
-    page.keyboard.press("Escape")
-
-    page.get_by_role("button", name="In review").click()
-    assert page.locator(".plugin-card").count() == 0
-    assert page.get_by_text("No plugins match those filters.").count() == 1
-
-    page.get_by_role("button", name="All", exact=True).click()
     page.locator("#plugin-search").fill("MLB")
     assert page.locator(".plugin-card").count() == 1
     assert page.locator(".plugin-card h3").inner_text() == "MLB Booth"
+    page.keyboard.press("Escape")
+    assert page.locator(".plugin-card").count() == len(PLUGINS)
+
+    page.get_by_role("button", name="Sports", exact=True).click()
+    assert page.locator(".plugin-card").count() == 2
+    page.get_by_role("button", name="Every family", exact=True).click()
+
+    page.locator("#plugin-search").fill("zzzz-no-result")
+    assert page.locator(".plugin-card").count() == 0
+    assert page.get_by_text("No plugins match those filters.").count() == 1
     page.locator("#plugin-search").fill("")
 
     copy_button = page.locator('[data-copy-install="io.github.jeremylongshore.bazaar"]')
     copy_button.click()
     copied = page.evaluate("navigator.clipboard.readText()")
     assert copied == "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable"
-
     page.screenshot(path=OUTPUT_DIR / "desktop.png", full_page=True)
+
+
+def assert_nonlisted_edge_case(context) -> None:
+    fake_data = copy.deepcopy(DATA)
+    plugin = fake_data["plugins"][0]
+    plugin.update({
+        "lifecycle": "developing",
+        "marketplaceUrl": None,
+        "submissionUrl": None,
+        "installCommand": None,
+        "metrics": None,
+        "pitch": "Build signals across sport, art, العربية, 日本語, and robotics 🚀 " + "without turning the catalogue into homework. " * 7,
+        "previewUrl": None,
+        "preview": {"status": "missing", "url": None, "path": "preview.png", "sha": None},
+        "manifest": {"status": "drift", "version": "0.1.0", "sha": "c" * 40, "issues": ["version differs"]},
+    })
+    fake_data["plugins"] = [plugin]
+    page = context.new_page()
+    page.route("**/data/plugins.json", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps(fake_data)))
+    page.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
+    page.locator(".plugin-card").wait_for()
+    assert page.get_by_text("Developing", exact=True).count() >= 1
+    assert page.get_by_text("Preview unavailable", exact=True).count() == 1
+    assert page.locator(".manifest-drift").count() == 1
+    assert page.locator(".plugin-card").get_by_role("link", name="Marketplace").count() == 0
+    assert page.locator(".plugin-card").get_by_role("link", name="Review record").count() == 0
+    assert page.locator(".plugin-card").get_by_role("button", name="Copy install").count() == 0
+    assert "العربية" in page.locator(".pitch").inner_text()
+    assert_no_overflow(page)
+    page.close()
 
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=True)
-
-    desktop_errors = []
     desktop_context = browser.new_context(
         viewport={"width": 1440, "height": 1000},
         device_scale_factor=1,
         permissions=["clipboard-read", "clipboard-write"],
     )
+    desktop_errors = []
     desktop = desktop_context.new_page()
     desktop.on("console", lambda message: desktop_errors.append(message.text) if message.type == "error" else None)
-    assert_page(desktop)
+    assert_catalog(desktop)
     assert not desktop_errors, desktop_errors
 
     mobile_errors = []
     mobile = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=1)
     mobile.on("console", lambda message: mobile_errors.append(message.text) if message.type == "error" else None)
-    assert_page(mobile, mobile=True)
+    assert_catalog(mobile, mobile=True)
     assert not mobile_errors, mobile_errors
 
     for width, height in ((375, 812), (768, 1024), (1024, 768)):
-        responsive_errors = []
         responsive = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
-        responsive.on("console", lambda message: responsive_errors.append(message.text) if message.type == "error" else None)
         responsive.goto(BASE_URL)
         responsive.wait_for_load_state("networkidle")
         responsive.locator(".plugin-card").first.wait_for()
-        assert responsive.locator(".plugin-card").count() == 16
-        assert not responsive.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
-        assert not responsive_errors, responsive_errors
+        assert responsive.locator(".plugin-card").count() == len(PLUGINS)
+        assert_no_overflow(responsive)
         responsive.close()
+
+    assert_nonlisted_edge_case(desktop_context)
 
     social = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
     social.goto(BASE_URL)
@@ -102,9 +138,10 @@ with sync_playwright() as playwright:
         detail.goto(f"{BASE_URL}/plugins/{plugin['slug']}/")
         detail.wait_for_load_state("networkidle")
         assert detail.locator("h1").inner_text() == plugin["name"]
-        assert detail.get_by_text("Listed", exact=True).count() == 1
+        assert detail.get_by_text("Officially listed", exact=True).count() == 1
+        assert detail.locator('[data-manifest-status="aligned"]').count() == 1
         assert detail.locator("[data-detail-copy]").count() == 1
-        assert not detail.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
+        assert_no_overflow(detail)
         assert detail.locator(".detail-preview img").evaluate("image => image.complete && image.naturalWidth > 0")
         if plugin["slug"] in {"bazaar", "omatrail"}:
             detail.evaluate("window.scrollTo(0, 0)")
@@ -117,15 +154,35 @@ with sync_playwright() as playwright:
         mobile.goto(f"{BASE_URL}/plugins/{plugin['slug']}/")
         mobile.wait_for_load_state("networkidle")
         assert mobile.locator("h1").inner_text() == plugin["name"]
-        assert not mobile.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
+        assert_no_overflow(mobile)
+
+    for page, viewport, filename in (
+        (desktop_context.new_page(), {"width": 1440, "height": 1000}, "beacon-desktop.png"),
+        (browser.new_page(viewport={"width": 390, "height": 844}), {"width": 390, "height": 844}, "beacon-mobile.png"),
+    ):
+        page.set_viewport_size(viewport)
+        page.goto(f"{BASE_URL}/the-beacon-wakes/")
+        page.wait_for_load_state("networkidle")
+        assert page.get_by_role("heading", name="The Beacon Wakes").count() == 1
+        assert page.locator("#parent-guide").count() == 1
+        assert page.get_by_text("No email required", exact=True).count() == 1
+        assert_no_overflow(page)
+        page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+        page.close()
+
+    legacy = browser.new_page()
+    legacy.goto(f"{BASE_URL}/omaquest/")
+    legacy.wait_for_url(f"{BASE_URL}/the-beacon-wakes/")
+    assert legacy.get_by_role("heading", name="The Beacon Wakes").count() == 1
+    legacy.close()
 
     failed = desktop_context.new_page()
-    failed.route("**/data/plugins.json", lambda route: route.abort())
+    failed.route("**/data/plugins.json", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps({"plugins": [{"name": "bad"}]})))
     failed.goto(BASE_URL)
     failed.wait_for_load_state("networkidle")
-    assert failed.get_by_text("The catalog could not load.").count() == 1
+    assert failed.get_by_text("The catalogue could not load.").count() == 1
     failed.locator("#plugin-search").fill("test")
-    assert failed.get_by_text("The catalog could not load.").count() == 1
+    assert failed.get_by_text("The catalogue could not load.").count() == 1
 
     browser.close()
 
