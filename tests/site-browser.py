@@ -167,6 +167,12 @@ with sync_playwright() as playwright:
                 route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"}))
 
             page.route("https://intentsolutions.io/api/forms/beacon-signup", capture_signup)
+            confirmed_token = {}
+            def capture_confirmation(route):
+                confirmed_token.update(json.loads(route.request.post_data))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmed"}))
+
+            page.route("https://intentsolutions.io/api/forms/beacon-confirm", capture_confirmation)
         page.set_viewport_size(viewport)
         page.goto(f"{BASE_URL}/the-beacon-wakes/")
         page.wait_for_load_state("networkidle")
@@ -195,6 +201,16 @@ with sync_playwright() as playwright:
             page.evaluate("document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0)")
             page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+            page.goto(f"{BASE_URL}/the-beacon-wakes/?signup=confirm#token=sealed-test-token")
+            page.get_by_role("button", name="Confirm release updates").wait_for()
+            assert page.locator("#beacon-signup").is_hidden()
+            assert page.locator("#beacon-confirm-button").evaluate("element => document.activeElement === element")
+            page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
+            page.screenshot(path=OUTPUT_DIR / "beacon-confirm-desktop.png", full_page=True)
+            page.get_by_role("button", name="Confirm release updates").click()
+            page.get_by_text("You are confirmed.", exact=False).wait_for()
+            assert confirmed_token == {"token": "sealed-test-token"}
+            assert "sealed-test-token" not in page.url
             page.goto(f"{BASE_URL}/the-beacon-wakes/?signup=invalid")
             page.get_by_text("That confirmation link is invalid or expired.", exact=False).wait_for()
             assert page.locator("#beacon-form-status").evaluate("element => document.activeElement === element")

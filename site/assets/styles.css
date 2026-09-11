@@ -429,6 +429,50 @@ body {
   gap: 22px;
 }
 
+.beacon-signup[hidden] {
+  display: none;
+}
+
+.beacon-confirmation {
+  padding-top: 8px;
+}
+
+.beacon-confirmation[hidden] {
+  display: none;
+}
+
+.beacon-confirmation h3 {
+  max-width: 12ch;
+  margin: 0 0 18px;
+  color: var(--beacon-gold);
+  font-family: var(--mono);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+}
+
+.beacon-confirmation .beacon-button {
+  margin: 12px 0 18px;
+  color: var(--beacon-forest);
+  border-color: var(--beacon-ember);
+  background: var(--beacon-ember);
+}
+
+.beacon-confirmation .beacon-button:hover {
+  box-shadow: none;
+}
+
+.beacon-confirmation .beacon-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.beacon-confirmation-retry {
+  color: var(--beacon-gold);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-underline-offset: 4px;
+}
+
 .beacon-signup label:not(.beacon-consent, .beacon-honeypot) {
   display: grid;
   gap: 8px;

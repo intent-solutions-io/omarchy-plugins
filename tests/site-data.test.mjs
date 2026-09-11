@@ -169,6 +169,9 @@ test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
   assert.match(beacon, /class="beacon-release-link"/);
   assert.match(beaconSignup, /beacon-release-updates-v1/);
   assert.match(beaconSignup, /https:\/\/intentsolutions\.io\/api\/forms\/beacon-signup/);
+  assert.match(beaconSignup, /https:\/\/intentsolutions\.io\/api\/forms\/beacon-confirm/);
+  assert.match(beaconSignup, /window\.location\.hash/);
+  assert.match(beacon, /id="beacon-confirm-button"/);
   assert.doesNotMatch(beacon, /name="(?:child|learner)|href="[^"]*checkout|buy now|download now/i);
   assert.match(beacon, /https:\/\/oma\.intentsolutions\.io\/the-beacon-wakes\//);
   assert.doesNotMatch(beacon, /omaQuest|OmaQuest|OMAQUEST/);
