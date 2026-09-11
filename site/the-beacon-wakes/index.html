@@ -29,6 +29,7 @@
     <nav aria-label="Primary navigation">
       <a href="play/">Play demo</a>
       <a href="#parent-guide">Parent guide</a>
+      <a class="beacon-release-link" href="#parent-updates">Release updates</a>
       <a href="#release-status">Release status</a>
       <a href="../#catalog">All plugins</a>
     </nav>
@@ -96,6 +97,49 @@
       </div>
     </section>
 
+    <section class="beacon-updates" id="parent-updates" aria-labelledby="updates-title">
+      <div class="beacon-updates-copy">
+        <h2 id="updates-title">Know when the next signal arrives.</h2>
+        <p>Parents and guardians can get occasional progress notes, playtest invitations, and the downloadable release announcement. The demo stays free and ungated.</p>
+        <p class="beacon-updates-boundary"><strong>Adults only.</strong> We collect the parent or guardian information below. Please do not enter a child’s name or email.</p>
+      </div>
+
+      <form class="beacon-signup" id="beacon-signup" action="https://intentsolutions.io/api/forms/beacon-signup" method="post" novalidate>
+        <div class="beacon-name-fields">
+          <label>
+            <span>Parent or guardian first name</span>
+            <input name="firstName" type="text" autocomplete="given-name" maxlength="80" required>
+          </label>
+          <label>
+            <span>Parent or guardian last name</span>
+            <input name="lastName" type="text" autocomplete="family-name" maxlength="80" required>
+          </label>
+        </div>
+        <label>
+          <span>Parent or guardian email</span>
+          <input name="email" type="email" autocomplete="email" maxlength="254" inputmode="email" required>
+        </label>
+        <label class="beacon-consent">
+          <input name="consent" type="checkbox" required>
+          <span>I am a parent or guardian and want email updates about The Beacon Wakes.</span>
+        </label>
+        <label class="beacon-honeypot" aria-hidden="true">
+          <span>Website</span>
+          <input name="website" type="text" autocomplete="off" tabindex="-1">
+        </label>
+        <button class="button beacon-button" type="submit">Send my confirmation</button>
+        <p class="beacon-form-status" id="beacon-form-status" role="status" aria-live="polite" tabindex="-1">We will email you once to confirm. You can unsubscribe from future updates at any time.</p>
+        <p class="beacon-form-privacy">Parent contact details are handled under the Intent Solutions <a href="https://intentsolutions.io/privacy/">privacy policy</a>. No child gameplay or performance data is sent with this form.</p>
+      </form>
+      <div class="beacon-confirmation" id="beacon-confirmation" hidden>
+        <h3>One last signal.</h3>
+        <p>Press the button below to confirm that you want parent and guardian updates for The Beacon Wakes.</p>
+        <button class="button beacon-button" id="beacon-confirm-button" type="button">Confirm release updates</button>
+        <p class="beacon-form-status" id="beacon-confirmation-status" role="status" aria-live="polite" tabindex="-1">Nothing is added to the release list until you press Confirm.</p>
+        <a class="beacon-confirmation-retry" href="./#parent-updates">Request a new confirmation link</a>
+      </div>
+    </section>
+
     <section class="beacon-status" id="release-status" aria-labelledby="status-title">
       <div>
         <p class="beacon-status-label">Current release status</p>
@@ -117,5 +161,6 @@
     </div>
     <p><a href="../">Omarchy plugin portfolio</a></p>
   </footer>
+  <script src="../assets/beacon-signup.js" defer></script>
 </body>
 </html>
