@@ -1,11 +1,20 @@
 {
-  "generatedAt": "2026-09-10T16:24:54.623Z",
-  "catalogSize": 2913,
+  "generatedAt": "2026-09-11T14:35:31.302Z",
+  "catalogSize": 2984,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
     "marketplaceUrl": "https://plugins.omarchy.org/index.html?author=jeremylongshore"
   },
+  "families": [
+    "Discovery and Building",
+    "Sports",
+    "System Awareness",
+    "Desktop Workflow",
+    "Signals and Feeds",
+    "Focus and Delivery",
+    "Play and Learning"
+  ],
   "plugins": [
     {
       "id": "io.github.jeremylongshore.bazaar",
@@ -14,6 +23,7 @@
       "repo": "omarchy-bazaar-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-bazaar-entry",
       "pitch": "The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands.",
+      "family": "Discovery and Building",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -26,8 +36,27 @@
       "verificationStatus": "unverified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "71cb6275f2de0582b66d89c7eb47e04fea5a19d2"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 1
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.0.0",
+        "sha": "7d691be62a608f98316df5c4a5e3effcda03770b",
+        "issues": []
+      },
       "metrics": {
-        "views": 304,
+        "views": 305,
         "copies": 37,
         "hearts": 0
       }
@@ -39,6 +68,7 @@
       "repo": "omarchy-pit-wall-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-pit-wall-entry",
       "pitch": "A Formula 1 race-weekend command post with countdowns, live order, gaps, flags, safety-car state, local-time schedules, and championship standings.",
+      "family": "Sports",
       "lifecycle": "listed",
       "category": "Widgets",
       "tags": [
@@ -52,8 +82,27 @@
       "verificationStatus": "unverified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "0562c4ea3b9ebb23584564f2c5b077fbc4b78103"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.0.0",
+        "sha": "678138c3603e8f04dcc41523d2f78216b48a682c",
+        "issues": []
+      },
       "metrics": {
-        "views": 162,
+        "views": 164,
         "copies": 22,
         "hearts": 3
       }
@@ -65,6 +114,7 @@
       "repo": "omarchy-wait-state-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-wait-state-entry",
       "pitch": "CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked.",
+      "family": "System Awareness",
       "lifecycle": "listed",
       "category": "System",
       "tags": [
@@ -78,8 +128,27 @@
       "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "998d8f0a0e2f8cc34d9fe8ec23fbdeaa05328c1c"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:44Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.1.0",
+        "sha": "8e2d2c624bd72eafcf0bb212e23630e480b61f66",
+        "issues": []
+      },
       "metrics": {
-        "views": 153,
+        "views": 156,
         "copies": 9,
         "hearts": 0
       }
@@ -91,6 +160,7 @@
       "repo": "omarchy-mlb-booth-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-mlb-booth-entry",
       "pitch": "Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race.",
+      "family": "Sports",
       "lifecycle": "listed",
       "category": "Widgets",
       "tags": [
@@ -104,8 +174,27 @@
       "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "8a1acb707db17f962e9ff26a80bb1fc9f60e40f4"
+      },
+      "github": {
+        "stars": 1,
+        "pushedAt": "2026-09-09T16:44:12Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.1.0",
+        "sha": "3edaf80e166a6e1f4eb8c5c0e7fd78b4693303dc",
+        "issues": []
+      },
       "metrics": {
-        "views": 130,
+        "views": 131,
         "copies": 9,
         "hearts": 2
       }
@@ -117,6 +206,7 @@
       "repo": "omarchy-x-files-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-x-files-entry",
       "pitch": "Replies to your own X posts as a drainable queue of questions, gripes, and asks, with representative quotes and a hard API-spend cap.",
+      "family": "Signals and Feeds",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -129,6 +219,25 @@
       "verificationStatus": "unverified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-x-files-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-x-files-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "106db1b24ab8cacb1777879e0268e1e7ae0b3b1f"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:43Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.0.0",
+        "sha": "65f34ec389685442029f4e0e442b880bfe0ca822",
+        "issues": []
+      },
       "metrics": {
         "views": 165,
         "copies": 2,
@@ -142,6 +251,7 @@
       "repo": "omarchy-docket-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-docket-entry",
       "pitch": "GitHub pull requests as an obligation queue: reviews waiting on you, your blocked work, and branches ready to merge, oldest first.",
+      "family": "Focus and Delivery",
       "lifecycle": "listed",
       "category": "Developer Tools",
       "tags": [
@@ -154,8 +264,27 @@
       "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-docket-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-docket-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "0ab3d53725c953450a4d87e1a4c7e160a56edb73"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.1.0",
+        "sha": "6d4043fc9b6140ba70c7e42bd997df3dcdca5272",
+        "issues": []
+      },
       "metrics": {
-        "views": 167,
+        "views": 168,
         "copies": 4,
         "hearts": 1
       }
@@ -167,6 +296,7 @@
       "repo": "omarchy-crew-chief-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-crew-chief-entry",
       "pitch": "Claude Code, Codex, Herdr, and other agent sessions as a local attention queue. See working, blocked, and done, then focus the project that needs you.",
+      "family": "Focus and Delivery",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -179,8 +309,27 @@
       "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "357cd7a55412d713113dd6d6a4bb1fbd7e3234ae"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.1.0",
+        "sha": "6d35b4b5b629367bd8e62f9d26c184165691d6a7",
+        "issues": []
+      },
       "metrics": {
-        "views": 178,
+        "views": 182,
         "copies": 14,
         "hearts": 2
       }
@@ -192,6 +341,7 @@
       "repo": "omarchy-listening-post-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-listening-post-entry",
       "pitch": "Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts.",
+      "family": "Signals and Feeds",
       "lifecycle": "listed",
       "category": "Widgets",
       "tags": [
@@ -202,12 +352,31 @@
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.listening-post",
       "submissionUrl": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "4fe723a37e190832ee026acfe560968effad65bf"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 6
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "1.2.0",
+        "sha": "4f02a776944a8bd9b38298d9fb5dcce61670c169",
+        "issues": []
+      },
       "metrics": {
-        "views": 475,
-        "copies": 20,
+        "views": 478,
+        "copies": 21,
         "hearts": 0
       }
     },
@@ -218,6 +387,7 @@
       "repo": "omarchy-desk-transition-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-desk-transition-entry",
       "pitch": "Two safe Hyprland display actions: arrange active outputs left-to-right or focus the built-in panel, with a preview before anything changes.",
+      "family": "System Awareness",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -230,9 +400,28 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "f0681089b57aee1c1b12f00195ca1d21d689e997"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:38Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "41269a8a6489cff0a6ec5282c560dfaf0d11a12b",
+        "issues": []
+      },
       "metrics": {
-        "views": 217,
-        "copies": 14,
+        "views": 219,
+        "copies": 15,
         "hearts": 2
       }
     },
@@ -243,6 +432,7 @@
       "repo": "omarchy-foundry-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-foundry-entry",
       "pitch": "Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates.",
+      "family": "Discovery and Building",
       "lifecycle": "listed",
       "category": "Developer Tools",
       "tags": [
@@ -256,6 +446,25 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "ff747a8d9b92dbf77bf87b1dde02d3a55b527a8d"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "7601b2e67037719a8f9ab3e6d8e9d0bcd0c0c79b",
+        "issues": []
+      },
       "metrics": {
         "views": 133,
         "copies": 5,
@@ -269,6 +478,7 @@
       "repo": "omarchy-loose-ends-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-loose-ends-entry",
       "pitch": "Scan local Git repositories for uncommitted edits, unpushed commits, old stashes, detached heads, and interrupted operations, oldest first.",
+      "family": "Focus and Delivery",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -281,8 +491,27 @@
       "verificationStatus": "unverified",
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "aa71536f84311dc04a3d59ef5c0e58912cb58074"
+      },
+      "github": {
+        "stars": 1,
+        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.1.0",
+        "sha": "c977ab35d6923d523995c1adbdb54f200f5edf4f",
+        "issues": []
+      },
       "metrics": {
-        "views": 90,
+        "views": 91,
         "copies": 3,
         "hearts": 1
       }
@@ -294,6 +523,7 @@
       "repo": "omarchy-capture-conveyor-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-capture-conveyor-entry",
       "pitch": "Turn Omarchy screenshots into a keyboard-first inbox: view recent captures, capture or OCR a region, copy paths, and reveal files.",
+      "family": "Desktop Workflow",
       "lifecycle": "listed",
       "category": "Widgets",
       "tags": [
@@ -306,6 +536,25 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "184b38cf58daec8631a9ac4721abeb59d912b790"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:39Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "6cf92b67120bdec3d8a3e309a4ed41844bca5aae",
+        "issues": []
+      },
       "metrics": {
         "views": 135,
         "copies": 7,
@@ -319,6 +568,7 @@
       "repo": "omarchy-workspace-storyboard-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry",
       "pitch": "Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history.",
+      "family": "Desktop Workflow",
       "lifecycle": "listed",
       "category": "Widgets",
       "tags": [
@@ -332,8 +582,27 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "dc94a350a716c567503d5c14bfdb9008787be5f0"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "aa4f05162f3e8a7cd49a10f033e2c61631b62396",
+        "issues": []
+      },
       "metrics": {
-        "views": 268,
+        "views": 269,
         "copies": 8,
         "hearts": 2
       }
@@ -345,6 +614,7 @@
       "repo": "omarchy-quiet-queue-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-quiet-queue-entry",
       "pitch": "A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session.",
+      "family": "Focus and Delivery",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -357,6 +627,25 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "1d97bdbb7f69fdc4868dd159bb3c129b3d337e07"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "e4fbb7e206a484f8132358071d56e57fbd4a8ceb",
+        "issues": []
+      },
       "metrics": {
         "views": 132,
         "copies": 3,
@@ -370,6 +659,7 @@
       "repo": "omarchy-flow-boundary-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-flow-boundary-entry",
       "pitch": "Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history.",
+      "family": "Focus and Delivery",
       "lifecycle": "listed",
       "category": "Productivity",
       "tags": [
@@ -382,8 +672,27 @@
       "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "db9c2feb40da27dc432d7216eacb5d2dc9b1eb44"
+      },
+      "github": {
+        "stars": 0,
+        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.2.0",
+        "sha": "e2b528bfb124073a82263a0ca5a053956ade9301",
+        "issues": []
+      },
       "metrics": {
-        "views": 299,
+        "views": 300,
         "copies": 6,
         "hearts": 1
       }
@@ -395,6 +704,7 @@
       "repo": "omarchy-omatrail-entry",
       "repoUrl": "https://github.com/jeremylongshore/omarchy-omatrail-entry",
       "pitch": "An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics.",
+      "family": "Play and Learning",
       "lifecycle": "listed",
       "category": "Kids",
       "tags": [
@@ -408,9 +718,28 @@
       "verificationStatus": "unverified",
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-omatrail-entry/main/preview.png",
+      "preview": {
+        "status": "verified",
+        "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-omatrail-entry/main/preview.png",
+        "path": "preview.png",
+        "sha": "7aded72de382a68de0c77bc3a99ea6071788b62d"
+      },
+      "github": {
+        "stars": 1,
+        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranch": "main",
+        "archived": false,
+        "openIssues": 0
+      },
+      "manifest": {
+        "status": "aligned",
+        "version": "0.1.0",
+        "sha": "0741be0a02d71a0d4125b4ed1a4455f9a3e84b75",
+        "issues": []
+      },
       "metrics": {
-        "views": 142,
-        "copies": 8,
+        "views": 168,
+        "copies": 11,
         "hearts": 2
       }
     }
@@ -420,6 +749,15 @@
     "repo": "omarchy-widget-template",
     "repoUrl": "https://github.com/jeremylongshore/omarchy-widget-template",
     "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing.",
-    "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-widget-template/main/preview.png"
+    "github": {
+      "stars": 0,
+      "pushedAt": "2026-09-09T16:08:43Z",
+      "archived": false
+    },
+    "preview": {
+      "status": "missing",
+      "url": null,
+      "sha": null
+    }
   }
 }
