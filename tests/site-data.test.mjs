@@ -137,6 +137,7 @@ test("GetTerms legal routes use the supplied account and document contracts", ()
     assert.match(legal.html, /data-getterms-mode="direct"/);
     assert.match(legal.html, /data-getterms-env="https:\/\/gettermscdn\.com"/);
     assert.match(legal.html, /https:\/\/gettermscdn\.com\/dist\/js\/embed\.js/);
+    assert.ok(legal.html.includes(`https://gettermscdn.com/view/wH2cn/${legal.document}/en-us`));
     assert.match(legal.html, new RegExp(`https://oma\\.intentsolutions\\.io/${route}/`));
     assert.doesNotMatch(legal.html, /embed-js\/goaal/);
   }
