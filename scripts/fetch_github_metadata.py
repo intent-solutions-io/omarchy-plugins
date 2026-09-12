@@ -85,6 +85,15 @@ def fetch_repo(api_base: str, owner: str, repo: str, token: str | None) -> tuple
     default_branch = metadata.get("default_branch")
     if not isinstance(default_branch, str) or not default_branch:
         raise MetadataError(f"repository has no default branch: {repo}")
+    encoded_branch = urllib.parse.quote(default_branch, safe="")
+    head = request_json(f"{repo_url}/commits/{encoded_branch}", token)
+    if not isinstance(head, dict):
+        raise MetadataError(f"default branch metadata is not an object: {repo}")
+    commit = head.get("commit")
+    committer = commit.get("committer") if isinstance(commit, dict) else None
+    default_branch_updated_at = committer.get("date") if isinstance(committer, dict) else None
+    if not isinstance(default_branch_updated_at, str) or not default_branch_updated_at:
+        raise MetadataError(f"default branch commit has no committer date: {repo}")
     root = request_json(f"{repo_url}/contents?ref={urllib.parse.quote(default_branch)}", token)
     if not isinstance(root, list):
         raise MetadataError(f"repository root is not a file list: {repo}")
@@ -98,7 +107,7 @@ def fetch_repo(api_base: str, owner: str, repo: str, token: str | None) -> tuple
     return repo, {
         "repoUrl": metadata.get("html_url"),
         "stars": metadata.get("stargazers_count"),
-        "pushedAt": metadata.get("pushed_at"),
+        "defaultBranchUpdatedAt": default_branch_updated_at,
         "defaultBranch": default_branch,
         "archived": metadata.get("archived"),
         "openIssues": metadata.get("open_issues_count"),

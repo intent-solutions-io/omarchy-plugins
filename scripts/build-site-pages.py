@@ -75,6 +75,14 @@ def marketplace_markup(plugin: dict[str, object]) -> tuple[str, str]:
     )
 
 
+def project_action(plugin: dict[str, object], class_name: str = "button button-primary") -> str:
+    project = plugin.get("project") if isinstance(plugin.get("project"), dict) else {}
+    if not project.get("url") or not project.get("label"):
+        return ""
+    class_attribute = f' class="{esc(class_name)}"' if class_name else ""
+    return f'<a{class_attribute} href="{esc(project["url"])}">{esc(project["label"])}</a>'
+
+
 def install_markup(plugin: dict[str, object]) -> str:
     install = plugin.get("installCommand")
     if install:
@@ -96,7 +104,7 @@ def facts_markup(plugin: dict[str, object]) -> str:
     manifest = plugin.get("manifest") if isinstance(plugin.get("manifest"), dict) else {}
     items = [
         ("GitHub stars", github.get("stars", 0)),
-        ("Repository updated", iso_day(github.get("pushedAt"))),
+        ("Main branch updated", iso_day(github.get("defaultBranchUpdatedAt"))),
         ("Manifest", str(manifest.get("status", "unknown")).replace("-", " ").title()),
         ("Version", plugin.get("version") or manifest.get("version") or "Current source"),
     ]
@@ -131,6 +139,9 @@ def page_for(plugin: dict[str, object]) -> str:
     """Render the permanent public detail page for one plugin."""
     lifecycle = str(plugin.get("lifecycle", "not-listed"))
     marketplace_action, marketplace_proof = marketplace_markup(plugin)
+    related_project_action = project_action(plugin)
+    if related_project_action:
+        marketplace_action = marketplace_action.replace("button button-primary", "button button-quiet")
     canonical = f"https://oma.intentsolutions.io/plugins/{plugin['slug']}/"
     marketplace_nav = f'<a href="{esc(plugin["marketplaceUrl"])}">Marketplace</a>' if plugin.get("marketplaceUrl") else ""
     return f"""<!doctype html>
@@ -169,7 +180,7 @@ def page_for(plugin: dict[str, object]) -> str:
         <h1>{esc(plugin['name'])}</h1>
         <p class="detail-family">{esc(plugin['family'])}</p>
         <p class="detail-lede">{esc(plugin['pitch'])}</p>
-        <div class="hero-actions">{marketplace_action}<a class="button button-quiet" href="{esc(plugin['repoUrl'])}">GitHub repository</a></div>
+        <div class="hero-actions">{related_project_action}{marketplace_action}<a class="button button-quiet" href="{esc(plugin['repoUrl'])}">GitHub repository</a></div>
       </div>
       {preview_markup(plugin)}
     </section>
@@ -196,10 +207,11 @@ def static_catalog(data: dict[str, object]) -> str:
             if plugin.get("marketplaceUrl")
             else ""
         )
+        project = project_action(plugin, "")
         items.append(
             f'<li><a href="plugins/{esc(plugin["slug"])}/"><strong>{esc(plugin["name"])}</strong></a> '
             f'<span>{esc(plugin["family"])}. {esc(lifecycle_label(plugin["lifecycle"]))}.</span> '
-            f'<a href="{esc(plugin["repoUrl"])}">GitHub</a>{marketplace}</li>'
+            f'<a href="{esc(plugin["repoUrl"])}">GitHub</a>{marketplace} {project}</li>'
         )
     return """<noscript>
         <section class="static-catalog" aria-labelledby="static-catalog-title">

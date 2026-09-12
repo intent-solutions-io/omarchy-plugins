@@ -21,6 +21,7 @@ const legalDocuments = new Map(await Promise.all([
   route,
   { heading, html: await readFile(new URL(`../site/${route}/index.html`, import.meta.url), "utf8") },
 ])));
+const perception = await readFile(new URL("../site/perception/index.html", import.meta.url), "utf8");
 
 test("generated site inventory matches the canonical config", () => {
   assert.equal(data.plugins.length, config.plugins.length);
@@ -40,6 +41,7 @@ test("generated site inventory matches the canonical config", () => {
     assert.equal(generated.repoUrl, `https://github.com/${config.github.owner}/${source.repo}`);
     assert.equal(generated.pitch, source.pitch);
     assert.equal(generated.family, source.family);
+    assert.deepEqual(generated.project, source.project || null);
     assert.ok(config.families.includes(generated.family));
   }
 });
@@ -65,7 +67,7 @@ test("repository health includes bounded stars, freshness, preview provenance, a
   for (const plugin of data.plugins) {
     assert.ok(Number.isSafeInteger(plugin.github.stars) && plugin.github.stars >= 0);
     assert.ok(Number.isSafeInteger(plugin.github.openIssues) && plugin.github.openIssues >= 0);
-    assert.match(plugin.github.pushedAt, /^\d{4}-\d{2}-\d{2}T/);
+    assert.match(plugin.github.defaultBranchUpdatedAt, /^\d{4}-\d{2}-\d{2}T/);
     assert.match(plugin.github.defaultBranch, /^[A-Za-z0-9._/-]+$/);
     assert.ok(["aligned", "drift", "missing"].includes(plugin.manifest.status));
     assert.ok(Array.isArray(plugin.manifest.issues));
@@ -114,6 +116,8 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.match(html, /id="ledger"/);
   assert.match(html, /id="family-filters"/);
   assert.match(html, /id="featured-project"/);
+  assert.match(html, /id="project-count"/);
+  assert.doesNotMatch(html, /id="roadmap-count"/);
   assert.match(html, /href="the-beacon-wakes\/play\/"/);
   assert.match(html, /<h2 id="beacon-feature-title">The Beacon Wakes<\/h2>/);
   assert.match(html, /STATIC_CATALOG:START/);
@@ -127,6 +131,7 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.match(css, /prefers-reduced-motion/);
   assert.match(css, /caret-color: var\(--orange-deep\)/);
   assert.equal(cname, "oma.intentsolutions.io");
+  assert.equal(data.marketplaceStatsUrl, "https://api.omarchyplugins.com/v1/stats");
 });
 
 test("repository-owned legal routes match product and child-safety contracts", () => {
@@ -163,10 +168,23 @@ test("every plugin has a generated permanent detail page with source receipts", 
     if (plugin.installCommand) assert.ok(detail.includes(plugin.installCommand));
     if (plugin.preview.status === "verified") assert.ok(detail.includes(plugin.preview.sha.slice(0, 12)));
     else assert.ok(detail.includes("Preview unavailable"));
+    if (plugin.project) {
+      assert.ok(html.includes(`href="${plugin.project.url}"`));
+      assert.ok(detail.includes(`href="${plugin.project.url}"`));
+    }
     assert.doesNotMatch(detail, /href=""/);
     assert.match(detail, /href="\.\.\/\.\.\/privacy\/"/);
     assert.match(detail, /href="\.\.\/\.\.\/terms\/"/);
   }
+});
+
+test("Perception has a permanent OMA product route", () => {
+  assert.match(perception, /<title>Perception is on the way<\/title>/);
+  assert.match(perception, /https:\/\/oma\.intentsolutions\.io\/perception\//);
+  assert.match(perception, /href="\.\.\/plugins\/listening-post\//);
+  assert.match(perception, /href="\.\.\/privacy\//);
+  assert.match(perception, /href="\.\.\/terms\//);
+  assert.match(perception, /Perception is <em>on the way\.<\/em>/);
 });
 
 test("public product branding keeps the capital T in omaTrail", async () => {
