@@ -82,7 +82,11 @@
       "repo": "omarchy-listening-post-entry",
       "family": "Signals and Feeds",
       "lifecycle": "listed",
-      "pitch": "Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts."
+      "pitch": "Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts.",
+      "project": {
+        "label": "Open Perception",
+        "url": "/perception/"
+      }
     },
     {
       "id": "io.github.jeremylongshore.desk-transition",

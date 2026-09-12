@@ -16,6 +16,7 @@ README_END = "<!-- METRICS:END -->"
 ALLOWED_LIFECYCLES = {"listed", "under-review", "developing", "unreleased", "retired", "not-listed"}
 ID_RE = re.compile(r"^io\.github\.jeremylongshore\.[a-z0-9-]+$")
 REPO_RE = re.compile(r"^omarchy-[a-z0-9-]+-entry$")
+PROJECT_URL_RE = re.compile(r"^/[a-z0-9][a-z0-9/-]*/$")
 
 
 class CatalogError(ValueError):
@@ -49,6 +50,14 @@ def validate_config(config: dict[str, Any]) -> None:
         lifecycle = require_string(entry.get("lifecycle"), f"plugins[{index}].lifecycle", 40)
         require_string(entry.get("name"), f"plugins[{index}].name", 80)
         require_string(entry.get("pitch"), f"plugins[{index}].pitch", 500)
+        project = entry.get("project")
+        if project is not None:
+            if not isinstance(project, dict):
+                raise CatalogError(f"plugins[{index}].project must be an object")
+            require_string(project.get("label"), f"plugins[{index}].project.label", 80)
+            project_url = require_string(project.get("url"), f"plugins[{index}].project.url", 160)
+            if not PROJECT_URL_RE.fullmatch(project_url) or "//" in project_url or ".." in project_url:
+                raise CatalogError(f"plugins[{index}].project.url must be a safe site-relative path")
         if "tags" in entry and (
             not isinstance(entry["tags"], list)
             or any(not isinstance(tag, str) or not tag.strip() or len(tag) > 60 for tag in entry["tags"])
@@ -111,6 +120,9 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
     if not isinstance(catalog_plugins, list) or not isinstance(stats, dict) or not isinstance(github_repos, dict):
         raise CatalogError("upstream snapshots do not match the required schema")
     generated_at = require_string(catalog.get("generatedAt"), "catalog.generatedAt", 80)
+    stats_url = require_string(config["marketplace"].get("stats"), "marketplace.stats", 300)
+    if not stats_url.startswith("https://api.omarchyplugins.com/"):
+        raise CatalogError("marketplace.stats must use the official HTTPS API host")
     by_id = {entry.get("id"): entry for entry in catalog_plugins if isinstance(entry, dict)}
     page = require_string(config["marketplace"].get("pluginPage"), "marketplace.pluginPage", 300)
     owner = require_string(config["github"].get("owner"), "github.owner", 80)
@@ -127,7 +139,11 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
             raise CatalogError(f"GitHub repository URL differs for {repo}")
         stars = nonnegative_integer(github.get("stars"), f"{repo}.stars")
         open_issues = nonnegative_integer(github.get("openIssues"), f"{repo}.openIssues")
-        pushed_at = require_string(github.get("pushedAt"), f"{repo}.pushedAt", 80)
+        default_branch_updated_at = require_string(
+            github.get("defaultBranchUpdatedAt"),
+            f"{repo}.defaultBranchUpdatedAt",
+            80,
+        )
         default_branch = require_string(github.get("defaultBranch"), f"{repo}.defaultBranch", 120)
         preview_source = github.get("preview") if isinstance(github.get("preview"), dict) else {}
         preview_available = preview_source.get("available") is True
@@ -164,6 +180,10 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
             "tags": tags,
             "marketplaceUrl": marketplace_url,
             "submissionUrl": submission_url,
+            "project": {
+                "label": entry["project"]["label"],
+                "url": entry["project"]["url"],
+            } if isinstance(entry.get("project"), dict) else None,
             "installCommand": marketplace.get("installCommand") if marketplace else None,
             "verificationStatus": marketplace.get("verificationStatus", "unverified") if marketplace else "not-listed",
             "version": marketplace.get("version") if marketplace else None,
@@ -176,7 +196,7 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
             },
             "github": {
                 "stars": stars,
-                "pushedAt": pushed_at,
+                "defaultBranchUpdatedAt": default_branch_updated_at,
                 "defaultBranch": default_branch,
                 "archived": github.get("archived") is True,
                 "openIssues": open_issues,
@@ -194,6 +214,7 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
         raise CatalogError("template GitHub repository URL differs")
     return {
         "generatedAt": generated_at,
+        "marketplaceStatsUrl": stats_url,
         "catalogSize": len(catalog_plugins),
         "publisher": {
             "name": "Jeremy Longshore",
@@ -209,7 +230,11 @@ def build_catalog(config: dict[str, Any], catalog: dict[str, Any], stats_body: d
             "pitch": template["pitch"],
             "github": {
                 "stars": nonnegative_integer(template_github.get("stars"), f"{template_repo}.stars"),
-                "pushedAt": require_string(template_github.get("pushedAt"), f"{template_repo}.pushedAt", 80),
+                "defaultBranchUpdatedAt": require_string(
+                    template_github.get("defaultBranchUpdatedAt"),
+                    f"{template_repo}.defaultBranchUpdatedAt",
+                    80,
+                ),
                 "archived": template_github.get("archived") is True,
             },
             "preview": {
@@ -264,7 +289,7 @@ def render_readme_block(data: dict[str, Any]) -> str:
     stars = sum(plugin["github"]["stars"] for plugin in data["plugins"])
     lines = [
         f"Marketplace data generated at `{data['generatedAt']}`, across {data['catalogSize']} listed plugins. "
-        "GitHub stars, repository freshness, root manifest, and preview metadata are derived during the same refresh.",
+        "GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.",
         "",
         "| Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |",
         "| --- | --- | --- | --- | --- | --: | --: | --: | --: |",

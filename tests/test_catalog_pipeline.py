@@ -11,6 +11,7 @@ def fixtures():
         "marketplace": {
             "pluginPage": "https://plugins.omarchy.org/plugin.html?id=",
             "authorPage": "https://plugins.omarchy.org/index.html?author=jeremylongshore",
+            "stats": "https://api.omarchyplugins.com/v1/stats",
         },
         "github": {"owner": "jeremylongshore"},
         "families": ["Utilities"],
@@ -21,6 +22,7 @@ def fixtures():
             "family": "Utilities",
             "lifecycle": "listed",
             "pitch": "A focused example plugin.",
+            "project": {"label": "Open example", "url": "/example/"},
         }],
         "template": {"name": "Template", "repo": "omarchy-widget-template", "pitch": "A safe starting point."},
     }
@@ -40,7 +42,7 @@ def fixtures():
             "repoUrl": f"https://github.com/jeremylongshore/{repo}",
             "stars": 4,
             "openIssues": 1,
-            "pushedAt": "2026-09-10T11:00:00Z",
+            "defaultBranchUpdatedAt": "2026-09-10T11:00:00Z",
             "defaultBranch": "main",
             "archived": False,
             "manifest": {"id": plugin_id, "name": "Example", "version": "1.2.3"},
@@ -56,7 +58,7 @@ def fixtures():
             "repoUrl": "https://github.com/jeremylongshore/omarchy-widget-template",
             "stars": 2,
             "openIssues": 0,
-            "pushedAt": "2026-09-09T11:00:00Z",
+            "defaultBranchUpdatedAt": "2026-09-09T11:00:00Z",
             "defaultBranch": "main",
             "archived": False,
             "manifest": None,
@@ -75,6 +77,8 @@ class CatalogPipelineTests(unittest.TestCase):
         self.assertEqual(plugin["manifest"]["status"], "aligned")
         self.assertEqual(plugin["preview"]["status"], "verified")
         self.assertEqual(plugin["github"]["stars"], 4)
+        self.assertEqual(plugin["github"]["defaultBranchUpdatedAt"], "2026-09-10T11:00:00Z")
+        self.assertEqual(plugin["project"], {"label": "Open example", "url": "/example/"})
         self.assertIsNotNone(plugin["marketplaceUrl"])
 
     def test_configured_listed_becomes_not_listed_when_absent_upstream(self):
@@ -132,6 +136,10 @@ class CatalogPipelineTests(unittest.TestCase):
 
         config, catalog, stats, github = fixtures()
         config["plugins"][0]["pitch"] = "x" * 501
+        mutations.append((config, catalog, stats, github))
+
+        config, catalog, stats, github = fixtures()
+        config["plugins"][0]["project"]["url"] = "https://attacker.example/project"
         mutations.append((config, catalog, stats, github))
 
         config, catalog, stats, github = fixtures()

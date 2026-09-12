@@ -1,6 +1,7 @@
 {
-  "generatedAt": "2026-09-11T16:20:20.554Z",
-  "catalogSize": 2985,
+  "generatedAt": "2026-09-12T06:10:21.633Z",
+  "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
+  "catalogSize": 3019,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -32,6 +33,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.0.0",
@@ -44,7 +46,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 1
@@ -56,7 +58,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 305,
+        "views": 307,
         "copies": 37,
         "hearts": 0
       }
@@ -78,6 +80,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.pit-wall",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-pit-wall-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.0.0",
@@ -90,7 +93,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -124,6 +127,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.wait-state",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-wait-state-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.1.0",
@@ -136,7 +140,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:44Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -148,7 +152,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 156,
+        "views": 157,
         "copies": 9,
         "hearts": 0
       }
@@ -170,6 +174,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.mlb-booth",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-mlb-booth-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.1.0",
@@ -182,7 +187,7 @@
       },
       "github": {
         "stars": 1,
-        "pushedAt": "2026-09-09T16:44:12Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:44:12Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -215,6 +220,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.x-files",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-x-files-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.0.0",
@@ -227,7 +233,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:43Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -260,6 +266,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.docket",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-docket-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.1.0",
@@ -272,7 +279,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -284,7 +291,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 168,
+        "views": 169,
         "copies": 4,
         "hearts": 1
       }
@@ -305,6 +312,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.crew-chief",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-crew-chief-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "1.1.0",
@@ -317,7 +325,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -329,8 +337,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 182,
-        "copies": 15,
+        "views": 184,
+        "copies": 17,
         "hearts": 2
       }
     },
@@ -351,6 +359,10 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.listening-post",
       "submissionUrl": null,
+      "project": {
+        "label": "Open Perception",
+        "url": "/perception/"
+      },
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable",
       "verificationStatus": "verified",
       "version": "1.2.0",
@@ -363,7 +375,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 6
@@ -375,7 +387,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 478,
+        "views": 479,
         "copies": 21,
         "hearts": 0
       }
@@ -396,6 +408,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.desk-transition",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-desk-transition-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -408,7 +421,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:38Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -420,7 +433,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 219,
+        "views": 220,
         "copies": 15,
         "hearts": 2
       }
@@ -442,6 +455,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.foundry",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-foundry-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -454,7 +468,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -466,7 +480,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 133,
+        "views": 135,
         "copies": 5,
         "hearts": 0
       }
@@ -487,6 +501,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.loose-ends",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-loose-ends-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.1.0",
@@ -499,7 +514,7 @@
       },
       "github": {
         "stars": 1,
-        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -532,6 +547,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.capture-conveyor",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-capture-conveyor-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -544,7 +560,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:39Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -556,7 +572,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 135,
+        "views": 136,
         "copies": 7,
         "hearts": 0
       }
@@ -578,6 +594,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -590,7 +607,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -623,6 +640,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.quiet-queue",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-quiet-queue-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -635,7 +653,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:42Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -647,7 +665,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 132,
+        "views": 133,
         "copies": 3,
         "hearts": 0
       }
@@ -668,6 +686,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.flow-boundary",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-flow-boundary-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.2.0",
@@ -680,7 +699,7 @@
       },
       "github": {
         "stars": 0,
-        "pushedAt": "2026-09-09T16:08:40Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -714,6 +733,7 @@
       ],
       "marketplaceUrl": "https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail",
       "submissionUrl": null,
+      "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-omatrail-entry.git --enable",
       "verificationStatus": "unverified",
       "version": "0.1.0",
@@ -726,7 +746,7 @@
       },
       "github": {
         "stars": 1,
-        "pushedAt": "2026-09-09T16:08:41Z",
+        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -738,8 +758,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 169,
-        "copies": 12,
+        "views": 178,
+        "copies": 14,
         "hearts": 2
       }
     }
@@ -751,7 +771,7 @@
     "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing.",
     "github": {
       "stars": 0,
-      "pushedAt": "2026-09-09T16:08:43Z",
+      "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
       "archived": false
     },
     "preview": {

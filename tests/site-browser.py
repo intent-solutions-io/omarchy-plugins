@@ -11,6 +11,23 @@ OUTPUT_DIR = Path("/tmp/oma-site-browser")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 DATA = json.loads((Path(__file__).parents[1] / "site/data/plugins.json").read_text())
 PLUGINS = DATA["plugins"]
+LIVE_STATS = {
+    "plugins": {
+        plugin["id"]: {
+            "views": (plugin.get("metrics") or {}).get("views", 0) + 7,
+            "copies": (plugin.get("metrics") or {}).get("copies", 0) + 1,
+            "hearts": (plugin.get("metrics") or {}).get("hearts", 0),
+        }
+        for plugin in PLUGINS
+    }
+}
+
+
+def mock_live_metrics(page) -> None:
+    page.route(
+        "https://api.omarchyplugins.com/v1/stats",
+        lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps(LIVE_STATS)),
+    )
 
 
 def assert_no_overflow(page) -> None:
@@ -18,6 +35,7 @@ def assert_no_overflow(page) -> None:
 
 
 def assert_catalog(page, *, mobile: bool = False) -> None:
+    mock_live_metrics(page)
     page.goto(BASE_URL)
     page.wait_for_load_state("networkidle")
     page.locator(".plugin-card").first.wait_for()
@@ -27,12 +45,17 @@ def assert_catalog(page, *, mobile: bool = False) -> None:
     assert page.locator(".wordmark-mark").count() == 0
     assert page.locator(".plugin-card").count() == len(PLUGINS)
     assert f"{len(PLUGINS)} official listings" in page.locator("#catalog-summary").inner_text()
+    assert "1 linked project" in page.locator("#catalog-summary").inner_text()
+    assert page.locator("#project-count").inner_text() == "1"
     assert page.locator("#plugin-grid").get_attribute("aria-busy") == "false"
     assert page.locator(".source-facts").count() == len(PLUGINS)
     assert page.locator(".manifest-aligned").count() == len(PLUGINS)
     assert page.locator("#featured-project").count() == 1
     assert page.get_by_role("link", name="Play The Beacon Wakes").get_attribute("href") == "the-beacon-wakes/play/"
     assert page.locator('[data-plugin-id="io.github.jeremylongshore.omatrail"] a', has_text="Details").get_attribute("href") == "plugins/omatrail/"
+    listening_post = page.locator('[data-plugin-id="io.github.jeremylongshore.listening-post"]')
+    assert listening_post.get_by_role("link", name="Open Perception").get_attribute("href") == "/perception/"
+    assert "live counters" in page.locator("#data-freshness").inner_text()
     assert page.get_by_role("link", name="Help maintain a plugin").count() == 1
     assert_no_overflow(page)
 
@@ -80,6 +103,7 @@ def assert_nonlisted_edge_case(context) -> None:
     })
     fake_data["plugins"] = [plugin]
     page = context.new_page()
+    mock_live_metrics(page)
     page.route("**/data/plugins.json", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps(fake_data)))
     page.goto(BASE_URL)
     page.wait_for_load_state("networkidle")
@@ -116,6 +140,7 @@ with sync_playwright() as playwright:
 
     for width, height in ((375, 812), (768, 1024), (1024, 768)):
         responsive = browser.new_page(viewport={"width": width, "height": height}, device_scale_factor=1)
+        mock_live_metrics(responsive)
         responsive.goto(BASE_URL)
         responsive.wait_for_load_state("networkidle")
         responsive.locator(".plugin-card").first.wait_for()
@@ -126,10 +151,33 @@ with sync_playwright() as playwright:
     assert_nonlisted_edge_case(desktop_context)
 
     social = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
+    mock_live_metrics(social)
     social.goto(BASE_URL)
     social.wait_for_load_state("networkidle")
     social.evaluate("window.scrollTo(0, 0)")
     social.screenshot(path="site/assets/og-card.png")
+
+    perception_errors = []
+    for viewport, filename in (
+        ({"width": 1440, "height": 1000}, "perception-desktop.png"),
+        ({"width": 390, "height": 844}, "perception-mobile.png"),
+    ):
+        perception = browser.new_page(viewport=viewport, device_scale_factor=1)
+        perception.on("console", lambda message: perception_errors.append(message.text) if message.type == "error" else None)
+        perception.goto(f"{BASE_URL}/perception/")
+        perception.wait_for_load_state("networkidle")
+        assert perception.get_by_role("heading", name="Perception is on the way.").count() == 1
+        assert perception.get_by_role("link", name="Explore Listening Post").get_attribute("href") == "../plugins/listening-post/"
+        assert_no_overflow(perception)
+        perception.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+        perception.close()
+    assert not perception_errors, perception_errors
+
+    perception_social = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
+    perception_social.goto(f"{BASE_URL}/perception/")
+    perception_social.wait_for_load_state("networkidle")
+    perception_social.screenshot(path="site/assets/perception-card.png")
+    perception_social.close()
 
     detail_errors = []
     detail = desktop_context.new_page()

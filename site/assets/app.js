@@ -19,6 +19,7 @@
   };
   const allowedLifecycles = new Set(lifecycleOrder);
   const allowedExternalHosts = new Set(["github.com", "plugins.omarchy.org", "raw.githubusercontent.com"]);
+  const allowedStatsHost = "api.omarchyplugins.com";
 
   const state = {
     plugins: [],
@@ -45,6 +46,27 @@
     try {
       const url = new URL(String(value || ""));
       if (url.protocol !== "https:" || !allowedExternalHosts.has(url.hostname)) return "";
+      return url.href;
+    } catch {
+      return "";
+    }
+  }
+
+  function safeSitePath(value) {
+    if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) return "";
+    try {
+      const url = new URL(value, window.location.origin);
+      if (url.origin !== window.location.origin || url.search || url.hash || url.pathname !== value) return "";
+      return url.pathname;
+    } catch {
+      return "";
+    }
+  }
+
+  function safeStatsUrl(value) {
+    try {
+      const url = new URL(String(value || ""));
+      if (url.protocol !== "https:" || url.hostname !== allowedStatsHost || url.pathname !== "/v1/stats") return "";
       return url.href;
     } catch {
       return "";
@@ -87,6 +109,13 @@
     if (!plugin.manifest || typeof plugin.manifest.status !== "string") {
       throw new Error(`Plugin ${plugin.id} has invalid manifest metadata`);
     }
+    if (plugin.project && (
+      typeof plugin.project.label !== "string"
+      || !plugin.project.label.trim()
+      || !safeSitePath(plugin.project.url)
+    )) {
+      throw new Error(`Plugin ${plugin.id} has invalid related project`);
+    }
   }
 
   function marketplaceAction(plugin) {
@@ -109,11 +138,17 @@
     return `<div class="card-preview"><img src="${escapeHtml(previewUrl)}" alt="${escapeHtml(plugin.name)} plugin interface preview" width="1280" height="720" loading="lazy"></div>`;
   }
 
+  function projectAction(plugin) {
+    const projectUrl = safeSitePath(plugin.project?.url);
+    if (!projectUrl) return "";
+    return `<a class="project-action" href="${escapeHtml(projectUrl)}">${escapeHtml(plugin.project.label)}</a>`;
+  }
+
   function sourceFacts(plugin) {
     const manifestStatus = String(plugin.manifest?.status || "unknown").replaceAll("-", " ");
     return `<dl class="source-facts" aria-label="Repository health">
       <div><dt>Stars</dt><dd>${compactNumber(plugin.github?.stars)}</dd></div>
-      <div><dt>Updated</dt><dd>${escapeHtml(isoDay(plugin.github?.pushedAt))}</dd></div>
+      <div><dt>Main updated</dt><dd>${escapeHtml(isoDay(plugin.github?.defaultBranchUpdatedAt))}</dd></div>
       <div><dt>Manifest</dt><dd class="manifest-${escapeHtml(plugin.manifest?.status)}">${escapeHtml(manifestStatus)}</dd></div>
     </dl>`;
   }
@@ -147,6 +182,7 @@
         ${sourceFacts(plugin)}
         ${metricsRow(plugin)}
         <div class="card-actions">
+          ${projectAction(plugin)}
           <a href="plugins/${encodeURIComponent(plugin.slug)}/">Details</a>
           ${marketplaceAction(plugin)}
           <a href="${escapeHtml(safeExternalUrl(plugin.repoUrl))}" target="_blank" rel="noreferrer">GitHub</a>
@@ -234,21 +270,60 @@
     return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(date) + " UTC";
   }
 
+  function validMetrics(value) {
+    if (!value || typeof value !== "object") return null;
+    const metrics = {};
+    for (const key of ["views", "copies", "hearts"]) {
+      if (!Number.isSafeInteger(value[key]) || value[key] < 0) return null;
+      metrics[key] = value[key];
+    }
+    return metrics;
+  }
+
+  async function refreshLiveMetrics(data) {
+    const statsUrl = safeStatsUrl(data.marketplaceStatsUrl);
+    if (!statsUrl) return;
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 6000);
+    try {
+      const response = await fetch(statsUrl, { cache: "no-store", signal: controller.signal });
+      if (!response.ok) return;
+      const payload = await response.json();
+      if (!payload?.plugins || typeof payload.plugins !== "object") return;
+      let refreshed = 0;
+      for (const plugin of state.plugins) {
+        const metrics = validMetrics(payload.plugins[plugin.id]);
+        if (!metrics) continue;
+        plugin.metrics = metrics;
+        refreshed += 1;
+      }
+      if (refreshed === 0) return;
+      updatePortfolioFacts(data);
+      render();
+      document.querySelector("#data-freshness").textContent =
+        `live counters; catalog ${formatFreshness(data.generatedAt)}`;
+    } catch {
+      // The generated snapshot remains visible when the live endpoint is unavailable.
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
   function updatePortfolioFacts(data) {
     const plugins = data.plugins;
     const listed = plugins.filter((plugin) => plugin.lifecycle === "listed").length;
-    const roadmap = plugins.filter((plugin) => !["listed", "retired"].includes(plugin.lifecycle)).length;
+    const projects = plugins.filter((plugin) => plugin.project).length;
     const stars = plugins.reduce((sum, plugin) => sum + plugin.github.stars, 0);
     const previews = plugins.filter((plugin) => plugin.preview.status === "verified").length;
     const aligned = plugins.filter((plugin) => plugin.manifest.status === "aligned").length;
     document.querySelector("#listed-count").textContent = listed;
-    document.querySelector("#roadmap-count").textContent = roadmap;
+    document.querySelector("#project-count").textContent = projects;
     document.querySelector("#repo-count").textContent = plugins.length;
     document.querySelector("#star-count").textContent = stars;
     document.querySelector("#ledger-listed").textContent = `${listed} / ${plugins.length}`;
     document.querySelector("#ledger-previews").textContent = `${previews} / ${plugins.length}`;
     document.querySelector("#ledger-manifests").textContent = `${aligned} / ${plugins.length}`;
-    document.querySelector("#catalog-summary").textContent = `${listed} official listings, ${roadmap} on the public roadmap, and ${stars} GitHub stars across the collection.`;
+    document.querySelector("#catalog-summary").textContent = `${listed} official listings, ${projects} linked ${projects === 1 ? "project" : "projects"}, and ${stars} GitHub stars across the collection.`;
     document.querySelector("#source-health-summary").innerHTML = `<strong>Source health:</strong> ${aligned} aligned manifests and ${previews} verified repository previews.`;
   }
 
@@ -263,7 +338,7 @@
       state.plugins = data.plugins;
       state.loadState = "ready";
       updatePortfolioFacts(data);
-      document.querySelector("#data-freshness").textContent = formatFreshness(data.generatedAt);
+      document.querySelector("#data-freshness").textContent = `snapshot ${formatFreshness(data.generatedAt)}`;
       const marketplaceAuthorUrl = safeExternalUrl(data.publisher?.marketplaceUrl);
       const templateUrl = safeExternalUrl(data.template?.repoUrl);
       if (marketplaceAuthorUrl) document.querySelector("#marketplace-author-link").href = marketplaceAuthorUrl;
@@ -274,6 +349,7 @@
       buildFamilyFilters(data.plugins, data.families);
       grid.setAttribute("aria-busy", "false");
       render();
+      await refreshLiveMetrics(data);
     } catch (error) {
       state.loadState = "failed";
       grid.setAttribute("aria-busy", "false");
