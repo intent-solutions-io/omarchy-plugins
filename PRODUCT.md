@@ -27,8 +27,9 @@ The site is deployed as static HTML, CSS, and JavaScript from `site/` to GitHub 
 - The catalog and generated detail pages must remain aligned with the canonical plugin inventory.
 - The Beacon Wakes browser demo is free and ungated.
 - Child identity, contact details, and gameplay performance are not collected by the parent signup.
-- Legal documents are supplied dynamically from GetTerms account `wH2cn`.
-- GetTerms document text remains the external legal authority; the site wrapper must not silently rewrite it.
+- Privacy, App Privacy, Acceptable Use, and Terms documents are static, repository-owned pages at stable public routes. Their checked-in HTML is the publication authority.
+- Legal routes use the restrained light portfolio system. The Beacon Wakes visual system remains scoped to its product and demo surfaces.
+- Published policy text must match the service's real collection, child-safety, release, and commerce boundaries. Counsel review remains required before a paid product launch or material data-practice change.
 
 ## Brand Commitments
 

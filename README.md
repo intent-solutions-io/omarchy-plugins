@@ -170,7 +170,7 @@ Then open `http://127.0.0.1:4173`. Run `bash scripts/check-site.sh` before publi
 
 ### Legal documents
 
-The public Privacy, App Privacy, Acceptable Use, and Terms routes embed the corresponding documents from GetTerms account `wH2cn`. The site owns the stable routes and accessible wrapper; GetTerms remains the authority for policy text and updates. `tests/site-browser.py` refuses known stale product names, contact addresses, and child-audience language before publication.
+The public Privacy, App Privacy, Acceptable Use, and Terms routes are static documents owned by this repository, and their checked-in HTML is the publication authority. They use the restrained light portfolio shell rather than The Beacon Wakes product treatment. Their tests reject scripts, iframes, known stale product names and contacts, and prohibited child-audience assertions. The policies are operational drafts and should receive counsel review before a paid launch or any material change in data collection.
 
 ## Maintainers wanted
 

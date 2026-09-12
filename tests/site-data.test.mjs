@@ -13,13 +13,13 @@ const beaconSignup = await readFile(new URL("../site/assets/beacon-signup.js", i
 const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
 const legalDocuments = new Map(await Promise.all([
-  ["privacy", "privacy"],
-  ["app-privacy", "app-privacy"],
-  ["acceptable-use", "acceptable-use"],
-  ["terms", "terms-of-service"],
-].map(async ([route, document]) => [
+  ["privacy", "Privacy Policy"],
+  ["app-privacy", "The Beacon Wakes App Privacy Policy"],
+  ["acceptable-use", "Acceptable Use Policy"],
+  ["terms", "Terms and Conditions"],
+].map(async ([route, heading]) => [
   route,
-  { document, html: await readFile(new URL(`../site/${route}/index.html`, import.meta.url), "utf8") },
+  { heading, html: await readFile(new URL(`../site/${route}/index.html`, import.meta.url), "utf8") },
 ])));
 
 test("generated site inventory matches the canonical config", () => {
@@ -129,18 +129,19 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.equal(cname, "oma.intentsolutions.io");
 });
 
-test("GetTerms legal routes use the supplied account and document contracts", () => {
+test("repository-owned legal routes match product and child-safety contracts", () => {
   for (const [route, legal] of legalDocuments) {
-    assert.match(legal.html, /data-getterms="wH2cn"/);
-    assert.ok(legal.html.includes(`data-getterms-document="${legal.document}"`));
-    assert.match(legal.html, /data-getterms-lang="en-us"/);
-    assert.match(legal.html, /data-getterms-mode="direct"/);
-    assert.match(legal.html, /data-getterms-env="https:\/\/gettermscdn\.com"/);
-    assert.match(legal.html, /https:\/\/gettermscdn\.com\/dist\/js\/embed\.js/);
-    assert.ok(legal.html.includes(`https://gettermscdn.com/view/wH2cn/${legal.document}/en-us`));
+    assert.ok(legal.html.includes(`<h1 id="${route === "terms" ? "terms-title" : "policy-title"}">${legal.heading}</h1>`));
+    assert.match(legal.html, /Intent Solutions LLC/);
+    assert.match(legal.html, /support@intentsolutions\.io/);
     assert.match(legal.html, new RegExp(`https://oma\\.intentsolutions\\.io/${route}/`));
-    assert.doesNotMatch(legal.html, /embed-js\/goaal/);
+    assert.doesNotMatch(legal.html, /<script\b|<iframe\b|getterms|No You Pick|diagnosticpro\.reports@gmail\.com/i);
+    assert.doesNotMatch(legal.html, /not (?:aimed|intended|designed) (?:at|for) children|children under (?:the age of )?13 may not use|must be (?:at least )?18 (?:years old )?to use/i);
   }
+  assert.match(legalDocuments.get("privacy").html, /designed for children to play with parent or guardian involvement/i);
+  assert.match(legalDocuments.get("app-privacy").html, /does not ask the child playing for a name/i);
+  assert.match(legalDocuments.get("app-privacy").html, /does not send typing performance or gameplay progress/i);
+  assert.match(legalDocuments.get("terms").html, /a parent or legal guardian must review and accept these Terms on the child's behalf/i);
   for (const route of legalDocuments.keys()) {
     assert.match(html, new RegExp(`href="${route}/"`));
   }

@@ -251,21 +251,23 @@ with sync_playwright() as playwright:
     legacy.close()
 
     legal_expectations = {
-        "privacy": ("privacy", "Privacy Policy"),
-        "app-privacy": ("app-privacy", "Privacy Policy"),
-        "acceptable-use": ("acceptable-use", "Acceptable Use Policy"),
-        "terms": ("terms-of-service", "Terms and Conditions"),
+        "privacy": "Privacy Policy",
+        "app-privacy": "The Beacon Wakes App Privacy Policy",
+        "acceptable-use": "Acceptable Use Policy",
+        "terms": "Terms and Conditions",
     }
-    for route, (document, heading) in legal_expectations.items():
+    for route, heading in legal_expectations.items():
         legal = browser.new_page(viewport={"width": 1440, "height": 1000})
         legal.goto(f"{BASE_URL}/{route}/")
-        legal.locator(".getterms-document-embed h1").wait_for(timeout=60000)
-        assert legal.locator(".getterms-document-embed").get_attribute("data-getterms-document") == document
-        assert heading.casefold() in legal.locator(".getterms-document-embed h1").inner_text().casefold()
-        rendered = legal.locator(".getterms-document-embed").inner_text()
+        legal.locator(".legal-document h1").wait_for()
+        assert heading.casefold() in legal.locator(".legal-document h1").inner_text().casefold()
+        rendered = legal.locator(".legal-document").inner_text()
+        assert "Intent Solutions LLC" in rendered
+        assert "support@intentsolutions.io" in rendered
         assert "No You Pick" not in rendered
         assert "diagnosticpro.reports@gmail.com" not in rendered
         assert "We do not aim any of our products or services directly at children under the age of 13" not in rendered
+        assert legal.locator("script, iframe").count() == 0
         assert legal.get_by_role("navigation", name="Legal", exact=True).count() == 1
         assert_no_overflow(legal)
         if route == "privacy":
@@ -275,7 +277,7 @@ with sync_playwright() as playwright:
 
     legal_mobile = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=1)
     legal_mobile.goto(f"{BASE_URL}/acceptable-use/")
-    legal_mobile.locator(".getterms-document-embed h1").wait_for(timeout=60000)
+    legal_mobile.locator(".legal-document h1").wait_for()
     assert_no_overflow(legal_mobile)
     legal_mobile.screenshot(path=OUTPUT_DIR / "legal-acceptable-use-mobile.png", full_page=True)
     legal_mobile.close()
