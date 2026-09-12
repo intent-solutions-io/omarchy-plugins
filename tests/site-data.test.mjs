@@ -12,6 +12,15 @@ const beacon = await readFile(new URL("../site/the-beacon-wakes/index.html", imp
 const beaconSignup = await readFile(new URL("../site/assets/beacon-signup.js", import.meta.url), "utf8");
 const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
+const legalDocuments = new Map(await Promise.all([
+  ["privacy", "privacy"],
+  ["app-privacy", "app-privacy"],
+  ["acceptable-use", "acceptable-use"],
+  ["terms", "terms-of-service"],
+].map(async ([route, document]) => [
+  route,
+  { document, html: await readFile(new URL(`../site/${route}/index.html`, import.meta.url), "utf8") },
+])));
 
 test("generated site inventory matches the canonical config", () => {
   assert.equal(data.plugins.length, config.plugins.length);
@@ -120,6 +129,24 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.equal(cname, "oma.intentsolutions.io");
 });
 
+test("GetTerms legal routes use the supplied account and document contracts", () => {
+  for (const [route, legal] of legalDocuments) {
+    assert.match(legal.html, /data-getterms="wH2cn"/);
+    assert.ok(legal.html.includes(`data-getterms-document="${legal.document}"`));
+    assert.match(legal.html, /data-getterms-lang="en-us"/);
+    assert.match(legal.html, /data-getterms-mode="direct"/);
+    assert.match(legal.html, /data-getterms-env="https:\/\/gettermscdn\.com"/);
+    assert.match(legal.html, /https:\/\/gettermscdn\.com\/dist\/js\/embed\.js/);
+    assert.match(legal.html, new RegExp(`https://oma\\.intentsolutions\\.io/${route}/`));
+    assert.doesNotMatch(legal.html, /embed-js\/goaal/);
+  }
+  for (const route of legalDocuments.keys()) {
+    assert.match(html, new RegExp(`href="${route}/"`));
+  }
+  assert.match(beacon, /href="\.\.\/privacy\/"/);
+  assert.match(beacon, /href="\.\.\/app-privacy\/"/);
+});
+
 test("every plugin has a generated permanent detail page with source receipts", async () => {
   for (const plugin of data.plugins) {
     const detail = await readFile(new URL(`../site/plugins/${plugin.slug}/index.html`, import.meta.url), "utf8");
@@ -135,6 +162,8 @@ test("every plugin has a generated permanent detail page with source receipts", 
     if (plugin.preview.status === "verified") assert.ok(detail.includes(plugin.preview.sha.slice(0, 12)));
     else assert.ok(detail.includes("Preview unavailable"));
     assert.doesNotMatch(detail, /href=""/);
+    assert.match(detail, /href="\.\.\/\.\.\/privacy\/"/);
+    assert.match(detail, /href="\.\.\/\.\.\/terms\/"/);
   }
 });
 
