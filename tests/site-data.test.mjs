@@ -12,6 +12,15 @@ const beacon = await readFile(new URL("../site/the-beacon-wakes/index.html", imp
 const beaconSignup = await readFile(new URL("../site/assets/beacon-signup.js", import.meta.url), "utf8");
 const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
+const legalDocuments = new Map(await Promise.all([
+  ["privacy", "Privacy Policy"],
+  ["app-privacy", "The Beacon Wakes App Privacy Policy"],
+  ["acceptable-use", "Acceptable Use Policy"],
+  ["terms", "Terms and Conditions"],
+].map(async ([route, heading]) => [
+  route,
+  { heading, html: await readFile(new URL(`../site/${route}/index.html`, import.meta.url), "utf8") },
+])));
 
 test("generated site inventory matches the canonical config", () => {
   assert.equal(data.plugins.length, config.plugins.length);
@@ -120,6 +129,26 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.equal(cname, "oma.intentsolutions.io");
 });
 
+test("repository-owned legal routes match product and child-safety contracts", () => {
+  for (const [route, legal] of legalDocuments) {
+    assert.ok(legal.html.includes(`<h1 id="${route === "terms" ? "terms-title" : "policy-title"}">${legal.heading}</h1>`));
+    assert.match(legal.html, /Intent Solutions LLC/);
+    assert.match(legal.html, /support@intentsolutions\.io/);
+    assert.match(legal.html, new RegExp(`https://oma\\.intentsolutions\\.io/${route}/`));
+    assert.doesNotMatch(legal.html, /<script\b|<iframe\b|getterms|No You Pick|diagnosticpro\.reports@gmail\.com/i);
+    assert.doesNotMatch(legal.html, /not (?:aimed|intended|designed) (?:at|for) children|children under (?:the age of )?13 may not use|must be (?:at least )?18 (?:years old )?to use/i);
+  }
+  assert.match(legalDocuments.get("privacy").html, /designed for children to play with parent or guardian involvement/i);
+  assert.match(legalDocuments.get("app-privacy").html, /does not ask the child playing for a name/i);
+  assert.match(legalDocuments.get("app-privacy").html, /does not send typing performance or gameplay progress/i);
+  assert.match(legalDocuments.get("terms").html, /a parent or legal guardian must review and accept these Terms on the child's behalf/i);
+  for (const route of legalDocuments.keys()) {
+    assert.match(html, new RegExp(`href="${route}/"`));
+  }
+  assert.match(beacon, /href="\.\.\/privacy\/"/);
+  assert.match(beacon, /href="\.\.\/app-privacy\/"/);
+});
+
 test("every plugin has a generated permanent detail page with source receipts", async () => {
   for (const plugin of data.plugins) {
     const detail = await readFile(new URL(`../site/plugins/${plugin.slug}/index.html`, import.meta.url), "utf8");
@@ -135,6 +164,8 @@ test("every plugin has a generated permanent detail page with source receipts", 
     if (plugin.preview.status === "verified") assert.ok(detail.includes(plugin.preview.sha.slice(0, 12)));
     else assert.ok(detail.includes("Preview unavailable"));
     assert.doesNotMatch(detail, /href=""/);
+    assert.match(detail, /href="\.\.\/\.\.\/privacy\/"/);
+    assert.match(detail, /href="\.\.\/\.\.\/terms\/"/);
   }
 });
 

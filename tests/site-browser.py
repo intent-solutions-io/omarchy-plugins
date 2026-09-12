@@ -250,6 +250,38 @@ with sync_playwright() as playwright:
     assert legacy.get_by_role("heading", name="The Beacon Wakes").count() == 1
     legacy.close()
 
+    legal_expectations = {
+        "privacy": "Privacy Policy",
+        "app-privacy": "The Beacon Wakes App Privacy Policy",
+        "acceptable-use": "Acceptable Use Policy",
+        "terms": "Terms and Conditions",
+    }
+    for route, heading in legal_expectations.items():
+        legal = browser.new_page(viewport={"width": 1440, "height": 1000})
+        legal.goto(f"{BASE_URL}/{route}/")
+        legal.locator(".legal-document h1").wait_for()
+        assert heading.casefold() in legal.locator(".legal-document h1").inner_text().casefold()
+        rendered = legal.locator(".legal-document").inner_text()
+        assert "Intent Solutions LLC" in rendered
+        assert "support@intentsolutions.io" in rendered
+        assert "No You Pick" not in rendered
+        assert "diagnosticpro.reports@gmail.com" not in rendered
+        assert "We do not aim any of our products or services directly at children under the age of 13" not in rendered
+        assert legal.locator("script, iframe").count() == 0
+        assert legal.get_by_role("navigation", name="Legal", exact=True).count() == 1
+        assert_no_overflow(legal)
+        if route == "privacy":
+            legal.evaluate("window.scrollTo(0, 0)")
+            legal.screenshot(path=OUTPUT_DIR / "legal-privacy-desktop.png", full_page=True)
+        legal.close()
+
+    legal_mobile = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=1)
+    legal_mobile.goto(f"{BASE_URL}/acceptable-use/")
+    legal_mobile.locator(".legal-document h1").wait_for()
+    assert_no_overflow(legal_mobile)
+    legal_mobile.screenshot(path=OUTPUT_DIR / "legal-acceptable-use-mobile.png", full_page=True)
+    legal_mobile.close()
+
     failed = desktop_context.new_page()
     failed.route("**/data/plugins.json", lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps({"plugins": [{"name": "bad"}]})))
     failed.goto(BASE_URL)
