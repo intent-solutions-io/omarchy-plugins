@@ -251,7 +251,7 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /WELCOME local assistant/);
   assert.match(bluegold, /id="faq"/);
   const faqDetails = bluegold.match(/<details>[\s\S]*?<\/details>/g) || [];
-  assert.equal(faqDetails.length, 58);
+  assert.equal(faqDetails.length, 60);
   for (const entry of faqDetails) {
     assert.equal((entry.match(/<summary>/g) || []).length, 1);
     assert.equal((entry.match(/class="bluegold-answer-state /g) || []).length, 1);
@@ -274,6 +274,8 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /What exactly is GOLD\?/);
   assert.match(bluegold, /Which port, cable, adapter, or power setup will I need\?/);
   assert.match(bluegold, /How will I tell BLUE and GOLD apart and know they are genuine\?/);
+  assert.match(bluegold, /Can I make my own BLUE or GOLD drive and try this now\?/);
+  assert.match(bluegold, /There is no released customer kit, downloadable BLUE or GOLD software/);
   assert.match(bluegold, /Will GOLD remove Windows from my computer\?/);
   assert.match(bluegold, /can replace Windows and erase the existing system disk/);
   assert.match(bluegold, /Will I need administrator access, and what about BitLocker or Secure Boot\?/);
@@ -288,17 +290,27 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /Should I keep another backup before switching\?/);
   assert.match(bluegold, /Can I mix BLUE or GOLD devices from different computers or migrations\?/);
   assert.match(bluegold, /What if GOLD loses power, fails, or the computer will not start afterward\?/);
+  assert.match(bluegold, /Can I stop after GOLD starts\?/);
+  assert.match(bluegold, /There is no proven rollback/);
   assert.match(bluegold, /Is BLUE an internet cloud, and are my files uploaded\?/);
   assert.match(bluegold, /Can BLUE put Windows back if I change my mind\?/);
   assert.match(bluegold, /Is Omarchy involved in this project\?/);
   assert.match(bluegold, /Can BLUE rescue a computer that is already failing\?/);
   assert.match(bluegold, /What happens if BLUE says REVIEW or STOP\?/);
+  assert.match(bluegold, /Neither REVIEW nor STOP authorizes installation/);
   assert.match(bluegold, /Do I need to know Linux, use a terminal, or understand computer drives\?/);
   assert.match(bluegold, /Will there be a monthly storage or cloud subscription\?/);
   assert.match(bluegold, /Will BLUE keep working after Omarchy changes or updates\?/);
   assert.match(bluegold, /What accessibility support will the process have\?/);
   assert.match(bluegold, /What happens when I register interest\?/);
-  assert.match(bluegold, /not an internet cloud service/i);
+  assert.match(bluegold, /does not intentionally add your answers to site analytics/);
+  assert.match(bluegold, /a consent record, an anti-abuse check, and a source label/);
+  assert.match(bluegold, /aria-label="Intent Solutions portfolio home"/);
+  assert.match(bluegold, /physical local storage that stays with you, not an internet cloud/i);
+  assert.match(bluegold, /No live OneDrive, Dropbox, or other provider-acquisition path is released or proven/);
+  assert.match(bluegold, /harmless plug-in behavior has not been proven/);
+  assert.match(bluegold, /Wait for READY TO SWITCH/);
+  assert.match(bluegold, /No safe stopping procedure is proven yet/);
   assert.match(bluegold, /BLUE BEFORE GOLD\. ALWAYS\./);
   assert.match(bluegold, /Research and development/);
   assert.match(bluegold, /Not for sale yet/);
