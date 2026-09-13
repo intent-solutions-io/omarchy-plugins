@@ -238,7 +238,7 @@ test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
   assert.match(beaconRedirect, /url=\.\.\/the-beacon-wakes\//);
 });
 
-test("BLUE GOLD BLUE is an honest research page with bounded interest collection", () => {
+test("BLUE GOLD BLUE is an honest product page with bounded interest collection", () => {
   assert.match(bluegold, /<h1 id="bluegold-title">Windows to Omarchy\./);
   assert.match(bluegold, /BLUE is your personal cloud/);
   assert.match(bluegold, /a physical storage device you keep/);
@@ -275,7 +275,7 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /Which port, cable, adapter, or power setup will I need\?/);
   assert.match(bluegold, /How will I tell BLUE and GOLD apart and know they are genuine\?/);
   assert.match(bluegold, /Can I make my own BLUE or GOLD drive and try this now\?/);
-  assert.match(bluegold, /There is no released customer kit, downloadable BLUE or GOLD software/);
+  assert.match(bluegold, /Please wait for the supported pilot instead of building installation media from this page/);
   assert.match(bluegold, /Will GOLD remove Windows from my computer\?/);
   assert.match(bluegold, /can replace Windows and erase the existing system disk/);
   assert.match(bluegold, /Will I need administrator access, and what about BitLocker or Secure Boot\?/);
@@ -314,14 +314,14 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /a consent record, an anti-abuse check, and a source label/);
   assert.match(bluegold, /aria-label="Intent Solutions portfolio home"/);
   assert.match(bluegold, /physical local storage that stays with you, not an internet cloud/i);
-  assert.match(bluegold, /Research concept, not for sale/);
+  assert.match(bluegold, /BLUE GOLD BLUE is an active product build/);
   assert.match(bluegold, /No live OneDrive, Dropbox, or other provider-acquisition path is released or proven/);
-  assert.match(bluegold, /harmless plug-in behavior has not been proven/);
+  assert.match(bluegold, /physical installation key now in prototype validation/);
   assert.match(bluegold, /Wait for READY TO SWITCH/);
   assert.match(bluegold, /No safe stopping procedure is proven yet/);
   assert.match(bluegold, /BLUE BEFORE GOLD\. ALWAYS\./);
-  assert.match(bluegold, /Research and development/);
-  assert.match(bluegold, /Not for sale yet/);
+  assert.match(bluegold, /Working prototype nearing completion/);
+  assert.match(bluegold, /Final validation and pilot preparation underway/);
   assert.match(bluegold, /not an Omarchy endorsement/i);
   assert.match(bluegold, /name="name" type="text"/);
   assert.match(bluegold, /name="email" type="email"/);
