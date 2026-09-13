@@ -303,9 +303,9 @@ with sync_playwright() as playwright:
         assert page.get_by_text("Keep BLUE as your backup", exact=True).count() == 1
         assert page.get_by_text("WELCOME local assistant", exact=True).count() == 1
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
-        assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
+        assert page.locator(".bluegold-honesty strong").inner_text() == "Active product build. Not ready for customer use."
         faq_entries = page.locator("#faq details")
-        assert faq_entries.count() == 66
+        assert faq_entries.count() == 77
         for index in range(faq_entries.count()):
             entry = faq_entries.nth(index)
             assert entry.locator("summary").count() == 1
