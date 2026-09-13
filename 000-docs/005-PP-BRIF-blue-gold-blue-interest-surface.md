@@ -18,7 +18,9 @@ The page must remain useful without fabricated product renders, testimonials, pr
 
 The FAQ is the progressive-disclosure layer for questions that should not overload the first viewport. Organize it by the visitor's actual concern: the basic kit and steps, computer compatibility and Windows consequences, files/apps/accounts, safety/privacy, and practical next steps. Each answer must be short, plain, and explicitly labeled when it describes a current fact, planned behavior, known limit, undecided offer term, or future idea.
 
-The FAQ must directly answer destructive consequences, unsupported computers and programs, cloud-only files, credentials, peripherals, interruption, capacity, encryption and recovery, malware, STOP/REVIEW behavior, time, support, ongoing backup, WELCOME, pricing, fulfillment, and interest-registration boundaries. Unknowns stay unknown. A comprehensive FAQ is not evidence of product readiness.
+The FAQ must directly answer destructive consequences, what happens when each physical device is connected, full-system-backup limits, unsupported computers and programs, cloud-only files, credentials, peripherals, Windows encryption and firmware checks, multi-drive boundaries, interruption during protection, installation, and restore, capacity, encryption and recovery, independent-backup advice, migration/device binding, malware, STOP/REVIEW behavior, time, support-data privacy, accessibility, ongoing backup, WELCOME, recurring-fee uncertainty, release-specific compatibility, pricing, fulfillment, and interest-registration boundaries. Unknowns stay unknown. A comprehensive FAQ is not evidence of product readiness.
+
+On narrow mobile screens, preserve a visible route to the interest form in the header. The FAQ topic map may stack, but every disclosure must retain its status label, question, answer, keyboard behavior, and readable line length.
 
 ## Form Contract
 
