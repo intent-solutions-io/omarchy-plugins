@@ -305,7 +305,7 @@ with sync_playwright() as playwright:
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
         assert page.locator(".bluegold-honesty strong").inner_text() == "Active product build. Not ready for customer use."
         faq_entries = page.locator("#faq details")
-        assert faq_entries.count() == 77
+        assert faq_entries.count() == 93
         for index in range(faq_entries.count()):
             entry = faq_entries.nth(index)
             assert entry.locator("summary").count() == 1
@@ -328,9 +328,9 @@ with sync_playwright() as playwright:
         assert faq_entries.first.get_attribute("open") is None
         page.get_by_role("link", name="Your stuff Files, apps, and accounts").click()
         assert page.locator("#faq-data").evaluate("element => element.id") == "faq-data"
-        destructive_question = page.get_by_text("Will GOLD remove Windows from my computer?", exact=True)
+        destructive_question = page.get_by_text("Exactly what will GOLD erase on the same-computer journey?", exact=True)
         destructive_question.click()
-        destructive_answer = page.get_by_text("On the same-computer journey, yes.", exact=False)
+        destructive_answer = destructive_question.locator("xpath=ancestor::details/div")
         assert destructive_answer.is_visible()
         destructive_question.press("Enter")
         assert destructive_answer.is_hidden()
