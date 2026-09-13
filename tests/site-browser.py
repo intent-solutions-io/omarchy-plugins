@@ -351,6 +351,17 @@ with sync_playwright() as playwright:
             assert confirmed_interest == {"code": confirmation_code}
             assert confirmation_code not in page.url
 
+            page.goto(f"{BASE_URL}/bluegoldblue/#c={confirmation_code}")
+            page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").wait_for()
+            page.evaluate("window.location.hash = ''")
+            page.locator("#bluegold-interest-form").wait_for(state="visible")
+            assert page.locator("#bluegold-confirmation").is_hidden()
+
+            page.goto(f"{BASE_URL}/bluegoldblue/#c=")
+            page.get_by_text("That confirmation link is incomplete.", exact=False).wait_for()
+            assert page.locator("#bluegold-interest-form").is_visible()
+            assert page.locator("#bluegold-confirmation").is_hidden()
+
             legacy_confirmation = desktop_context.new_page()
             legacy_confirmed = {}
 
