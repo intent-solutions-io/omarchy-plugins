@@ -303,10 +303,13 @@ with sync_playwright() as playwright:
         assert page.get_by_text("WELCOME local assistant", exact=True).count() == 1
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
         assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
-        assert page.locator("#faq details").count() == 19
+        assert page.locator("#faq details").count() == 43
+        assert page.locator(".bluegold-faq-map a").count() == 5
+        page.get_by_role("link", name="Your stuff Files, apps, and accounts").click()
+        assert page.locator("#faq-data").evaluate("element => element.id") == "faq-data"
         destructive_question = page.get_by_text("Will GOLD remove Windows from my computer?", exact=True)
         destructive_question.click()
-        destructive_answer = page.get_by_text("On the same-computer journey, yes:", exact=False)
+        destructive_answer = page.get_by_text("On the same-computer journey, yes.", exact=False)
         assert destructive_answer.is_visible()
         destructive_question.press("Enter")
         assert destructive_answer.is_hidden()

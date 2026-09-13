@@ -3078,6 +3078,78 @@ footer a {
   border-top: 1px solid #9eb3bd;
 }
 
+.bluegold-faq-map {
+  border: 1px solid #8da6b2;
+  background: #8da6b2;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.bluegold-faq-map a {
+  min-height: 112px;
+  padding: 20px;
+  color: var(--bluegold-night);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.bluegold-faq-map a:hover {
+  color: #ffffff;
+  background: var(--bluegold-blue-deep);
+}
+
+.bluegold-faq-map strong {
+  font-size: 1.04rem;
+}
+
+.bluegold-faq-map span {
+  margin-top: 6px;
+  color: #506b78;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.bluegold-faq-map a:hover span {
+  color: #d6e7ef;
+}
+
+.bluegold-faq-groups {
+  margin-top: clamp(56px, 7vw, 88px);
+}
+
+.bluegold-faq-group {
+  scroll-margin-top: 96px;
+}
+
+.bluegold-faq-group + .bluegold-faq-group {
+  margin-top: clamp(62px, 8vw, 104px);
+}
+
+.bluegold-faq-group > header {
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  gap: 32px;
+  align-items: end;
+}
+
+.bluegold-faq-group > header h3 {
+  margin: 0;
+  color: var(--bluegold-blue-deep);
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  letter-spacing: -0.025em;
+}
+
+.bluegold-faq-group > header p {
+  max-width: 64ch;
+  margin: 0;
+  color: #506b78;
+}
+
 .bluegold-faq-list {
   border-top: 1px solid #8da6b2;
 }
@@ -3166,6 +3238,12 @@ footer a {
   color: #36515e;
   font-size: 1rem;
   line-height: 1.65;
+}
+
+.bluegold-faq-list details > div a {
+  color: var(--bluegold-blue-deep);
+  font-weight: 600;
+  text-underline-offset: 4px;
 }
 
 .bluegold-faq-followup {
@@ -3383,6 +3461,10 @@ footer a {
     grid-template-columns: 1fr;
   }
 
+  .bluegold-faq-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .bluegold-trust-strip {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3484,6 +3566,20 @@ footer a {
   .bluegold-option-rows p {
     grid-template-columns: 1fr;
     gap: 5px;
+  }
+
+  .bluegold-faq-map {
+    grid-template-columns: 1fr;
+  }
+
+  .bluegold-faq-map a {
+    min-height: 82px;
+    padding: 16px;
+  }
+
+  .bluegold-faq-group > header {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .bluegold-faq-list summary {
