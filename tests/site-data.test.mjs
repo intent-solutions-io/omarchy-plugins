@@ -178,13 +178,18 @@ test("every plugin has a generated permanent detail page with source receipts", 
   }
 });
 
-test("Perception has a permanent OMA product route", () => {
-  assert.match(perception, /<title>Perception is on the way<\/title>/);
+test("Perception has a permanent OMA product route", async () => {
+  assert.match(perception, /<title>Perception: Let the signal come to you<\/title>/);
   assert.match(perception, /https:\/\/oma\.intentsolutions\.io\/perception\//);
-  assert.match(perception, /href="\.\.\/plugins\/listening-post\//);
-  assert.match(perception, /href="\.\.\/privacy\//);
-  assert.match(perception, /href="\.\.\/terms\//);
-  assert.match(perception, /Perception is <em>on the way\.<\/em>/);
+  assert.match(perception, /src="\/perception\/assets\/index-[^"]+\.js"/);
+  assert.match(perception, /href="\/perception\/assets\/index-[^"]+\.css"/);
+  assert.doesNotMatch(perception, /on the way/i);
+  const script = perception.match(/src="\/perception\/(assets\/index-[^"]+\.js)"/)?.[1];
+  assert.ok(script);
+  const bundle = await readFile(new URL(`../site/perception/${script}`, import.meta.url), "utf8");
+  assert.match(bundle, /Stop checking feeds/);
+  assert.match(bundle, /Listening Post/);
+  assert.match(bundle, /support@intentsolutions\.io/);
 });
 
 test("public product branding keeps the capital T in omaTrail", async () => {
