@@ -11,8 +11,10 @@
   const endpoint = "https://intentsolutions.io/api/forms/bluegold-interest";
   const confirmationEndpoint = "https://intentsolutions.io/api/forms/bluegold-confirm";
   const consentVersion = "bluegold-interest-v1";
+  const confirmationCodePattern = /^[A-Za-z0-9_-]{22}$/;
   const submit = form.querySelector('button[type="submit"]');
   const defaultLabel = submit.textContent;
+  const defaultConfirmationLabel = confirmationButton.textContent;
 
   function source() {
     const value = new URLSearchParams(window.location.search).get("utm_source")?.toLowerCase() || "website";
@@ -31,27 +33,56 @@
     });
   }
 
-  const outcome = new URLSearchParams(window.location.search).get("interest");
-  const confirmationToken = new URLSearchParams(window.location.hash.slice(1)).get("token");
-  if (outcome === "confirm") {
-    if (!confirmationToken) {
-      setState(status, "That confirmation link is incomplete. Submit the form again for a new link.", "error");
-      revealOutcome(status);
-    } else {
-      form.hidden = true;
-      confirmation.hidden = false;
-      revealOutcome(confirmationButton);
-    }
-  } else if (outcome === "confirmed") {
-    setState(status, "Your interest is confirmed. We will only contact you about BLUE GOLD BLUE.", "success");
-    revealOutcome(status);
-  } else if (outcome === "invalid") {
-    setState(status, "That confirmation link is invalid or expired. Submit the form again for a new link.", "error");
-    revealOutcome(status);
+  let confirmationCode = null;
+  let legacyConfirmationToken = null;
+  let confirmationCredential = null;
+
+  function resetConfirmationView() {
+    form.hidden = false;
+    confirmation.hidden = true;
+    confirmationButton.hidden = false;
+    confirmationButton.disabled = false;
+    confirmationButton.textContent = defaultConfirmationLabel;
+    setState(confirmationStatus, "", "idle");
   }
 
+  function readConfirmationRoute() {
+    const outcome = new URLSearchParams(window.location.search).get("interest");
+    const confirmationParams = new URLSearchParams(window.location.hash.slice(1));
+    const hasConfirmationCode = confirmationParams.has("c");
+    confirmationCode = hasConfirmationCode ? confirmationParams.get("c") : null;
+    legacyConfirmationToken = confirmationParams.get("token");
+    confirmationCredential = confirmationCodePattern.test(confirmationCode || "")
+      ? confirmationCode
+      : legacyConfirmationToken;
+    resetConfirmationView();
+    if (hasConfirmationCode || outcome === "confirm") {
+      if (!confirmationCredential) {
+        setState(status, "That confirmation link is incomplete. Submit the form again for a new link.", "error");
+        revealOutcome(status);
+      } else {
+        form.hidden = true;
+        confirmation.hidden = false;
+        revealOutcome(confirmationButton);
+      }
+    } else if (outcome === "confirmed") {
+      setState(status, "Your interest is confirmed. We will only contact you about BLUE GOLD BLUE.", "success");
+      revealOutcome(status);
+    } else if (outcome === "invalid") {
+      setState(status, "That confirmation link is invalid or expired. Submit the form again for a new link.", "error");
+      revealOutcome(status);
+    } else {
+      confirmationCode = null;
+      legacyConfirmationToken = null;
+      confirmationCredential = null;
+    }
+  }
+
+  readConfirmationRoute();
+  window.addEventListener("hashchange", readConfirmationRoute);
+
   confirmationButton.addEventListener("click", async () => {
-    if (!confirmationToken) return;
+    if (!confirmationCredential) return;
     confirmationButton.disabled = true;
     confirmationButton.textContent = "Confirming...";
     setState(confirmationStatus, "Confirming your BLUE GOLD BLUE interest.", "loading");
@@ -59,7 +90,9 @@
       const response = await fetch(confirmationEndpoint, {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ token: confirmationToken }),
+        body: JSON.stringify(confirmationCode
+          ? { code: confirmationCode }
+          : { token: legacyConfirmationToken }),
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "The confirmation service did not respond.");

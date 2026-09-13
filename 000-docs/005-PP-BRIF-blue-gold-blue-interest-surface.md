@@ -18,7 +18,7 @@ The page must remain useful without fabricated product renders, testimonials, pr
 
 Collect only name, email, one preferred offer concept, and bounded optional signals for journey, current Windows version, storage preference, estimated capacity, and timing. Require the current consent statement. Do not accept free text, files, passwords, license keys, health details, financial information, machine serial numbers, or customer payloads.
 
-The verified backend must validate every enum, suppress honeypot submissions, rate-limit requests, encrypt pending records, use a 48-hour type-bound confirmation token, make confirmation idempotent, and preserve confirmed evidence if CRM delivery fails.
+The verified backend must validate every enum, suppress honeypot submissions, rate-limit requests, encrypt pending records, and keep that sealed payload server-side. Email links carry only a 22-character base64url code whose digest maps to the 48-hour type-bound confirmation record. Confirmation is explicit and idempotent, already-issued token links remain compatible through their original expiry, and confirmed evidence survives CRM delivery failure.
 
 ## Completion Evidence
 

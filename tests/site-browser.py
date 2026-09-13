@@ -341,14 +341,41 @@ with sync_playwright() as playwright:
             page.evaluate("document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0)")
             page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
-            page.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm#token=sealed-bluegold-token")
+            confirmation_code = "AbCdEfGhIjKlMnOpQrStUv"
+            page.goto(f"{BASE_URL}/bluegoldblue/#c={confirmation_code}")
             page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").wait_for()
             assert page.locator("#bluegold-interest-form").is_hidden()
             assert page.locator("#bluegold-confirm-button").evaluate("element => document.activeElement === element")
             page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").click()
             page.get_by_text("Your interest is confirmed.", exact=False).wait_for()
-            assert confirmed_interest == {"token": "sealed-bluegold-token"}
-            assert "sealed-bluegold-token" not in page.url
+            assert confirmed_interest == {"code": confirmation_code}
+            assert confirmation_code not in page.url
+
+            page.goto(f"{BASE_URL}/bluegoldblue/#c={confirmation_code}")
+            page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").wait_for()
+            page.evaluate("window.location.hash = ''")
+            page.locator("#bluegold-interest-form").wait_for(state="visible")
+            assert page.locator("#bluegold-confirmation").is_hidden()
+
+            page.goto(f"{BASE_URL}/bluegoldblue/#c=")
+            page.get_by_text("That confirmation link is incomplete.", exact=False).wait_for()
+            assert page.locator("#bluegold-interest-form").is_visible()
+            assert page.locator("#bluegold-confirmation").is_hidden()
+
+            legacy_confirmation = desktop_context.new_page()
+            legacy_confirmed = {}
+
+            def capture_legacy_confirmation(route):
+                legacy_confirmed.update(json.loads(route.request.post_data))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmed"}))
+
+            legacy_confirmation.route("https://intentsolutions.io/api/forms/bluegold-confirm", capture_legacy_confirmation)
+            legacy_confirmation.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm#token=sealed-bluegold-token")
+            legacy_confirmation.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").click()
+            legacy_confirmation.get_by_text("Your interest is confirmed.", exact=False).wait_for()
+            assert legacy_confirmed == {"token": "sealed-bluegold-token"}
+            assert "sealed-bluegold-token" not in legacy_confirmation.url
+            legacy_confirmation.close()
         else:
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
@@ -385,7 +412,7 @@ with sync_playwright() as playwright:
             route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmed"}))
 
     retry_confirmation.route("https://intentsolutions.io/api/forms/bluegold-confirm", fail_then_confirm)
-    retry_confirmation.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm#token=retry-bluegold-token")
+    retry_confirmation.goto(f"{BASE_URL}/bluegoldblue/#c=ZyXwVuTsRqPoNmLkJiHgFe")
     retry_confirmation.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").click()
     retry_confirmation.get_by_text("Confirmation is temporarily unavailable.", exact=False).wait_for()
     retry_button = retry_confirmation.get_by_role("button", name="Try confirmation again")
