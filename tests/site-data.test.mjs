@@ -251,7 +251,7 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /WELCOME local assistant/);
   assert.match(bluegold, /id="faq"/);
   const faqDetails = bluegold.match(/<details>[\s\S]*?<\/details>/g) || [];
-  assert.equal(faqDetails.length, 60);
+  assert.equal(faqDetails.length, 66);
   for (const entry of faqDetails) {
     assert.equal((entry.match(/<summary>/g) || []).length, 1);
     assert.equal((entry.match(/class="bluegold-answer-state /g) || []).length, 1);
@@ -285,8 +285,15 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /Can I choose what BLUE does or does not copy\?/);
   assert.match(bluegold, /What about OneDrive, Dropbox, or files that are only online\?/);
   assert.match(bluegold, /What about Microsoft Office, Adobe apps, QuickBooks, games/);
+  assert.match(bluegold, /Does BLUE preserve my Windows license or activation\?/);
+  assert.match(bluegold, /Could I use BLUE GOLD BLUE to move to Ubuntu, Fedora, Mint, or another Linux system\?/);
+  assert.match(bluegold, /How will I know what was restored and what still needs attention\?/);
+  assert.match(bluegold, /Can Intent Solutions or support see my files\?/);
+  assert.match(bluegold, /What happens if I lose access to the computer or my data\?/);
+  assert.match(bluegold, /What would I need to prepare before starting\?/);
   assert.match(bluegold, /What if restore finds an existing file, stops halfway, or needs to be retried\?/);
   assert.match(bluegold, /How will GOLD avoid erasing the wrong drive\?/);
+  assert.match(bluegold, /A same-computer install can erase Windows/);
   assert.match(bluegold, /Should I keep another backup before switching\?/);
   assert.match(bluegold, /Can I mix BLUE or GOLD devices from different computers or migrations\?/);
   assert.match(bluegold, /What if GOLD loses power, fails, or the computer will not start afterward\?/);
@@ -303,10 +310,11 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /Will BLUE keep working after Omarchy changes or updates\?/);
   assert.match(bluegold, /What accessibility support will the process have\?/);
   assert.match(bluegold, /What happens when I register interest\?/);
-  assert.match(bluegold, /does not intentionally add your answers to site analytics/);
+  assert.match(bluegold, /form answers are not intentionally sent as custom analytics events/);
   assert.match(bluegold, /a consent record, an anti-abuse check, and a source label/);
   assert.match(bluegold, /aria-label="Intent Solutions portfolio home"/);
   assert.match(bluegold, /physical local storage that stays with you, not an internet cloud/i);
+  assert.match(bluegold, /Research concept, not for sale/);
   assert.match(bluegold, /No live OneDrive, Dropbox, or other provider-acquisition path is released or proven/);
   assert.match(bluegold, /harmless plug-in behavior has not been proven/);
   assert.match(bluegold, /Wait for READY TO SWITCH/);
@@ -318,6 +326,7 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /name="name" type="text"/);
   assert.match(bluegold, /name="email" type="email"/);
   assert.match(bluegold, /name="offer" required/);
+  assert.match(bluegold, /Use a compatible storage drive I already own/);
   assert.match(bluegold, /name="journey"/);
   assert.match(bluegold, /name="currentOs"/);
   assert.match(bluegold, /name="blueStorage"/);

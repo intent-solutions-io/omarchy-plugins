@@ -9,10 +9,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Expanded the BLUE GOLD BLUE FAQ to 60 plain-language answers covering the
+- Expanded the BLUE GOLD BLUE FAQ to 66 plain-language answers covering the
   physical plug-in flow, no-current-product and no-DIY boundaries, backup
   limits, installation and restore failure, Windows rollback limits, device
-  identity, Windows encryption, website data handling, and practical access.
+  identity, Windows encryption and activation, restore reporting, failure
+  recourse, website data handling, and practical access.
 - Clarified the BLUE GOLD BLUE page around the physical customer journey, the
   GOLD installation key, preliminary BLUE capacities, and future backup and
   WELCOME concepts.
