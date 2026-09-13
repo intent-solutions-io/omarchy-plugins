@@ -303,6 +303,13 @@ with sync_playwright() as playwright:
         assert page.get_by_text("WELCOME local assistant", exact=True).count() == 1
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
         assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
+        assert page.locator("#faq details").count() == 19
+        destructive_question = page.get_by_text("Will GOLD remove Windows from my computer?", exact=True)
+        destructive_question.click()
+        destructive_answer = page.get_by_text("On the same-computer journey, yes:", exact=False)
+        assert destructive_answer.is_visible()
+        destructive_question.press("Enter")
+        assert destructive_answer.is_hidden()
         assert page.get_by_role("link", name="Privacy", exact=True).count() >= 1
         assert_no_overflow(page)
         if filename == "bluegold-desktop.png":

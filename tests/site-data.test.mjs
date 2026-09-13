@@ -249,6 +249,16 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegold, /2 TB/);
   assert.match(bluegold, /Keep BLUE as your backup/);
   assert.match(bluegold, /WELCOME local assistant/);
+  assert.match(bluegold, /id="faq"/);
+  assert.equal((bluegold.match(/<details>/g) || []).length, 19);
+  assert.match(bluegold, /Will GOLD remove Windows from my computer\?/);
+  assert.match(bluegold, /can replace Windows and erase the existing system disk/);
+  assert.match(bluegold, /What about OneDrive files that are only in the cloud\?/);
+  assert.match(bluegold, /How will GOLD avoid erasing the wrong drive\?/);
+  assert.match(bluegold, /Is BLUE an internet cloud, and are my files uploaded\?/);
+  assert.match(bluegold, /Can BLUE put Windows back if I change my mind\?/);
+  assert.match(bluegold, /Is Omarchy involved in this project\?/);
+  assert.match(bluegold, /Can BLUE rescue a computer that is already failing\?/);
   assert.match(bluegold, /not an internet cloud service/i);
   assert.match(bluegold, /BLUE BEFORE GOLD\. ALWAYS\./);
   assert.match(bluegold, /Research and development/);

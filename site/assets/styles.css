@@ -2854,6 +2854,7 @@ footer a {
 .bluegold-sequence,
 .bluegold-status,
 .bluegold-options,
+.bluegold-faq,
 .bluegold-interest {
   width: min(calc(100% - 40px), var(--max));
   margin: 0 auto;
@@ -2867,6 +2868,7 @@ footer a {
 
 .bluegold-section-intro h2,
 .bluegold-status h2,
+.bluegold-faq h2,
 .bluegold-interest h2 {
   max-width: 760px;
   margin-bottom: 20px;
@@ -3070,6 +3072,111 @@ footer a {
 
 .bluegold-option-rows span {
   color: #36515e;
+}
+
+.bluegold-faq {
+  border-top: 1px solid #9eb3bd;
+}
+
+.bluegold-faq-list {
+  border-top: 1px solid #8da6b2;
+}
+
+.bluegold-faq-list details {
+  border-bottom: 1px solid #8da6b2;
+}
+
+.bluegold-faq-list summary {
+  min-height: 82px;
+  padding: 19px 58px 19px 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+  color: var(--bluegold-night);
+  cursor: pointer;
+  font-size: 1.42rem;
+  font-weight: 650;
+  list-style: none;
+}
+
+.bluegold-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.bluegold-faq-list summary::after {
+  content: "+";
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: var(--bluegold-blue-deep);
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.bluegold-faq-list details[open] summary::after {
+  content: "−";
+  color: var(--bluegold-night);
+  background: var(--bluegold-gold);
+}
+
+.bluegold-faq-list summary:hover {
+  color: var(--bluegold-blue-deep);
+}
+
+.bluegold-answer-state {
+  width: fit-content;
+  padding: 5px 8px;
+  border: 1px solid currentcolor;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.bluegold-answer-state.state-now,
+.bluegold-answer-state.state-planned {
+  color: var(--bluegold-blue-deep);
+}
+
+.bluegold-answer-state.state-limit {
+  color: var(--orange-deep);
+}
+
+.bluegold-answer-state.state-unknown,
+.bluegold-answer-state.state-future {
+  color: var(--bluegold-night);
+}
+
+.bluegold-faq-list details > div {
+  padding: 0 58px 28px 138px;
+}
+
+.bluegold-faq-list details > div p {
+  max-width: 78ch;
+  margin: 0;
+  color: #36515e;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.bluegold-faq-followup {
+  margin: 30px 0 0;
+  color: #36515e;
+}
+
+.bluegold-faq-followup a {
+  color: var(--bluegold-blue-deep);
+  font-weight: 600;
+  text-underline-offset: 4px;
 }
 
 .bluegold-interest {
@@ -3299,6 +3406,7 @@ footer a {
   .bluegold-sequence,
   .bluegold-status,
   .bluegold-options,
+  .bluegold-faq,
   .bluegold-interest {
     width: min(calc(100% - 28px), var(--max));
   }
@@ -3376,6 +3484,18 @@ footer a {
   .bluegold-option-rows p {
     grid-template-columns: 1fr;
     gap: 5px;
+  }
+
+  .bluegold-faq-list summary {
+    min-height: 94px;
+    padding-right: 48px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    font-size: 1.08rem;
+  }
+
+  .bluegold-faq-list details > div {
+    padding: 0 4px 26px;
   }
 
   .bluegold-capacity-block {
