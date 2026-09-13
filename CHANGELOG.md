@@ -12,6 +12,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Clarified the BLUE GOLD BLUE page around the physical customer journey, the
   GOLD installation key, preliminary BLUE capacities, and future backup and
   WELCOME concepts.
+- Shortened BLUE GOLD BLUE email confirmation links to an opaque code while
+  retaining already-issued token-link compatibility and explicit confirmation.
 
 ### Added
 

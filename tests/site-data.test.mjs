@@ -283,6 +283,9 @@ test("BLUE GOLD BLUE is an honest research page with bounded interest collection
   assert.match(bluegoldInterest, /https:\/\/intentsolutions\.io\/api\/forms\/bluegold-interest/);
   assert.match(bluegoldInterest, /https:\/\/intentsolutions\.io\/api\/forms\/bluegold-confirm/);
   assert.match(bluegoldInterest, /window\.location\.hash/);
+  assert.match(bluegoldInterest, /confirmationParams\.get\("c"\)/);
+  assert.match(bluegoldInterest, /\{ code: confirmationCode \}/);
+  assert.match(bluegoldInterest, /\{ token: legacyConfirmationToken \}/);
   assert.match(bluegoldInterest, /Try confirmation again/);
   assert.doesNotMatch(bluegold, /buy now|reserve your|guaranteed|official Omarchy|works on every|available now/i);
 });
