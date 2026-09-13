@@ -47,6 +47,77 @@ body {
   text-rendering: optimizelegibility;
 }
 
+.mobile-action {
+  display: none;
+}
+
+.not-found {
+  width: min(calc(100% - 40px), 820px);
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 72px 0;
+}
+
+.not-found h1 {
+  max-width: 760px;
+  margin: 0 0 24px;
+  font-family: var(--mono);
+  font-size: clamp(2.6rem, 8vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.not-found > p:not(.not-found-code, .beacon-status-label) {
+  max-width: 68ch;
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+}
+
+.not-found-code {
+  margin: 0 0 22px;
+  color: var(--orange-deep);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.beacon-thanks > p:not(.beacon-status-label) {
+  color: var(--beacon-moss);
+}
+
+@media (max-width: 620px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-action {
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding: 10px 14px max(10px, env(safe-area-inset-bottom));
+    border-top: 1px solid var(--rule-strong);
+    background: color-mix(in srgb, var(--canvas) 94%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-action .button {
+    width: 100%;
+  }
+
+  .beacon-mobile-action {
+    border-top-color: color-mix(in srgb, var(--beacon-forest) 35%, transparent);
+    background: color-mix(in srgb, var(--beacon-paper) 94%, transparent);
+  }
+}
+
 .beacon-page {
   --beacon-forest: #18221b;
   --beacon-paper: #eef1e9;
