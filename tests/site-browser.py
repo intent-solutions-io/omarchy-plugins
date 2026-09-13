@@ -30,6 +30,13 @@ def mock_live_metrics(page) -> None:
     )
 
 
+def mock_perception_api(page) -> None:
+    page.route(
+        "https://api.perception.intentsolutions.io/**",
+        lambda route: route.fulfill(status=202, content_type="application/json", body="{}"),
+    )
+
+
 def assert_no_overflow(page) -> None:
     assert not page.evaluate("document.documentElement.scrollWidth > document.documentElement.clientWidth")
 
@@ -164,10 +171,10 @@ with sync_playwright() as playwright:
     ):
         perception = browser.new_page(viewport=viewport, device_scale_factor=1)
         perception.on("console", lambda message: perception_errors.append(message.text) if message.type == "error" else None)
+        mock_perception_api(perception)
         perception.goto(f"{BASE_URL}/perception/")
         perception.wait_for_load_state("networkidle")
-        assert perception.get_by_role("heading", name="Perception is on the way.").count() == 1
-        assert perception.get_by_role("link", name="Explore Listening Post").get_attribute("href") == "../plugins/listening-post/"
+        assert perception.get_by_role("heading", name="Stop checking feeds. Let the signal come to you.").count() == 1
         assert_no_overflow(perception)
         perception.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         perception.close()
