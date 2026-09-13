@@ -305,7 +305,7 @@ with sync_playwright() as playwright:
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
         assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
         faq_entries = page.locator("#faq details")
-        assert faq_entries.count() == 60
+        assert faq_entries.count() == 66
         for index in range(faq_entries.count()):
             entry = faq_entries.nth(index)
             assert entry.locator("summary").count() == 1
