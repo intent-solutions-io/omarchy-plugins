@@ -14,6 +14,12 @@ Extend the established OMA portfolio system: restrained light surfaces, IBM Plex
 
 The page must remain useful without fabricated product renders, testimonials, prices, countdowns, availability claims, or Omarchy endorsement language.
 
+## FAQ Contract
+
+The FAQ is the progressive-disclosure layer for questions that should not overload the first viewport. Organize it by the visitor's actual concern: the basic kit and steps, computer compatibility and Windows consequences, files/apps/accounts, safety/privacy, and practical next steps. Each answer must be short, plain, and explicitly labeled when it describes a current fact, planned behavior, known limit, undecided offer term, or future idea.
+
+The FAQ must directly answer destructive consequences, unsupported computers and programs, cloud-only files, credentials, peripherals, interruption, capacity, encryption and recovery, malware, STOP/REVIEW behavior, time, support, ongoing backup, WELCOME, pricing, fulfillment, and interest-registration boundaries. Unknowns stay unknown. A comprehensive FAQ is not evidence of product readiness.
+
 ## Form Contract
 
 Collect only name, email, one preferred offer concept, and bounded optional signals for journey, current Windows version, storage preference, estimated capacity, and timing. Require the current consent statement. Do not accept free text, files, passwords, license keys, health details, financial information, machine serial numbers, or customer payloads.
