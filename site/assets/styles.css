@@ -2920,6 +2920,16 @@ footer a {
   color: #36515e;
 }
 
+.bluegold-detail-link {
+  margin: 28px 0 0;
+}
+
+.bluegold-detail-link a {
+  color: var(--bluegold-blue-deep);
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
 .bluegold-status {
   border-top: 1px solid #9eb3bd;
   display: grid;
@@ -2956,6 +2966,86 @@ footer a {
 
 .bluegold-options {
   border-top: 1px solid #9eb3bd;
+}
+
+.bluegold-capacity-block {
+  margin-bottom: clamp(48px, 7vw, 84px);
+  padding: clamp(28px, 4vw, 46px);
+  color: #ffffff;
+  background: var(--bluegold-night);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+}
+
+.bluegold-eyebrow {
+  margin: 0 0 12px;
+  color: #70c3e9;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bluegold-capacity-block h3 {
+  max-width: 560px;
+  margin-bottom: 16px;
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+}
+
+.bluegold-capacity-block > div > p:last-child {
+  max-width: 62ch;
+  margin-bottom: 0;
+  color: #c7d5db;
+}
+
+.bluegold-capacity-grid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.24);
+  list-style: none;
+}
+
+.bluegold-capacity-grid li {
+  min-height: 112px;
+  padding: 20px;
+  background: var(--bluegold-night);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bluegold-capacity-grid strong {
+  color: #f5c862;
+  font-family: var(--mono);
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.bluegold-capacity-grid span {
+  margin-top: 4px;
+  color: #c7d5db;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bluegold-options-heading {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  letter-spacing: -0.02em;
+}
+
+.bluegold-future-heading {
+  margin-top: clamp(48px, 7vw, 76px);
 }
 
 .bluegold-option-rows {
@@ -3182,6 +3272,10 @@ footer a {
     grid-template-columns: 1fr;
   }
 
+  .bluegold-capacity-block {
+    grid-template-columns: 1fr;
+  }
+
   .bluegold-trust-strip {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -3282,6 +3376,15 @@ footer a {
   .bluegold-option-rows p {
     grid-template-columns: 1fr;
     gap: 5px;
+  }
+
+  .bluegold-capacity-block {
+    padding: 24px 20px;
+  }
+
+  .bluegold-capacity-grid li {
+    min-height: 96px;
+    padding: 16px;
   }
 
   .bluegold-form-grid {

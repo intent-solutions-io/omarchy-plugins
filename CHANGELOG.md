@@ -7,6 +7,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## Unreleased
 
+### Changed
+
+- Clarified the BLUE GOLD BLUE page around the physical customer journey, the
+  GOLD installation key, preliminary BLUE capacities, and future backup and
+  WELCOME concepts.
+
 ### Added
 
 - A BLUE GOLD BLUE research and interest page with explicit product boundaries,
