@@ -268,6 +268,121 @@ with sync_playwright() as playwright:
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
 
+    for page, viewport, filename in (
+        (desktop_context.new_page(), {"width": 1440, "height": 1000}, "bluegold-desktop.png"),
+        (browser.new_page(viewport={"width": 390, "height": 844}), {"width": 390, "height": 844}, "bluegold-mobile.png"),
+    ):
+        submitted_interest = {}
+        confirmed_interest = {}
+        if filename == "bluegold-desktop.png":
+            def capture_interest(route):
+                submitted_interest.update(json.loads(route.request.post_data))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"}))
+
+            def capture_interest_confirmation(route):
+                confirmed_interest.update(json.loads(route.request.post_data))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmed"}))
+
+            page.route("https://intentsolutions.io/api/forms/bluegold-interest", capture_interest)
+            page.route("https://intentsolutions.io/api/forms/bluegold-confirm", capture_interest_confirmation)
+        page.set_viewport_size(viewport)
+        page.goto(f"{BASE_URL}/bluegoldblue/")
+        page.wait_for_load_state("networkidle")
+        assert page.get_by_role("heading", name="Your files first. Your new computer second.").count() == 1
+        assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
+        assert page.get_by_text("Not for sale yet.", exact=True).count() == 1
+        assert page.get_by_role("link", name="Privacy", exact=True).count() >= 1
+        assert_no_overflow(page)
+        if filename == "bluegold-desktop.png":
+            page.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
+            page.get_by_label("Email Required", exact=True).fill("jordan@example.test")
+            page.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
+            page.get_by_label("Which journey fits?").select_option("new-computer")
+            page.get_by_label("Current Windows version").select_option("windows-11")
+            page.get_by_label("Preferred BLUE storage").select_option("premium-blue-ssd")
+            page.get_by_label("Estimated data to keep").select_option("512gb-1tb")
+            page.get_by_label("When would this matter?").select_option("when-proven")
+            page.locator('[name="consent"]').check()
+            page.get_by_role("button", name="Send my confirmation").click()
+            page.get_by_text("Check your email and confirm within 48 hours.", exact=False).wait_for()
+            assert submitted_interest == {
+                "name": "Jordan Rivera",
+                "email": "jordan@example.test",
+                "offer": "blue-gold-kit",
+                "journey": "new-computer",
+                "currentOs": "windows-11",
+                "blueStorage": "premium-blue-ssd",
+                "capacity": "512gb-1tb",
+                "timing": "when-proven",
+                "consent": True,
+                "consentVersion": "bluegold-interest-v1",
+                "source": "website",
+                "website": "",
+            }
+            page.evaluate("document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0)")
+            page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
+            page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+            page.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm#token=sealed-bluegold-token")
+            page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").wait_for()
+            assert page.locator("#bluegold-interest-form").is_hidden()
+            assert page.locator("#bluegold-confirm-button").evaluate("element => document.activeElement === element")
+            page.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").click()
+            page.get_by_text("Your interest is confirmed.", exact=False).wait_for()
+            assert confirmed_interest == {"token": "sealed-bluegold-token"}
+            assert "sealed-bluegold-token" not in page.url
+        else:
+            page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
+        page.close()
+
+    interest_failure = desktop_context.new_page()
+    interest_failure.route(
+        "https://intentsolutions.io/api/forms/bluegold-interest",
+        lambda route: route.fulfill(status=503, content_type="application/json", body=json.dumps({"error": "Interest intake is temporarily unavailable."})),
+    )
+    interest_failure.goto(f"{BASE_URL}/bluegoldblue/")
+    interest_failure.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
+    interest_failure.get_by_label("Email Required", exact=True).fill("jordan@example.test")
+    interest_failure.get_by_label("Which concept interests you most?").select_option("assisted-migration")
+    interest_failure.locator('[name="consent"]').check()
+    interest_failure.get_by_role("button", name="Send my confirmation").click()
+    interest_failure.get_by_text("Interest intake is temporarily unavailable.", exact=False).wait_for()
+    assert "Your information was not added" in interest_failure.locator("#bluegold-form-status").inner_text()
+    interest_failure.close()
+
+    incomplete_confirmation = desktop_context.new_page()
+    incomplete_confirmation.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm")
+    incomplete_confirmation.get_by_text("That confirmation link is incomplete.", exact=False).wait_for()
+    assert incomplete_confirmation.locator("#bluegold-interest-form").is_visible()
+    incomplete_confirmation.close()
+
+    confirmation_attempts = {"count": 0}
+    retry_confirmation = desktop_context.new_page()
+
+    def fail_then_confirm(route):
+        confirmation_attempts["count"] += 1
+        if confirmation_attempts["count"] == 1:
+            route.fulfill(status=503, content_type="application/json", body=json.dumps({"error": "Confirmation is temporarily unavailable."}))
+        else:
+            route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmed"}))
+
+    retry_confirmation.route("https://intentsolutions.io/api/forms/bluegold-confirm", fail_then_confirm)
+    retry_confirmation.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm#token=retry-bluegold-token")
+    retry_confirmation.get_by_role("button", name="Confirm BLUE GOLD BLUE updates").click()
+    retry_confirmation.get_by_text("Confirmation is temporarily unavailable.", exact=False).wait_for()
+    retry_button = retry_confirmation.get_by_role("button", name="Try confirmation again")
+    assert retry_button.is_visible() and retry_button.is_enabled()
+    retry_button.click()
+    retry_confirmation.get_by_text("Your interest is confirmed.", exact=False).wait_for()
+    assert confirmation_attempts["count"] == 2
+    retry_confirmation.close()
+
+    reduced_context = browser.new_context(viewport={"width": 768, "height": 1024}, reduced_motion="reduce")
+    reduced_page = reduced_context.new_page()
+    reduced_page.goto(f"{BASE_URL}/bluegoldblue/")
+    assert reduced_page.evaluate("getComputedStyle(document.documentElement).scrollBehavior") == "auto"
+    assert_no_overflow(reduced_page)
+    reduced_context.close()
+
     demo = browser.new_page(viewport={"width": 1440, "height": 900})
     demo.goto(f"{BASE_URL}/the-beacon-wakes/play/")
     demo.wait_for_load_state("networkidle")

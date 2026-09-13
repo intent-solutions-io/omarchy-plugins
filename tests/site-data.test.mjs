@@ -12,6 +12,8 @@ const beacon = await readFile(new URL("../site/the-beacon-wakes/index.html", imp
 const beaconSignup = await readFile(new URL("../site/assets/beacon-signup.js", import.meta.url), "utf8");
 const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.html", import.meta.url), "utf8");
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
+const bluegold = await readFile(new URL("../site/bluegoldblue/index.html", import.meta.url), "utf8");
+const bluegoldInterest = await readFile(new URL("../site/assets/bluegold-interest.js", import.meta.url), "utf8");
 const legalDocuments = new Map(await Promise.all([
   ["privacy", "Privacy Policy"],
   ["app-privacy", "The Beacon Wakes App Privacy Policy"],
@@ -116,6 +118,8 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.match(html, /id="ledger"/);
   assert.match(html, /id="family-filters"/);
   assert.match(html, /id="featured-project"/);
+  assert.match(html, /class="bluegold-feature"/);
+  assert.match(html, /href="bluegoldblue\/"/);
   assert.match(html, /id="project-count"/);
   assert.doesNotMatch(html, /id="roadmap-count"/);
   assert.match(html, /href="the-beacon-wakes\/play\/"/);
@@ -144,6 +148,8 @@ test("repository-owned legal routes match product and child-safety contracts", (
     assert.doesNotMatch(legal.html, /not (?:aimed|intended|designed) (?:at|for) children|children under (?:the age of )?13 may not use|must be (?:at least )?18 (?:years old )?to use/i);
   }
   assert.match(legalDocuments.get("privacy").html, /designed for children to play with parent or guardian involvement/i);
+  assert.match(legalDocuments.get("privacy").html, /BLUE GOLD BLUE interest form asks for your name, email address/i);
+  assert.match(legalDocuments.get("terms").html, /BLUE GOLD BLUE is currently a research and development project/i);
   assert.match(legalDocuments.get("app-privacy").html, /does not ask the child playing for a name/i);
   assert.match(legalDocuments.get("app-privacy").html, /does not send typing performance or gameplay progress/i);
   assert.match(legalDocuments.get("terms").html, /a parent or legal guardian must review and accept these Terms on the child's behalf/i);
@@ -225,4 +231,33 @@ test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
   assert.match(beacon, /https:\/\/oma\.intentsolutions\.io\/the-beacon-wakes\//);
   assert.doesNotMatch(beacon, /omaQuest|OmaQuest|OMAQUEST/);
   assert.match(beaconRedirect, /url=\.\.\/the-beacon-wakes\//);
+});
+
+test("BLUE GOLD BLUE is an honest research page with bounded interest collection", () => {
+  assert.match(bluegold, /<h1 id="bluegold-title">Your files first\./);
+  assert.match(bluegold, /BLUE BEFORE GOLD\. ALWAYS\./);
+  assert.match(bluegold, /Research and development/);
+  assert.match(bluegold, /Not for sale yet/);
+  assert.match(bluegold, /not an Omarchy endorsement/i);
+  assert.match(bluegold, /name="name" type="text"/);
+  assert.match(bluegold, /name="email" type="email"/);
+  assert.match(bluegold, /name="offer" required/);
+  assert.match(bluegold, /name="journey"/);
+  assert.match(bluegold, /name="currentOs"/);
+  assert.match(bluegold, /name="blueStorage"/);
+  assert.match(bluegold, /name="capacity"/);
+  assert.match(bluegold, /name="timing"/);
+  assert.match(bluegold, /name="consent" type="checkbox" required/);
+  assert.match(bluegold, /href="\.\.\/privacy\/"/);
+  assert.match(bluegold, /href="\.\.\/acceptable-use\/"/);
+  assert.match(bluegold, /href="\.\.\/terms\/"/);
+  assert.match(bluegold, /id="bluegold-confirm-button"/);
+  assert.match(bluegold, /Optional preferences/);
+  assert.match(bluegold, /Need a new link\? Submit the form again\./);
+  assert.match(bluegoldInterest, /bluegold-interest-v1/);
+  assert.match(bluegoldInterest, /https:\/\/intentsolutions\.io\/api\/forms\/bluegold-interest/);
+  assert.match(bluegoldInterest, /https:\/\/intentsolutions\.io\/api\/forms\/bluegold-confirm/);
+  assert.match(bluegoldInterest, /window\.location\.hash/);
+  assert.match(bluegoldInterest, /Try confirmation again/);
+  assert.doesNotMatch(bluegold, /buy now|reserve your|guaranteed|official Omarchy|works on every|available now/i);
 });

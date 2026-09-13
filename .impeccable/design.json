@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-12T19:28:47-06:00",
+  "title": "Design System: Intent Solutions OMA Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Canvas", "canonical": "#f6f6f4" },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#ffffff" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#111114" },
+      "ink-soft": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#2f3036" },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "#62636b" },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#d8d8d3" },
+      "rule-strong": { "role": "neutral", "displayName": "Rule Strong", "canonical": "#9b9b95" },
+      "dark-rule": { "role": "neutral", "displayName": "Dark Rule", "canonical": "#66666d" },
+      "orange": { "role": "primary", "displayName": "Signal Orange", "canonical": "#ff8f55" },
+      "orange-deep": { "role": "primary", "displayName": "Deep Orange", "canonical": "#a93d0b" },
+      "orange-soft": { "role": "primary", "displayName": "Soft Orange", "canonical": "#fff0e8" },
+      "green": { "role": "secondary", "displayName": "Verified Green", "canonical": "#08745a" },
+      "green-soft": { "role": "secondary", "displayName": "Soft Green", "canonical": "#dff5ed" },
+      "preview-surface": { "role": "neutral", "displayName": "Preview Surface", "canonical": "#101114" },
+      "preview-muted": { "role": "neutral", "displayName": "Preview Muted", "canonical": "#c7c7c2" },
+      "text-on-dark-muted": { "role": "neutral", "displayName": "Text On Dark Muted", "canonical": "#bdbdc3" },
+      "command-text": { "role": "secondary", "displayName": "Command Text", "canonical": "#a8efd8" },
+      "beacon-forest": { "role": "variant", "displayName": "Beacon Forest", "canonical": "#18221b" },
+      "beacon-paper": { "role": "variant", "displayName": "Beacon Paper", "canonical": "#eef1e9" },
+      "beacon-moss": { "role": "variant", "displayName": "Beacon Moss", "canonical": "#315b46" },
+      "beacon-ember": { "role": "variant", "displayName": "Beacon Ember", "canonical": "#f97316" },
+      "beacon-teal": { "role": "variant", "displayName": "Beacon Teal", "canonical": "#086976" },
+      "beacon-gold": { "role": "variant", "displayName": "Beacon Gold", "canonical": "#f4c542" },
+      "beacon-correction": { "role": "variant", "displayName": "Beacon Correction", "canonical": "#a43d2b" },
+      "perception-deep": { "role": "variant", "displayName": "Perception Deep", "canonical": "#0c141b" },
+      "perception-panel": { "role": "variant", "displayName": "Perception Panel", "canonical": "#101a22" },
+      "perception-ink": { "role": "variant", "displayName": "Perception Ink", "canonical": "#e8edf0" },
+      "perception-muted": { "role": "variant", "displayName": "Perception Muted", "canonical": "#93a2ab" },
+      "perception-line": { "role": "variant", "displayName": "Perception Line", "canonical": "#2a3942" },
+      "perception-signal": { "role": "variant", "displayName": "Perception Signal", "canonical": "#63c7c5" },
+      "perception-route": { "role": "variant", "displayName": "Perception Route", "canonical": "#efa84a" },
+      "bluegold-blue": { "role": "variant", "displayName": "BLUE Protection Blue", "canonical": "#0a5f89" },
+      "bluegold-blue-deep": { "role": "variant", "displayName": "BLUE Deep Blue", "canonical": "#083b55" },
+      "bluegold-blue-soft": { "role": "variant", "displayName": "BLUE Soft Blue", "canonical": "#dcecf4" },
+      "bluegold-gold": { "role": "variant", "displayName": "GOLD Change Gold", "canonical": "#e1a51d" },
+      "bluegold-gold-soft": { "role": "variant", "displayName": "GOLD Soft Gold", "canonical": "#fff4d5" },
+      "bluegold-night": { "role": "variant", "displayName": "BLUE GOLD BLUE Night", "canonical": "#102733" },
+      "bluegold-paper": { "role": "variant", "displayName": "BLUE GOLD BLUE Paper", "canonical": "#f2f7f9" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Large portfolio and product hero statements." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings and major explanatory statements." },
+      "title": { "displayName": "Title", "purpose": "Catalog card names and compact content titles." },
+      "body": { "displayName": "Body", "purpose": "Explanatory copy, metadata context, and form guidance." },
+      "label": { "displayName": "Instrument Label", "purpose": "Navigation, status, filters, controls, and operational text." }
+    },
+    "shadows": [
+      { "name": "hard-interaction-offset", "value": "5px 5px 0 var(--ink)", "purpose": "Shared button and catalog-card hover state." },
+      { "name": "bluegold-route-board", "value": "0 20px 48px rgba(0, 0, 0, 0.18)", "purpose": "Scoped depth for the BLUE GOLD BLUE proof sequence board." }
+    ],
+    "motion": [
+      { "name": "button-hover", "value": "transform 170ms ease, box-shadow 170ms ease, background 170ms ease", "purpose": "Shared button state transition." },
+      { "name": "card-hover", "value": "transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease", "purpose": "Shared catalog card hover transition." }
+    ],
+    "breakpoints": [
+      { "name": "portfolio-collapse", "value": "980px", "purpose": "Collapse multi-column product compositions and move trust strips to two columns." },
+      { "name": "compact", "value": "620px", "purpose": "Use single-column option rows and forms with compact surface gutters." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary shared portfolio action with a functional orange signal.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">VIEW THE CATALOG</button>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--orange); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-decoration: none; text-transform: uppercase; transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow); } .ds-btn-primary:active { transform: translateY(0); box-shadow: none; } .ds-btn-primary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary shared action that preserves the light surface.",
+      "html": "<button class=\"ds-btn-quiet\" type=\"button\">READ THE STATUS</button>",
+      "css": ".ds-btn-quiet { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 0 20px; border: 1px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--surface); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-decoration: none; text-transform: uppercase; transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease; } .ds-btn-quiet:hover { transform: translateY(-2px); box-shadow: var(--shadow); background: var(--orange); } .ds-btn-quiet:active { transform: translateY(0); box-shadow: none; } .ds-btn-quiet:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }"
+    },
+    {
+      "name": "Catalog Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Evidence-oriented plugin card with a preview and compact metadata.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-preview\">PREVIEW</div><div class=\"ds-card-body\"><p class=\"ds-card-meta\">LISTED <span>DISCOVERY</span></p><h3>Bazaar</h3><p>Discovery and building.</p><a href=\"#\">Inspect source</a></div></article>",
+      "css": ".ds-card { min-width: 0; border: 1px solid var(--rule-strong); background: var(--surface); transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; } .ds-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: var(--shadow); } .ds-card-preview { aspect-ratio: 16 / 9; display: grid; place-items: center; border-bottom: 1px solid var(--rule-strong); color: var(--preview-muted); background: var(--preview-surface); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; } .ds-card-body { padding: 22px; } .ds-card-meta { display: flex; justify-content: space-between; gap: 10px; margin: 0 0 18px; color: var(--green); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; } .ds-card h3 { margin: 0 0 12px; color: var(--ink); font-family: var(--mono); font-size: 1.42rem; letter-spacing: -0.04em; } .ds-card p:not(.ds-card-meta) { color: var(--muted); font-size: 0.92rem; line-height: 1.55; } .ds-card a { color: var(--ink); text-underline-offset: 4px; } .ds-card a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square, readable field for bounded contact or search input.",
+      "html": "<label class=\"ds-field\"><span>EMAIL</span><input type=\"email\" placeholder=\"name@example.com\"></label>",
+      "css": ".ds-field { display: block; color: var(--ink); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; } .ds-field span { display: block; margin-bottom: 7px; } .ds-field input { width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--rule-strong); border-radius: 0; color: var(--ink); background: var(--surface); font: 16px/1.65 var(--sans); } .ds-field input:hover { border-color: var(--ink); } .ds-field input:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; border-color: var(--ink); }"
+    },
+    {
+      "name": "Portfolio Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Mono wordmark and compact navigation rail used across portfolio surfaces.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary navigation\"><a class=\"ds-wordmark\" href=\"#\">Intent Solutions <span>Omarchy Plugins</span></a><a href=\"#catalog\">Catalog</a><a href=\"#status\">Status</a></nav>",
+      "css": ".ds-nav { min-height: 76px; display: flex; align-items: center; gap: 28px; color: var(--ink); font-family: var(--mono); font-size: 0.72rem; font-weight: 600; } .ds-nav a { min-height: 44px; padding: 12px 0; display: inline-flex; align-items: center; color: inherit; text-decoration: none; } .ds-nav a:hover { box-shadow: inset 0 -2px 0 var(--orange); } .ds-nav a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; } .ds-nav .ds-wordmark { margin-right: auto; gap: 12px; color: var(--ink); font-size: 0.94rem; font-weight: 800; letter-spacing: -0.035em; } .ds-nav .ds-wordmark span { padding-left: 12px; border-left: 1px solid var(--rule-strong); color: var(--muted); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; }"
+    },
+    {
+      "name": "BLUE GOLD BLUE Route Board",
+      "kind": "custom",
+      "refersTo": "bluegold-route-board",
+      "description": "Scoped proof sequence showing save, gate, change, and restore in order.",
+      "html": "<section class=\"ds-route-board\" aria-label=\"BLUE GOLD BLUE sequence\"><ol><li class=\"ds-route-blue\"><span>BLUE</span><strong>Save your stuff.</strong><small>Discover, protect, and verify first.</small></li><li class=\"ds-route-gate\"><span>SAFETY GATE</span><strong>Proof before change.</strong><small>Unknown or unsafe means stop.</small></li><li class=\"ds-route-gold\"><span>GOLD</span><strong>Start your new computer.</strong><small>Only after BLUE is verified.</small></li><li class=\"ds-route-blue\"><span>BLUE</span><strong>Bring your stuff home.</strong><small>Restore what is supported and report the rest.</small></li></ol><p>BLUE BEFORE GOLD. ALWAYS.</p></section>",
+      "css": ".ds-route-board { padding: 24px; color: #f4f8fa; background: #102733; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18); } .ds-route-board ol { margin: 0; padding: 0; list-style: none; } .ds-route-board li { position: relative; min-height: 104px; padding: 16px 18px 18px 72px; border-bottom: 1px solid rgba(244, 248, 250, 0.2); } .ds-route-board li::before { content: \"\"; position: absolute; top: 22px; left: 18px; width: 30px; height: 30px; border: 2px solid currentcolor; border-radius: 50%; background: #102733; } .ds-route-board li::after { content: \"\"; position: absolute; top: 52px; bottom: -23px; left: 33px; width: 2px; background: rgba(244, 248, 250, 0.35); } .ds-route-board li:last-child { border-bottom: 0; } .ds-route-board li:last-child::after { display: none; } .ds-route-board li > span { display: block; margin-bottom: 4px; font-family: var(--mono); font-size: 0.875rem; font-weight: 800; letter-spacing: 0.1em; } .ds-route-board li strong { display: block; font-size: 1.12rem; } .ds-route-board li small { display: block; margin-top: 2px; color: #c7d5db; font-size: 0.86rem; } .ds-route-board .ds-route-blue { color: #70c3e9; } .ds-route-board .ds-route-gold { color: #f5c862; } .ds-route-board .ds-route-gate { color: #ffffff; background: rgba(255, 255, 255, 0.04); } .ds-route-board > p { margin: 20px 0 0; padding: 14px 18px; color: #102733; background: #e1a51d; font-family: var(--mono); font-size: 0.875rem; font-weight: 800; letter-spacing: 0.1em; text-align: center; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Evidence Workshop",
+    "overview": "The OMA portfolio is a restrained evidence workshop: engineered, calm, legible, and candid. It presents source-backed work in a light, paper-like field with strong typographic structure, deliberate rules, and dark structural panels when a sequence or proof state needs to hold attention. The interface is typography-led rather than illustration-led. Hierarchy comes from scale, whitespace, aligned rails, and rare functional color.\n\nThe shared portfolio surface is the default visual authority for the catalog and supporting pages. The Beacon Wakes, Perception, and BLUE GOLD BLUE surfaces can establish their own scoped palettes and signature compositions while retaining the same discipline of readable type, explicit state, and honest unfinished status. BLUE GOLD BLUE uses blue for protection and information, then reserves gold for its safety-gated change step.",
+    "keyCharacteristics": [
+      "Typography-led hierarchy with JetBrains Mono headings and labels.",
+      "IBM Plex Sans body copy with generous readable line lengths.",
+      "Light canvas, thin rules, square forms, and dark structural panels.",
+      "Functional accents used sparingly to communicate state, action, or attention."
+    ],
+    "rules": [
+      { "name": "The Rare Accent Rule", "body": "Color is a functional signal. Use an accent to identify an action, state, route, or exception, and let the surrounding light field and dark structure carry the rest of the hierarchy.", "section": "colors" },
+      { "name": "The Instrument Label Rule", "body": "Use the mono face for operational language and state. Do not turn body paragraphs into labels or use display scale where a compact status marker is clearer.", "section": "typography" },
+      { "name": "The Structural Depth Rule", "body": "Establish hierarchy with surface tone, rules, and whitespace first. A shadow is a state or signature treatment, not a default decoration.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do lead with the evidence, sequence, or status the visitor needs to understand.",
+      "Do use JetBrains Mono for operational labels and IBM Plex Sans for explanatory copy.",
+      "Do use whitespace, thin rules, and dark structural panels to create hierarchy before reaching for color.",
+      "Do keep interactive targets at least 44px high and preserve visible keyboard focus.",
+      "Do scope product palettes to their product surface. On BLUE GOLD BLUE, use blue for protection and information and gold for safety-gated change.",
+      "Do make unfinished, under-review, and unknown states explicit in both copy and visual treatment."
+    ],
+    "donts": [
+      "Don't replace evidence with fabricated renders, testimonials, prices, countdowns, availability claims, or endorsement language.",
+      "Don't introduce illustration-led decoration where typography and structure already communicate the idea.",
+      "Don't use rounded cards, pill controls, soft generic gradients, or ornamental shadows that are absent from the incumbent system.",
+      "Don't turn the BLUE GOLD BLUE blue and gold semantics into a portfolio-wide color requirement.",
+      "Don't use a bright accent as a large decorative wash when a rule, label, or state marker will communicate the same information."
+    ]
+  }
+}

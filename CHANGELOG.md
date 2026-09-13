@@ -9,6 +9,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- A BLUE GOLD BLUE research and interest page with explicit product boundaries,
+  bounded preference collection, and a consent-confirmation path.
 - Public contribution, support, security, ownership, and maintainer-interest
   guidance.
 - Repository formatting and dependency-update policy.
