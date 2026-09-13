@@ -165,6 +165,7 @@ def page_for(plugin: dict[str, object]) -> str:
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/styles.css">
   <script src="../../assets/detail.js" defer></script>
+  <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571" data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"></script>
 </head>
 <body class="detail-page" data-install-command="{esc(plugin.get('installCommand'))}">
   <a class="skip-link" href="#plugin-detail">Skip to plugin details</a>

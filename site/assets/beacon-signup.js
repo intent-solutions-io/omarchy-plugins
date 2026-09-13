@@ -106,7 +106,7 @@
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "The signup service did not respond.");
       form.reset();
-      setState("Check your email and confirm within 48 hours. Nothing is added to the release list until you confirm.", "success");
+      window.location.assign("thanks/");
     } catch (error) {
       setState(`${error.message} Your information was not added. Please try again.`, "error");
     } finally {

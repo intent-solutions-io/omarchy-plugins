@@ -243,7 +243,9 @@ with sync_playwright() as playwright:
             page.locator('[name="email"]').fill("parent@example.test")
             page.locator('[name="consent"]').check()
             page.get_by_role("button", name="Send my confirmation").click()
-            page.get_by_text("Check your email and confirm within 48 hours.", exact=False).wait_for()
+            page.wait_for_url(f"{BASE_URL}/the-beacon-wakes/thanks/")
+            assert page.get_by_role("heading", name="Check your email.").count() == 1
+            assert page.get_by_text("Nothing is added to the release list", exact=False).count() == 1
             assert submitted_signup == {
                 "firstName": "Jordan",
                 "lastName": "Rivera",
@@ -254,7 +256,6 @@ with sync_playwright() as playwright:
                 "website": "",
             }
             page.evaluate("document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0)")
-            page.locator(".skip-link").evaluate("element => element.style.display = 'none'")
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
             page.goto(f"{BASE_URL}/the-beacon-wakes/?signup=confirm#token=sealed-test-token")
             page.get_by_role("button", name="Confirm release updates").wait_for()
