@@ -2330,6 +2330,17 @@ footer a {
     display: inline;
   }
 
+  .bluegold-header nav a:first-child {
+    display: none;
+  }
+
+  .bluegold-header nav a.bluegold-interest-link {
+    min-height: 42px;
+    padding: 0 10px;
+    display: inline-flex;
+    font-size: 0.7rem;
+  }
+
   .hero {
     padding-top: 76px;
   }

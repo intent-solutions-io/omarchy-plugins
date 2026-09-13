@@ -303,8 +303,28 @@ with sync_playwright() as playwright:
         assert page.get_by_text("WELCOME local assistant", exact=True).count() == 1
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
         assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
-        assert page.locator("#faq details").count() == 43
+        faq_entries = page.locator("#faq details")
+        assert faq_entries.count() == 58
+        for index in range(faq_entries.count()):
+            entry = faq_entries.nth(index)
+            assert entry.locator("summary").count() == 1
+            assert entry.locator(".bluegold-answer-state").count() == 1
+            assert entry.locator(":scope > div").text_content().strip()
         assert page.locator(".bluegold-faq-map a").count() == 5
+        faq_targets = page.locator(".bluegold-faq-map a").evaluate_all(
+            "links => links.map(link => link.hash.slice(1))",
+        )
+        assert faq_targets == ["faq-start", "faq-computer", "faq-data", "faq-safety", "faq-after"]
+        assert len(faq_targets) == len(set(faq_targets))
+        for target in faq_targets:
+            assert page.locator(f"#{target}").count() == 1
+        first_question = page.locator("#faq details summary").first
+        first_question.focus()
+        assert first_question.evaluate("element => document.activeElement === element")
+        first_question.press("Enter")
+        assert faq_entries.first.get_attribute("open") is not None
+        first_question.press("Enter")
+        assert faq_entries.first.get_attribute("open") is None
         page.get_by_role("link", name="Your stuff Files, apps, and accounts").click()
         assert page.locator("#faq-data").evaluate("element => element.id") == "faq-data"
         destructive_question = page.get_by_text("Will GOLD remove Windows from my computer?", exact=True)
@@ -380,6 +400,9 @@ with sync_playwright() as playwright:
             assert "sealed-bluegold-token" not in legacy_confirmation.url
             legacy_confirmation.close()
         else:
+            mobile_interest = page.locator(".bluegold-header .bluegold-interest-link")
+            assert mobile_interest.is_visible()
+            assert mobile_interest.get_attribute("href") == "#interest"
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
 
