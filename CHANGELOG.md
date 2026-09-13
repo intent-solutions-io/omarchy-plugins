@@ -9,6 +9,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- A BLUE GOLD BLUE research and interest page with explicit product boundaries,
+  bounded preference collection, and a consent-confirmation path.
 - Full Perception product experience at `/perception/`, replacing the temporary
   coming-soon page with the source-backed signal-room landing and customer
   access surface.

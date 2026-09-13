@@ -8,11 +8,11 @@ web
 
 ## Users
 
-The public portfolio serves Omarchy users, contributors, and prospective maintainers who need verified links to Intent Solutions plugins. The Beacon Wakes surface also serves parents and guardians evaluating a child-safe keyboard adventure and its release updates.
+The public portfolio serves Omarchy users, contributors, and prospective maintainers who need verified links to Intent Solutions plugins. The Beacon Wakes surface also serves parents and guardians evaluating a child-safe keyboard adventure and its release updates. The BLUE GOLD BLUE surface serves adults evaluating an evidence-first migration concept and registering bounded product interest.
 
 ## Product Purpose
 
-The site provides a durable public home for Intent Solutions Omarchy work. It connects each plugin to its source and official marketplace record, publishes honest release status, and gives The Beacon Wakes a parent-facing demo, guide, and adult-only release-update path.
+The site provides a durable public home for Intent Solutions Omarchy work. It connects each plugin to its source and official marketplace record, publishes honest release status, gives The Beacon Wakes a parent-facing demo and adult-only release-update path, and gives BLUE GOLD BLUE an honest pre-release research and interest surface.
 
 ## Positioning
 
@@ -20,11 +20,13 @@ Published claims are tied to repository, marketplace, test, and deployment recei
 
 ## Operating Context
 
-The site is deployed as static HTML, CSS, and JavaScript from `site/` to GitHub Pages at `oma.intentsolutions.io`. Plugin detail pages are generated from the canonical inventory. The Beacon Wakes signup posts parent or guardian information to the separate Intent Solutions forms service.
+The site is deployed as static HTML, CSS, and JavaScript from `site/` to GitHub Pages at `oma.intentsolutions.io`. Plugin detail pages are generated from the canonical inventory. The Beacon Wakes and BLUE GOLD BLUE forms post bounded adult information to separate product endpoints in the Intent Solutions forms service.
 
 ## Capabilities and Constraints
 
 - The catalog and generated detail pages must remain aligned with the canonical plugin inventory.
+- BLUE GOLD BLUE must remain labeled as research and development until product, safety, compatibility, commercial, and legal gates establish otherwise.
+- BLUE GOLD BLUE interest options are hypotheses, not pricing, SKU, availability, compatibility, or endorsement claims.
 - The Beacon Wakes browser demo is free and ungated.
 - Child identity, contact details, and gameplay performance are not collected by the parent signup.
 - Privacy, App Privacy, Acceptable Use, and Terms documents are static, repository-owned pages at stable public routes. Their checked-in HTML is the publication authority.
@@ -33,7 +35,7 @@ The site is deployed as static HTML, CSS, and JavaScript from `site/` to GitHub 
 
 ## Brand Commitments
 
-Intent Solutions is the master brand. The Beacon Wakes is the product name. `omaTrail` always retains its capital `T`. The existing restrained light portfolio system and the established forest, paper, ember, teal, and gold Beacon system remain authoritative.
+Intent Solutions is the master brand. The Beacon Wakes and BLUE GOLD BLUE are product names. `omaTrail` always retains its capital `T`. The existing restrained light portfolio system and the established forest, paper, ember, teal, and gold Beacon system remain authoritative. BLUE GOLD BLUE extends the restrained portfolio system with blue and gold safety-state semantics.
 
 ## Evidence on Hand
 
