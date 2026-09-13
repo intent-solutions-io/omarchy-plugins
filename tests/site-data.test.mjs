@@ -239,7 +239,17 @@ test("The Beacon Wakes demo and parent handoff are honest and ungated", () => {
 });
 
 test("BLUE GOLD BLUE is an honest research page with bounded interest collection", () => {
-  assert.match(bluegold, /<h1 id="bluegold-title">Your files first\./);
+  assert.match(bluegold, /<h1 id="bluegold-title">Windows to Omarchy\./);
+  assert.match(bluegold, /BLUE is your personal cloud/);
+  assert.match(bluegold, /a physical storage device you keep/);
+  assert.match(bluegold, /GOLD is the key/);
+  assert.match(bluegold, /256 GB/);
+  assert.match(bluegold, /512 GB/);
+  assert.match(bluegold, /1 TB/);
+  assert.match(bluegold, /2 TB/);
+  assert.match(bluegold, /Keep BLUE as your backup/);
+  assert.match(bluegold, /WELCOME local assistant/);
+  assert.match(bluegold, /not an internet cloud service/i);
   assert.match(bluegold, /BLUE BEFORE GOLD\. ALWAYS\./);
   assert.match(bluegold, /Research and development/);
   assert.match(bluegold, /Not for sale yet/);

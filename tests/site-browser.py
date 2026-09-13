@@ -295,9 +295,14 @@ with sync_playwright() as playwright:
         page.set_viewport_size(viewport)
         page.goto(f"{BASE_URL}/bluegoldblue/")
         page.wait_for_load_state("networkidle")
-        assert page.get_by_role("heading", name="Your files first. Your new computer second.").count() == 1
+        assert page.get_by_role("heading", name="Windows to Omarchy. Bring your stuff with you.").count() == 1
+        assert page.get_by_text("GOLD is the key", exact=False).count() == 1
+        assert page.get_by_text("a physical storage device you keep", exact=False).count() == 1
+        assert page.get_by_text("256 GB", exact=True).count() == 1
+        assert page.get_by_text("Keep BLUE as your backup", exact=True).count() == 1
+        assert page.get_by_text("WELCOME local assistant", exact=True).count() == 1
         assert page.get_by_text("BLUE BEFORE GOLD. ALWAYS.", exact=True).count() == 1
-        assert page.get_by_text("Not for sale yet.", exact=True).count() == 1
+        assert page.locator(".bluegold-honesty strong").inner_text() == "Still in research and development. Not for sale yet."
         assert page.get_by_role("link", name="Privacy", exact=True).count() >= 1
         assert_no_overflow(page)
         if filename == "bluegold-desktop.png":
