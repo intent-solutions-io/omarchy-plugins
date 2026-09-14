@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T16:20:38.423Z",
+  "generatedAt": "2026-09-14T14:39:20.424Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 3101,
+  "catalogSize": 3145,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -58,7 +58,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 311,
+        "views": 313,
         "copies": 38,
         "hearts": 0
       }
@@ -105,7 +105,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 166,
+        "views": 168,
         "copies": 22,
         "hearts": 3
       }
@@ -152,7 +152,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 158,
+        "views": 160,
         "copies": 9,
         "hearts": 0
       }
@@ -199,7 +199,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 131,
+        "views": 132,
         "copies": 9,
         "hearts": 2
       }
@@ -245,7 +245,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 167,
+        "views": 169,
         "copies": 2,
         "hearts": 1
       }
@@ -291,7 +291,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 170,
+        "views": 172,
         "copies": 4,
         "hearts": 1
       }
@@ -337,7 +337,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 188,
+        "views": 190,
         "copies": 17,
         "hearts": 2
       }
@@ -364,18 +364,18 @@
         "url": "/perception/"
       },
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "preview": {
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "4fe723a37e190832ee026acfe560968effad65bf"
+        "sha": "f643bd8b316c3f70c5072dd4347c4458919f2eaa"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-14T01:09:20Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 6
@@ -383,12 +383,12 @@
       "manifest": {
         "status": "aligned",
         "version": "1.2.0",
-        "sha": "4f02a776944a8bd9b38298d9fb5dcce61670c169",
+        "sha": "a03e011db96922061f997da065ff0c24604bd03a",
         "issues": []
       },
       "metrics": {
-        "views": 481,
-        "copies": 21,
+        "views": 484,
+        "copies": 22,
         "hearts": 0
       }
     },
@@ -433,7 +433,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 223,
+        "views": 225,
         "copies": 15,
         "hearts": 2
       }
@@ -480,7 +480,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 139,
+        "views": 142,
         "copies": 5,
         "hearts": 0
       }
@@ -526,7 +526,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 92,
+        "views": 94,
         "copies": 3,
         "hearts": 1
       }
@@ -572,9 +572,9 @@
         "issues": []
       },
       "metrics": {
-        "views": 140,
+        "views": 141,
         "copies": 7,
-        "hearts": 0
+        "hearts": 1
       }
     },
     {
@@ -619,7 +619,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 271,
+        "views": 276,
         "copies": 8,
         "hearts": 2
       }
@@ -665,9 +665,9 @@
         "issues": []
       },
       "metrics": {
-        "views": 134,
+        "views": 138,
         "copies": 3,
-        "hearts": 0
+        "hearts": 1
       }
     },
     {
@@ -711,7 +711,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 302,
+        "views": 303,
         "copies": 6,
         "hearts": 1
       }
@@ -758,8 +758,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 191,
-        "copies": 16,
+        "views": 202,
+        "copies": 18,
         "hearts": 2
       }
     }
