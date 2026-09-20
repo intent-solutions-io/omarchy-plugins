@@ -27,7 +27,7 @@ zero-error and its full local suite passes 25/25.
 
 ## Findings that block the claim
 
-### P0 — marketplace review is not an approval we can self-grant
+### P0: marketplace review is not an approval we can self-grant
 
 Desk Transition's refreshed preview is at source commit `2e06d94`; its correct
 marketplace verification request is
@@ -50,7 +50,7 @@ Each needs a descriptor-bound/no-follow lifecycle implementation and adversarial
 replacement tests before an exact-SHA resubmission. These are genuine security
 findings, not labeling or copy problems.
 
-### P1 — the live catalog does not certify current heads
+### P1: the live catalog does not certify current heads
 
 Nine plugins are live. Listening Post's validated commit matches its current
 head. The other eight live listings reference older validated source snapshots:
@@ -61,7 +61,7 @@ current source is proven in the rig and review accepts that exact commit.
 Foundry has a local preview and current source but no marketplace listing or
 submission. It must clear the normal submission lane before it can be counted.
 
-### P1 — CI proves static and unit tests, not a running Omarchy shell
+### P1: CI proves static and unit tests, not a running Omarchy shell
 
 All 16 repositories provide rig scripts, but none of their GitHub workflows
 executes `rig-verify.sh`, `rig-render.sh`, or Foundry's `rig-e2e.sh`. Therefore
@@ -75,7 +75,7 @@ records source SHA, source-tree fingerprint, preview SHA-256, rig image digest,
 and exit receipts. A hosted runner cannot honestly claim access to the private
 Buzz rig without that runner and credential setup.
 
-### P1 — repo protections and action provenance are incomplete
+### P1: repo protections and action provenance are incomplete
 
 - None of the 16 `main` branches currently has GitHub branch protection.
 - 15/16 use mutable action tags such as `actions/checkout@v4`; Foundry is the
@@ -87,7 +87,7 @@ Buzz rig without that runner and credential setup.
 - Six repos declare coverage thresholds but invoke raw `node --test` in CI,
   bypassing the threshold command. Ten declare no coverage floor.
 
-### P2 — public portfolio drift
+### P2: public portfolio drift
 
 `README.md` in the umbrella repository fails
 `bash scripts/refresh-metrics.sh --check`. Its generated marketplace table and

@@ -1,0 +1,35 @@
+name: Worktree hygiene
+
+on:
+  pull_request:
+    paths:
+      - ".claude/settings.json"
+      - ".worktree-hygiene.json"
+      - "scripts/worktree-hygiene.py"
+      - "tests/test_worktree_hygiene.py"
+      - ".github/workflows/worktree-hygiene.yml"
+  push:
+    branches: [main]
+    paths:
+      - ".claude/settings.json"
+      - ".worktree-hygiene.json"
+      - "scripts/worktree-hygiene.py"
+      - "tests/test_worktree_hygiene.py"
+      - ".github/workflows/worktree-hygiene.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate JSON configuration
+        run: python -m json.tool .claude/settings.json >/dev/null && python -m json.tool .worktree-hygiene.json >/dev/null
+      - name: Run worktree hygiene tests
+        run: python -m unittest discover -s tests -p 'test_worktree_hygiene.py' -v

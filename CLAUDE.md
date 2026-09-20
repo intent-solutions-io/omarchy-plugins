@@ -6,7 +6,9 @@ Guidance for Claude Code working in this repository.
 
 The Intent Solutions **public portfolio** for the Omarchy Quattro plugin work. It owns the
 README catalog and the static site published at `oma.intentsolutions.io`. **No plugin code
-lives here and nothing installs from here.**
+lives here and nothing installs from here.** Planning documents under `000-docs/`
+and narrowly scoped repository-governance tooling may live here. Product implementation
+belongs in the app and entry repositories.
 
 The plugin repos it presents all live under `jeremylongshore`:
 
@@ -60,9 +62,9 @@ local clock. That is what makes two consecutive runs byte-identical. Do not repl
 - Docs go in flat `000-docs/` under the `NNN-CC-ABCD-description.md` filing standard.
 - Branch from `origin/main`, never commit to main. Commit subject is
   `type(scope): imperative subject`, body carries what, why, and how it was verified.
-- Beads live in the umbrella `~/000-projects/.beads/` under the epic
-  `bd_000-projects-ypaf`, labelled `omarchy`. Close through `bd-sync close`, never raw
-  `bd close`.
+- Beads live in the umbrella `~/000-projects/.beads/`, labelled `omarchy`. The original
+  stand-up epic `bd_000-projects-ypaf` is closed. The Beacon Wakes (typing adventure) work
+  runs under `bd_000-projects-v41u`. Close through `bd-sync close`, never raw `bd close`.
 
 ## Things that are true and easy to get wrong
 
