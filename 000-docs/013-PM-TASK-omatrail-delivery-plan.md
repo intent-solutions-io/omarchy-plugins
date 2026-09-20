@@ -23,7 +23,7 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail delivery plan
+# omaTrail delivery plan
 
 > This plan decomposes the proposed product. Only the documentation task `bd_000-projects-hban` exists. Future tasks must be created and claimed in Beads after the product owner approves the applicable phase.
 
@@ -37,7 +37,7 @@ Work is gated by playable evidence. A later phase cannot hide failure in an earl
 
 | ID | Task | Depends on | Estimate | Owner | State | Closure evidence |
 |---|---|---|---:|---|---|---|
-| TASK-001 | Review and approve, amend, or reject the Omatrail blueprint. | None | 0.5 to 1 | Product owner | proposed | Recorded document dispositions |
+| TASK-001 | Review and approve, amend, or reject the omaTrail blueprint. | None | 0.5 to 1 | Product owner | proposed | Recorded document dispositions |
 | TASK-002 | Resolve final name, repository, plugin ID, license, minimum Omarchy version, and decision owners. | TASK-001 | 0.5 to 1 | Product owner | proposed | U-002 through U-005 closed or assigned |
 | TASK-003 | Create the sibling repository from the current Omarchy plugin foundation and establish CI/security gates. | TASK-002 | 0.5 to 1 | Engineering | proposed | Clean scaffold and gate receipts |
 
@@ -107,7 +107,7 @@ Optional audio, TASK-021, is not on the critical path unless the owner promotes 
 
 - Estimated build: 15 to 25 focused working days.
 - External elapsed time: unknown due to recruitment, specialist review, and marketplace review.
-- Estimate basis: decomposition above and comparison to existing native QML game structures, not completed Omatrail velocity.
+- Estimate basis: decomposition above and comparison to existing native QML game structures, not completed omaTrail velocity.
 - Re-estimate after TASK-007 and TASK-013 using actual effort.
 - Content or art expansion beyond the approved route/event/asset counts requires an owner-approved scope change.
 

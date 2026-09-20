@@ -23,7 +23,7 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail test plan
+# omaTrail test plan
 
 > This is a plan, not a test report. Actual results, environments, revisions, timestamps, and evidence paths must be added during execution.
 

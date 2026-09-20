@@ -23,7 +23,7 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail acceptance criteria
+# omaTrail acceptance criteria
 
 > These criteria define proposed observable completion. Passing tests does not grant product, historical, legal, or release approval.
 

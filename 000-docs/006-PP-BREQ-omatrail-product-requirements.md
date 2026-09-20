@@ -23,13 +23,13 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail product requirements
+# omaTrail product requirements
 
 > Normative requirements are proposals until human approval. Evidence IDs resolve through the source register in `OMT-BRIEF-001`.
 
 ## Product outcome
 
-Omatrail gives an Omarchy user a complete, locally saved survival journey in which hunting is a skill-based centerpiece and preparation, river decisions, pace, rations, weather, illness, breakdowns, and relationships determine whether a named party reaches its destination.
+omaTrail gives an Omarchy user a complete, locally saved survival journey in which hunting is a skill-based centerpiece and preparation, river decisions, pace, rations, weather, illness, breakdowns, and relationships determine whether a named party reaches its destination.
 
 ## Requirements registry
 

@@ -23,7 +23,7 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail game and experience specification
+# omaTrail game and experience specification
 
 > The gameplay, visual, and story treatments below are design proposals. Original game screenshots are references for historical analysis only and are not asset sources.
 
@@ -31,7 +31,7 @@ blueprint:
 
 **Name your party. Pack your wagon. Hunt, trade, cross rivers, and try to get everyone west alive.**
 
-Omatrail should feel immediately legible to someone who remembers a green-screen school computer while remaining a fair, coherent survival game for someone without that memory.
+omaTrail should feel immediately legible to someone who remembers a green-screen school computer while remaining a fair, coherent survival game for someone without that memory.
 
 ## Design pillars
 

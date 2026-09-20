@@ -23,13 +23,13 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail system architecture
+# omaTrail system architecture
 
 > Proposed architecture aligned with the current Omarchy Quattro plugin contract. It is not implementation evidence.
 
 ## System of interest and concerns
 
-Omatrail is one third-party plugin loaded inside the long-running `omarchy-shell` process. Its primary architectural concern is therefore containment by simplicity: deterministic pure rules, bounded local state, no network, no background service, and no recurring work while hidden.
+omaTrail is one third-party plugin loaded inside the long-running `omarchy-shell` process. Its primary architectural concern is therefore containment by simplicity: deterministic pure rules, bounded local state, no network, no background service, and no recurring work while hidden.
 
 | Stakeholder | Concern | View |
 |---|---|---|
@@ -93,7 +93,7 @@ GameController.js ----> GameEngine.js ----> SeededRandom.js
 
 ### Open and resume
 
-1. `CMP-001` asks the shell to summon Omatrail.
+1. `CMP-001` asks the shell to summon omaTrail.
 2. `CMP-002` acquires focus and requests a load from `CMP-009`.
 3. `CMP-009` parses within a byte cap, validates schema, and returns valid state, migrated state, no state, or recoverable failure.
 4. `CMP-004` initializes `CMP-005` and builds a semantic view model.
@@ -159,7 +159,7 @@ There is no server, API, account, daemon, database, or privileged helper.
 
 ## Known inconsistencies and unknowns
 
-- The current umbrella template describes nested panels, while Omatrail proposes a separate overlay. The implementation must start from a current overlay example rather than mechanically copying the widget template.
+- The current umbrella template describes nested panels, while omaTrail proposes a separate overlay. The implementation must start from a current overlay example rather than mechanically copying the widget template.
 - The final minimum Omarchy version and exact multi-kind manifest behavior remain U-005.
 - The final plugin ID and repository remain U-003.
 - No implementation or runtime evidence exists yet.

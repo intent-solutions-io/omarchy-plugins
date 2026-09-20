@@ -184,6 +184,9 @@ can earn maintainer responsibility.
 
 - [`000-docs/001-RL-NEXT-next-omarchy-plugin-concepts.md`](000-docs/001-RL-NEXT-next-omarchy-plugin-concepts.md): three specced concepts, chosen against live catalog saturation counts and the HCI literature on peripheral displays, rather than against what looks good in a screenshot.
 - [`000-docs/002-LS-BLOK-listening-post-listing-blocked.md`](000-docs/002-LS-BLOK-listening-post-listing-blocked.md): the historical security finding that once blocked Listening Post, retained as a remediation record.
+- [`000-docs/005-PP-PROD-omatrail-project-brief.md`](000-docs/005-PP-PROD-omatrail-project-brief.md): the omaTrail game Blueprint, with requirements, architecture, experience, tests, risk, and delivery records indexed from the project brief.
+- [`000-docs/014-PP-PROD-typing-adventure-project-brief.md`](000-docs/014-PP-PROD-typing-adventure-project-brief.md): the pre-build Omarchy kids typing adventure Blueprint. It authorizes research and disposable proofs only, not a product release.
+- [`000-docs/028-RA-ANLY-typing-adventure-audience-attention-hypothesis-2026-09-10.md`](000-docs/028-RA-ANLY-typing-adventure-audience-attention-hypothesis-2026-09-10.md): the primary-source fact-check and experiment design for an older-skewing, high-attention presentation.
 
 ---
 

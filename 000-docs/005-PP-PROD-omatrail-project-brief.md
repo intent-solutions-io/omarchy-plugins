@@ -23,13 +23,13 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail project brief
+# omaTrail project brief
 
 > Draft for human review. The name and product direction are provided. Delivery estimates and success targets are proposals, not measured results or approvals.
 
 ## Requested decision
 
-Approve a greenfield prototype for **Omatrail**, a native Omarchy Quattro survival game launched from the bar and played in a fullscreen overlay. The first funding gate is a playable hunting prototype. The full journey proceeds only if that prototype meets the playtest threshold in `OMT-PLAY-001`.
+Approve a greenfield prototype for **omaTrail**, a native Omarchy Quattro survival game launched from the bar and played in a fullscreen overlay. The first funding gate is a playable hunting prototype. The full journey proceeds only if that prototype meets the playtest threshold in `OMT-PLAY-001`.
 
 ## Project context
 
@@ -46,7 +46,7 @@ Approve a greenfield prototype for **Omatrail**, a native Omarchy Quattro surviv
 
 ## Product thesis
 
-Omatrail should recreate the remembered rhythm of a school-computer overland survival game without copying its code, artwork, writing, audio, or branded presentation. Players name a five-person party, buy supplies, manage a westward expedition, hunt, trade, cross rivers, endure illness and breakdowns, and try to arrive with survivors.
+omaTrail should recreate the remembered rhythm of a school-computer overland survival game without copying its code, artwork, writing, audio, or branded presentation. Players name a five-person party, buy supplies, manage a westward expedition, hunt, trade, cross rivers, endure illness and breakdowns, and try to arrive with survivors.
 
 Two render profiles serve the two strongest visual memories:
 
@@ -61,8 +61,8 @@ Two render profiles serve the two strongest visual memories:
 | Native Omarchy games already demonstrate overlays, keyboard play, QML rendering, persistence, and pure JavaScript engines. | verified | SR-008 and linked public examples in OMT-ARCH-001 |
 | Hunting was the best-known and heavily used activity in the 1985 design. | verified | Original lead designer account, SR-005 |
 | River-crossing choices and outcome animations produced strong suspense in child playtests. | verified | Lead designer interview, SR-006 |
-| The live catalog contains 83 game-tagged entries and no name or description match for Omatrail, Oregon Trail, wagon survival, or frontier survival. | verified snapshot | SR-002, generated 2026-09-06T21:34:36.021Z; the catalog changes continuously |
-| Players will install and retain Omatrail. | unknown | Requires prototype and marketplace evidence |
+| The live catalog contains 83 game-tagged entries and no name or description match for omaTrail, Oregon Trail, wagon survival, or frontier survival. | verified snapshot | SR-002, generated 2026-09-06T21:34:36.021Z; the catalog changes continuously |
+| Players will install and retain omaTrail. | unknown | Requires prototype and marketplace evidence |
 
 ## Objectives
 

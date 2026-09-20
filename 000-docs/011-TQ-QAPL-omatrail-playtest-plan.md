@@ -23,9 +23,9 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail playtest and usability plan
+# omaTrail playtest and usability plan
 
-> This document defines future studies. It contains no participant results and makes no claim that Omatrail is fun, usable, accessible, or balanced.
+> This document defines future studies. It contains no participant results and makes no claim that omaTrail is fun, usable, accessible, or balanced.
 
 ## Research questions
 

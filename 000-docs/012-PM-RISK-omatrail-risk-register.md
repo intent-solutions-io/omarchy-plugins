@@ -23,7 +23,7 @@ blueprint:
     status: not-started
 ---
 
-# Omatrail risk register
+# omaTrail risk register
 
 > Initial exposure ratings are derived planning judgments, not measured incident data. Residual ratings assume proposed controls are implemented and verified.
 
