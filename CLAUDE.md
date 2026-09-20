@@ -36,7 +36,8 @@ All are cloned as siblings under `~/000-projects/`.
 
 ## Commands
 
-There is no build step and no package manifest. The toolchain is `bash`, `python3` (stdlib
+There is no package manifest and no compile step. The only build is the generator pipeline
+described in the next section. The toolchain is `bash`, `python3` (stdlib
 only), and Node 22 for `node --check` and `node --test`.
 
 ```bash
@@ -115,9 +116,15 @@ catalog at build time. A URL in that file fails the builder's lint.
 
 ## The one rule about generated files
 
-**Never hand-edit the block between `<!-- METRICS:START -->` and `<!-- METRICS:END -->`
-in `README.md`, `site/data/plugins.json`, anything under `site/plugins/`, or the
-`STATIC_CATALOG` block in `site/index.html`.** They are generated.
+**Never hand-edit a generated surface.** There are four:
+
+- the block between `<!-- METRICS:START -->` and `<!-- METRICS:END -->` in `README.md`
+  (written by `catalog_pipeline.py`)
+- all of `site/data/plugins.json` (written by `catalog_pipeline.py`)
+- all of `site/plugins/` (written by `build-site-pages.py`)
+- the block between the `STATIC_CATALOG` markers in `site/index.html` (written by
+  `build-site-pages.py`)
+
 `scripts/refresh-metrics.sh` owns them and a scheduled workflow reruns it daily. Pull requests run `scripts/check-site.sh` to prove the committed README and site
 snapshot agree without racing live counters.
 
