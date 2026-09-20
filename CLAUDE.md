@@ -66,7 +66,7 @@ skips any of those fails CI.
 
 ## How the catalogue pipeline fits together
 
-One hand-edited inventory, three generated surfaces, and a script that owns each hop:
+One hand-edited inventory, four generated surfaces, and a script that owns each hop:
 
 ```
 plugins.json  (hand-edited: id, repo, family, lifecycle, pitch)
