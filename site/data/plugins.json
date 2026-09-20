@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-19T13:47:44.493Z",
+  "generatedAt": "2026-09-20T16:03:33.135Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 3584,
+  "catalogSize": 3634,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -58,8 +58,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 324,
-        "copies": 40,
+        "views": 328,
+        "copies": 42,
         "hearts": 0
       }
     },
@@ -105,8 +105,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 172,
-        "copies": 22,
+        "views": 173,
+        "copies": 23,
         "hearts": 3
       }
     },
@@ -291,7 +291,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 176,
+        "views": 178,
         "copies": 4,
         "hearts": 1
       }
@@ -337,7 +337,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 197,
+        "views": 198,
         "copies": 18,
         "hearts": 3
       }
@@ -433,8 +433,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 229,
-        "copies": 15,
+        "views": 230,
+        "copies": 16,
         "hearts": 2
       }
     },
@@ -526,7 +526,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 99,
+        "views": 100,
         "copies": 5,
         "hearts": 1
       }
@@ -665,7 +665,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 140,
+        "views": 141,
         "copies": 4,
         "hearts": 1
       }
@@ -702,7 +702,7 @@
         "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -711,7 +711,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 306,
+        "views": 308,
         "copies": 6,
         "hearts": 1
       }
@@ -745,7 +745,7 @@
         "sha": "7aded72de382a68de0c77bc3a99ea6071788b62d"
       },
       "github": {
-        "stars": 1,
+        "stars": 2,
         "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
         "defaultBranch": "main",
         "archived": false,
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 230,
+        "views": 233,
         "copies": 20,
         "hearts": 3
       }
