@@ -1,6 +1,6 @@
 # Omarchy documentation index
 
-**Updated:** 2026-09-10
+**Updated:** 2026-09-20
 **Layout:** flat, one global chronological sequence
 
 ## Repository documents
@@ -11,6 +11,7 @@
 | 002 | LS | BLOK | [Listening Post listing blocked](002-LS-BLOK-listening-post-listing-blocked.md) |
 | 003 | RP | BASE | [Showcase campaign baseline](003-RP-BASE-showcase-campaign-baseline.md) |
 | 004 | AA | AUDT | [Omarchy estate readiness, 2026-08-29](004-AA-AUDT-omarchy-estate-readiness-2026-08-29.md) |
+| 033 | PP | BRIF | [BLUE GOLD BLUE interest surface brief](033-PP-BRIF-blue-gold-blue-interest-surface.md) |
 
 ## omaTrail Intent Blueprint workbook
 
@@ -75,6 +76,7 @@
 | OPNS | Operations guide and readiness |
 | PLAN | Delivery and execution plan |
 | PRIV | Privacy document |
+| BRIF | Product brief |
 | PROD | Product record |
 | QAPL | Quality assurance and playtest plan |
 | RISK | Risk register |
