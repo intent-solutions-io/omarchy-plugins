@@ -11,6 +11,19 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/site-data.test.mjs
 python3 scripts/build-site-pages.py --check
 
+# The top network strip is shared by every Intent Solutions property. Its single
+# source is vendored into vendor/estate-bar by scripts/sync-estate-bar.sh. Every
+# carrier page must hold exactly the canonical bar, the published stylesheet and
+# font must be byte-identical to the vendored ones, and every page must be either
+# a carrier or a named exemption.
+python3 -m py_compile scripts/stamp-estate-bar.py
+# shellcheck disable=SC2046
+python3 vendor/estate-bar/check_estate_bar.py --site omarchy --vendor vendor/estate-bar \
+  $(python3 scripts/stamp-estate-bar.py --list) --glob 'site/plugins/*/index.html'
+python3 scripts/stamp-estate-bar.py --audit
+cmp vendor/estate-bar/estate-bar.css site/assets/estate-bar/estate-bar.css
+cmp vendor/estate-bar/fonts/JetBrainsMono-Medium.woff2 site/assets/estate-bar/fonts/JetBrainsMono-Medium.woff2
+
 for required in site/404.html site/robots.txt site/sitemap.xml site/assets/mark.svg; do
   test -s "$required" || { echo "FAIL: missing $required" >&2; exit 1; }
 done

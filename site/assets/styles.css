@@ -3702,3 +3702,7 @@ footer a {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Accent for the vendored estate bar (site/assets/estate-bar, never edited here).
+   The accent of the current-property link is the one thing a site may set. */
+.is-estate-bar { --estate-accent: var(--orange); }

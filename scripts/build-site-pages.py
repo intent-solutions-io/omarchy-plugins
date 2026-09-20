@@ -11,6 +11,11 @@ import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+# The canonical Intent Solutions network strip, vendored by scripts/sync-estate-bar.sh.
+# It is emitted verbatim; check-site.sh fails if any page's copy differs from it.
+ESTATE_BAR = "\n".join(
+    "  " + line for line in (ROOT / "vendor/estate-bar/fragments/estate-bar.omarchy.html").read_text().strip().splitlines()
+)
 DATA_PATH = ROOT / "site" / "data" / "plugins.json"
 PAGES_ROOT = ROOT / "site" / "plugins"
 INDEX_PATH = ROOT / "site" / "index.html"
@@ -163,12 +168,14 @@ def page_for(plugin: dict[str, object]) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/estate-bar/estate-bar.css">
   <link rel="stylesheet" href="../../assets/styles.css">
   <script src="../../assets/detail.js" defer></script>
   <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571" data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"></script>
 </head>
 <body class="detail-page" data-install-command="{esc(plugin.get('installCommand'))}">
   <a class="skip-link" href="#plugin-detail">Skip to plugin details</a>
+{ESTATE_BAR}
   <header class="site-header">
     <a class="wordmark" href="../../" aria-label="Intent Solutions Omarchy Plugins home"><span class="wordmark-company">Intent Solutions</span><span class="wordmark-product">Omarchy Plugins</span></a>
     <nav aria-label="Primary navigation"><a href="../../#catalog">All plugins</a><a href="{esc(plugin['repoUrl'])}">GitHub</a>{marketplace_nav}</nav>
