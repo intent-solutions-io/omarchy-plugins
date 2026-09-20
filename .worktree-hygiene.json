@@ -1,0 +1,8 @@
+{
+  "review_after_days": 14,
+  "protected_branch_globs": [
+    "main",
+    "master",
+    "release/*"
+  ]
+}

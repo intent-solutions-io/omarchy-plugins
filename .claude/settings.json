@@ -1,0 +1,49 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/worktree-hygiene.py\" audit --hook",
+            "description": "Report stale, dirty, missing, and protected Git worktrees at session start without deleting data.",
+            "enabled": true,
+            "timeout": 20,
+            "blocking": false
+          }
+        ]
+      }
+    ],
+    "WorktreeCreate": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/worktree-hygiene.py\" audit --hook",
+            "description": "Refresh the non-destructive worktree inventory after Claude creates a worktree.",
+            "enabled": true,
+            "timeout": 20,
+            "blocking": false
+          }
+        ]
+      }
+    ],
+    "WorktreeRemove": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/worktree-hygiene.py\" audit --hook",
+            "description": "Refresh the non-destructive worktree inventory after Claude removes a worktree.",
+            "enabled": true,
+            "timeout": 20,
+            "blocking": false
+          }
+        ]
+      }
+    ]
+  }
+}
