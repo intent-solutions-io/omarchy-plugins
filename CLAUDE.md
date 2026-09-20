@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidance for Claude Code working in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## What this repo is
 
@@ -34,11 +34,91 @@ The plugin repos it presents all live under `jeremylongshore`:
 
 All are cloned as siblings under `~/000-projects/`.
 
-## The one rule about the README
+## Commands
 
-**Never hand-edit the block between `<!-- METRICS:START -->` and `<!-- METRICS:END -->`.**
-It is generated. `scripts/refresh-metrics.sh` owns it and a scheduled workflow reruns it
-daily. Pull requests run `scripts/check-site.sh` to prove the committed README and site
+There is no build step and no package manifest. The toolchain is `bash`, `python3` (stdlib
+only), and Node 22 for `node --check` and `node --test`.
+
+```bash
+bash scripts/check-site.sh                 # the whole PR gate. Offline, deterministic. Run before every push.
+python3 -m http.server 4173 --directory site   # preview the site at http://127.0.0.1:4173
+
+# one test
+python3 -m unittest tests.test_catalog_pipeline -k <substring>
+python3 -m unittest tests.test_fetch_github_metadata -k <substring>
+node --test --test-name-pattern='<regex>' tests/site-data.test.mjs
+
+python3 scripts/build-site-pages.py --check    # generated pages vs site/data/plugins.json, no network
+python3 tests/site-browser.py                  # Playwright journeys. NOT in CI. See below.
+```
+
+`tests/site-browser.py` needs the preview server above already running (override with
+`OMA_SITE_BASE_URL`) and a Python with `playwright` installed, which the system Python on
+the dev box does not have. It mocks the live stats and Perception APIs and writes the
+desktop and mobile screenshots a visible-change PR must attach to `/tmp/oma-site-browser`.
+
+`check-site.sh` is what both `site-ci.yml` and the pull request lane of
+`refresh-metrics.yml` run. It syntax-checks the site JS, runs both unit suites, verifies
+the generated pages, then lints every `site/**/*.html` for title, meta description,
+favicon, Umami script (legal routes exempt), image alt text, and dashes. A new page that
+skips any of those fails CI.
+
+## How the catalogue pipeline fits together
+
+One hand-edited inventory, three generated surfaces, and a script that owns each hop:
+
+```
+plugins.json  (hand-edited: id, repo, family, lifecycle, pitch)
+   |
+   |  refresh-metrics.sh fetches marketplace catalog.json + /v1/stats (curl) and
+   |  repo, manifest and preview facts (fetch_github_metadata.py, GitHub hosts allowlisted)
+   v
+catalog_pipeline.py  validates the inventory, merges the snapshots
+   |--> README.md            block between the METRICS markers
+   '--> site/data/plugins.json
+            |
+            v
+      build-site-pages.py
+            |--> site/plugins/<slug>/index.html      one detail page per plugin
+            '--> site/index.html                     block between the STATIC_CATALOG markers
+```
+
+- `site/assets/app.js` renders the interactive catalogue in the browser from
+  `site/data/plugins.json` and overlays live counters from the stats API. The
+  `STATIC_CATALOG` block is the no-JavaScript fallback for the same data, which is why
+  both are generated from one file.
+- `catalog_pipeline.py` rejects bad inventory rather than rendering it: ids must match
+  `io.github.jeremylongshore.<slug>`, repos `omarchy-<slug>-entry`, `family` must be in the
+  `families` array, `lifecycle` one of `listed`, `under-review`, `developing`, `unreleased`,
+  `retired`, `not-listed`.
+- `refresh-metrics.sh --check` hits the live endpoints, so it races moving counters. That
+  is why CI runs `check-site.sh` (committed surfaces agree with each other) and only the
+  daily scheduled job talks to the network. That job commits generated files **straight to
+  main**, so rebase before pushing and never resolve a conflict in a generated file by
+  hand: rerun the script.
+- `deploy-site.yml` publishes `site/` to GitHub Pages on any push to main that touches
+  `site/**`. Merge is deploy. There is no staging.
+
+Everything else under `site/` is hand-authored static HTML (product surfaces
+`the-beacon-wakes/`, `bluegoldblue/`, `omaquest/`, and the legal routes), with two
+exceptions that are build output from other repos and must not be edited here:
+`site/perception/` (a hashed build bundle) and `site/the-beacon-wakes/play/`, which
+`scripts/publish-beacon-demo.sh <path-to-omarchy-typing-adventure>` rebuilds and which must
+ship without source maps. Read `PRODUCT.md` before changing claims on a product surface and
+`DESIGN.md` before changing how one looks.
+
+The showcase campaign scripts (`build-showcase-packet.py`, `plane-sync-packets.py`,
+`plane-assign-when-accepted.sh`, `campaign-baseline.py`) are dev-box operator tools, not
+part of CI. They share one rule with the pipeline: `showcase-packets.json` holds only
+authored words, and every link, install command and metric is appended from the live
+catalog at build time. A URL in that file fails the builder's lint.
+
+## The one rule about generated files
+
+**Never hand-edit the block between `<!-- METRICS:START -->` and `<!-- METRICS:END -->`
+in `README.md`, `site/data/plugins.json`, anything under `site/plugins/`, or the
+`STATIC_CATALOG` block in `site/index.html`.** They are generated.
+`scripts/refresh-metrics.sh` owns them and a scheduled workflow reruns it daily. Pull requests run `scripts/check-site.sh` to prove the committed README and site
 snapshot agree without racing live counters.
 
 ```bash
