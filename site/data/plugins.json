@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T16:03:33.135Z",
+  "generatedAt": "2026-09-21T18:08:14.335Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 3634,
+  "catalogSize": 3700,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -36,30 +36,30 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "preview": {
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "71cb6275f2de0582b66d89c7eb47e04fea5a19d2"
+        "sha": "e4e60f81918a7701c5773ff380fa0dea73fd8d2c"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:03:13Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 1
+        "openIssues": 0
       },
       "manifest": {
         "status": "aligned",
-        "version": "1.0.0",
-        "sha": "7d691be62a608f98316df5c4a5e3effcda03770b",
+        "version": "1.0.1",
+        "sha": "03c6754ce8c47145fab9e6690a000de1f3a8437f",
         "issues": []
       },
       "metrics": {
-        "views": 328,
-        "copies": 42,
+        "views": 334,
+        "copies": 43,
         "hearts": 0
       }
     },
@@ -93,7 +93,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:04:27Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -105,7 +105,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 173,
+        "views": 176,
         "copies": 23,
         "hearts": 3
       }
@@ -140,7 +140,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:05:32Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -177,25 +177,25 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-mlb-booth-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
       "preview": {
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "8a1acb707db17f962e9ff26a80bb1fc9f60e40f4"
+        "sha": "c9a7c9ab39b4ab6b751d13a6376d7fca86234c1c"
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-09T16:44:12Z",
+        "defaultBranchUpdatedAt": "2026-09-20T21:57:48Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
       },
       "manifest": {
         "status": "aligned",
-        "version": "1.1.0",
-        "sha": "3edaf80e166a6e1f4eb8c5c0e7fd78b4693303dc",
+        "version": "1.1.1",
+        "sha": "f50821dca285be6bd3a4c106a63ecc5f12b41c37",
         "issues": []
       },
       "metrics": {
@@ -233,7 +233,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:06:26Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -245,7 +245,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 173,
+        "views": 176,
         "copies": 2,
         "hearts": 1
       }
@@ -279,7 +279,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:07:45Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -291,7 +291,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 178,
+        "views": 180,
         "copies": 4,
         "hearts": 1
       }
@@ -325,7 +325,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:08:54Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 1
@@ -337,7 +337,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 198,
+        "views": 199,
         "copies": 18,
         "hearts": 3
       }
@@ -365,25 +365,25 @@
       },
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "preview": {
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "f643bd8b316c3f70c5072dd4347c4458919f2eaa"
+        "sha": "91ca8587f48485daa8cff37b2511e443801b9cfb"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-14T01:09:20Z",
+        "defaultBranchUpdatedAt": "2026-09-21T02:57:25Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 6
       },
       "manifest": {
         "status": "aligned",
-        "version": "1.2.0",
-        "sha": "a03e011db96922061f997da065ff0c24604bd03a",
+        "version": "1.3.0",
+        "sha": "42bcefb4a8c4adb90f20152fd2b6fc9d1f14c9f0",
         "issues": []
       },
       "metrics": {
@@ -421,7 +421,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:12:24Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -433,7 +433,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 230,
+        "views": 231,
         "copies": 16,
         "hearts": 2
       }
@@ -468,7 +468,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:13:17Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -480,7 +480,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 150,
+        "views": 152,
         "copies": 6,
         "hearts": 0
       }
@@ -514,7 +514,7 @@
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:14:17Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -560,7 +560,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:15:25Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -572,7 +572,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 148,
+        "views": 150,
         "copies": 7,
         "hearts": 1
       }
@@ -607,7 +607,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:15Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:16:35Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -653,7 +653,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:17:53Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -699,10 +699,10 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:13Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:19:12Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 1
+        "openIssues": 0
       },
       "manifest": {
         "status": "aligned",
@@ -711,7 +711,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 308,
+        "views": 309,
         "copies": 6,
         "hearts": 1
       }
@@ -746,7 +746,7 @@
       },
       "github": {
         "stars": 2,
-        "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+        "defaultBranchUpdatedAt": "2026-09-20T22:20:36Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 233,
+        "views": 238,
         "copies": 20,
         "hearts": 3
       }
@@ -771,7 +771,7 @@
     "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing.",
     "github": {
       "stars": 0,
-      "defaultBranchUpdatedAt": "2026-09-09T16:07:14Z",
+      "defaultBranchUpdatedAt": "2026-09-20T22:22:05Z",
       "archived": false
     },
     "preview": {
