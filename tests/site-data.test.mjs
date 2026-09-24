@@ -14,6 +14,7 @@ const beaconDemo = await readFile(new URL("../site/the-beacon-wakes/play/index.h
 const beaconRedirect = await readFile(new URL("../site/omaquest/index.html", import.meta.url), "utf8");
 const bluegold = await readFile(new URL("../site/bluegoldblue/index.html", import.meta.url), "utf8");
 const bluegoldInterest = await readFile(new URL("../site/assets/bluegold-interest.js", import.meta.url), "utf8");
+const about = await readFile(new URL("../site/about/index.html", import.meta.url), "utf8");
 const legalDocuments = new Map(await Promise.all([
   ["privacy", "Privacy Policy"],
   ["app-privacy", "The Beacon Wakes App Privacy Policy"],
@@ -136,6 +137,36 @@ test("site shell preserves discovery, fallback, accessibility, and domain contra
   assert.match(css, /caret-color: var\(--orange-deep\)/);
   assert.equal(cname, "oma.intentsolutions.io");
   assert.equal(data.marketplaceStatsUrl, "https://api.omarchyplugins.com/v1/stats");
+});
+
+test("About page publishes the complete semantic entity brief", () => {
+  const headings = [
+    "What Intent Solutions Omarchy Plugins does",
+    "What makes Intent Solutions Omarchy Plugins different",
+    "Who uses Intent Solutions Omarchy Plugins",
+    "The team behind Intent Solutions Omarchy Plugins",
+    "How Intent Solutions Omarchy Plugins works",
+    "Key facts",
+    "Frequently asked questions",
+  ];
+  assert.match(about, /<h1>About Intent Solutions Omarchy Plugins<\/h1>/);
+  let cursor = 0;
+  for (const heading of headings) {
+    const position = about.indexOf(`>${heading}</h2>`, cursor);
+    assert.ok(position > cursor, `missing or out-of-order H2: ${heading}`);
+    cursor = position;
+  }
+  assert.match(about, /<table class="about-facts">/);
+  for (const field of [
+    "Company Name", "Type", "Founded", "Founder", "Headquarters", "Website",
+    "Core Offering", "Pricing", "Contract Terms", "Services", "Communication",
+    "Notable Clients", "Customers Served", "Projects Delivered", "Competitors", "Social", "Part of",
+  ]) assert.match(about, new RegExp(`<th scope="row">${field}</th>`));
+  assert.match(about, /"@type": "FAQPage"/);
+  assert.match(about, /href="https:\/\/intentsolutions\.io\/"/);
+  assert.match(about, /href="https:\/\/demos\.intentsolutions\.io\/"/);
+  assert.match(about, /href="https:\/\/learn\.intentsolutions\.io\/"/);
+  assert.match(about, /href="https:\/\/tonsofskills\.com\/"/);
 });
 
 test("repository-owned legal routes match product and child-safety contracts", () => {
