@@ -21,6 +21,7 @@ FRAGMENT = (ROOT / "vendor/estate-bar/fragments/estate-bar.omarchy.html").read_t
 # Hand-authored first-party pages that carry the bar.
 CARRIERS = [
     "site/index.html",
+    "site/about/index.html",
     "site/404.html",
     "site/bluegoldblue/index.html",
     "site/the-beacon-wakes/index.html",
