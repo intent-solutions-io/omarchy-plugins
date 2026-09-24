@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T16:54:37.072Z",
+  "generatedAt": "2026-09-24T23:13:30.458Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 3930,
+  "catalogSize": 4138,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -46,7 +46,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:03:13Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:16Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -58,7 +58,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 342,
+        "views": 345,
         "copies": 45,
         "hearts": 0
       }
@@ -82,7 +82,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-pit-wall-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
       "preview": {
@@ -93,7 +93,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:04:27Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:43Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -129,7 +129,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-wait-state-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
       "preview": {
@@ -140,7 +140,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:05:32Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:54Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -152,8 +152,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 174,
-        "copies": 10,
+        "views": 176,
+        "copies": 11,
         "hearts": 0
       }
     },
@@ -187,7 +187,7 @@
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-20T21:57:48Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:30Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -222,7 +222,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-x-files-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-x-files-entry/main/preview.png",
       "preview": {
@@ -233,7 +233,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:06:26Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:23:06Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -245,7 +245,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 176,
+        "views": 177,
         "copies": 2,
         "hearts": 1
       }
@@ -268,7 +268,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-docket-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-docket-entry/main/preview.png",
       "preview": {
@@ -279,7 +279,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:07:45Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:41Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -314,7 +314,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-crew-chief-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
       "preview": {
@@ -325,7 +325,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:08:54Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:28Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 1
@@ -337,7 +337,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 199,
+        "views": 202,
         "copies": 18,
         "hearts": 3
       }
@@ -375,7 +375,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-21T02:57:25Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:16Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 6
@@ -387,7 +387,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 492,
+        "views": 493,
         "copies": 22,
         "hearts": 0
       }
@@ -410,7 +410,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-desk-transition-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
       "preview": {
@@ -421,7 +421,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:12:24Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:35Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -457,7 +457,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-foundry-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "preview": {
@@ -468,7 +468,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:13:17Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:56Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -480,7 +480,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 152,
+        "views": 153,
         "copies": 6,
         "hearts": 0
       }
@@ -514,7 +514,7 @@
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-20T22:14:17Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:23Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -526,7 +526,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 100,
+        "views": 102,
         "copies": 5,
         "hearts": 1
       }
@@ -549,7 +549,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-capture-conveyor-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
       "preview": {
@@ -560,7 +560,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:15:25Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:22Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -572,8 +572,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 150,
-        "copies": 7,
+        "views": 152,
+        "copies": 8,
         "hearts": 1
       }
     },
@@ -596,7 +596,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "preview": {
@@ -607,7 +607,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:16:35Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:59Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -619,7 +619,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 282,
+        "views": 283,
         "copies": 8,
         "hearts": 2
       }
@@ -642,7 +642,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-quiet-queue-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
       "preview": {
@@ -653,7 +653,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:17:53Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:48Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -699,7 +699,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-20T22:19:12Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:19:49Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -746,7 +746,7 @@
       },
       "github": {
         "stars": 2,
-        "defaultBranchUpdatedAt": "2026-09-20T22:20:36Z",
+        "defaultBranchUpdatedAt": "2026-09-24T23:22:36Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -758,9 +758,9 @@
         "issues": []
       },
       "metrics": {
-        "views": 241,
-        "copies": 22,
-        "hearts": 3
+        "views": 248,
+        "copies": 25,
+        "hearts": 4
       }
     }
   ],
