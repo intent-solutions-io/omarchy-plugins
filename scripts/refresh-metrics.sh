@@ -19,7 +19,7 @@ fetch_json() {
   local url="$1"
   local destination="$2"
   local code
-  code="$(curl -sS --location --max-redirs 5 --max-time 60 --max-filesize 10000000 -o "$destination" -w '%{http_code}' "$url")" || {
+  code="$(curl -sS --location --max-redirs 5 --max-time 60 --max-filesize 50000000 -o "$destination" -w '%{http_code}' "$url")" || {
     echo "FETCH FAILED: $url" >&2
     exit 2
   }
