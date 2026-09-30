@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-29T18:02:42.730Z",
+  "generatedAt": "2026-09-30T17:55:05.901Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 4519,
+  "catalogSize": 4481,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -82,7 +82,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-pit-wall-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-pit-wall-entry/main/preview.png",
       "preview": {
@@ -105,8 +105,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 183,
-        "copies": 26,
+        "views": 184,
+        "copies": 27,
         "hearts": 3
       }
     },
@@ -129,7 +129,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-wait-state-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-wait-state-entry/main/preview.png",
       "preview": {
@@ -199,8 +199,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 134,
-        "copies": 9,
+        "views": 135,
+        "copies": 10,
         "hearts": 2
       }
     },
@@ -222,7 +222,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-x-files-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.0.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-x-files-entry/main/preview.png",
       "preview": {
@@ -268,7 +268,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-docket-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-docket-entry/main/preview.png",
       "preview": {
@@ -314,7 +314,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-crew-chief-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-crew-chief-entry/main/preview.png",
       "preview": {
@@ -410,7 +410,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-desk-transition-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
       "preview": {
@@ -457,7 +457,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-foundry-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "preview": {
@@ -480,7 +480,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 155,
+        "views": 156,
         "copies": 6,
         "hearts": 0
       }
@@ -549,7 +549,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-capture-conveyor-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
       "preview": {
@@ -572,7 +572,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 153,
+        "views": 154,
         "copies": 8,
         "hearts": 1
       }
@@ -596,7 +596,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "preview": {
@@ -642,7 +642,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-quiet-queue-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
       "preview": {
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 258,
+        "views": 262,
         "copies": 25,
         "hearts": 4
       }
