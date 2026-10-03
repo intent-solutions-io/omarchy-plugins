@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-02T17:46:10.273Z",
+  "generatedAt": "2026-10-03T16:16:48.272Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 4777,
+  "catalogSize": 4859,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -35,7 +35,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.0.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "preview": {
@@ -152,7 +152,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 177,
+        "views": 178,
         "copies": 11,
         "hearts": 0
       }
@@ -176,7 +176,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-mlb-booth-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.1.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
       "preview": {
@@ -364,7 +364,7 @@
         "url": "/perception/"
       },
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-listening-post-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "1.3.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-listening-post-entry/main/preview.png",
       "preview": {
@@ -503,7 +503,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-loose-ends-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
       "preview": {
@@ -688,7 +688,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-flow-boundary-entry.git --enable",
-      "verificationStatus": "unverified",
+      "verificationStatus": "verified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "preview": {
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 266,
+        "views": 267,
         "copies": 25,
         "hearts": 4
       }
