@@ -7,6 +7,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## Unreleased
 
+### Fixed
+
+- Plugin detail pages now show an accessible image-source link when an external
+  preview fails to load, including failures before the page script starts.
+- Browser checks cover preview request failures, invalid image responses,
+  failed images before script initialization, and recovery on a later visit.
+
 ### Changed
 
 - Expanded the BLUE GOLD BLUE FAQ to 93 plain-language answers covering the

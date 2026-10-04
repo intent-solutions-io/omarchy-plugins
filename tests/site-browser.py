@@ -126,6 +126,54 @@ def assert_nonlisted_edge_case(context) -> None:
     page.close()
 
 
+def assert_detail_preview_recovery(browser) -> None:
+    plugin = PLUGINS[0]
+    preview_url = plugin["preview"]["url"]
+    source_url = f"{plugin['repoUrl']}/blob/{plugin['github']['defaultBranch']}/{plugin['preview']['path']}"
+    fixture = (Path(__file__).parents[1] / "site/assets/mark.svg").read_text()
+    detail_script = Path(__file__).parents[1] / "site/assets/detail.js"
+    for width in (1440, 390):
+        for failure in ("http", "decode", "network", "before-script"):
+            page = browser.new_page(viewport={"width": width, "height": 1000})
+            if failure == "network":
+                page.route(preview_url, lambda route: route.abort())
+            elif failure == "decode":
+                page.route(preview_url, lambda route: route.fulfill(status=200, content_type="image/png", body="invalid image"))
+            else:
+                page.route(preview_url, lambda route: route.fulfill(status=503, body="Unavailable"))
+            if failure == "before-script":
+                page.route("**/assets/detail.js", lambda route: route.fulfill(content_type="text/javascript", body=""))
+            page.goto(f"{BASE_URL}/plugins/{plugin['slug']}/")
+            page.wait_for_load_state("networkidle")
+            if failure == "before-script":
+                assert page.locator(".detail-preview img").evaluate("image => image.complete && image.naturalWidth === 0")
+                # Preview recovery must also work on pages without an install command.
+                page.locator("[data-detail-copy]").evaluate("button => button.remove()")
+                page.add_script_tag(path=str(detail_script))
+            preview = page.locator(".detail-preview")
+            preview.get_by_text("Preview unavailable", exact=True).wait_for()
+            source = preview.get_by_role("link", name="Open image source on GitHub", exact=False)
+            assert source.is_visible()
+            assert source.get_attribute("href") == source_url
+            source.focus()
+            assert source.evaluate("link => document.activeElement === link")
+            assert preview.locator("img").count() == 0
+            assert "could not load" in preview.locator("figcaption").inner_text()
+            assert_no_overflow(page)
+            if failure == "http":
+                page.screenshot(path=OUTPUT_DIR / f"detail-preview-unavailable-{width}.png", full_page=True)
+            # A later successful visit restores the normal image and provenance.
+            page.unroute(preview_url)
+            page.route(preview_url, lambda route: route.fulfill(content_type="image/svg+xml", body=fixture))
+            page.reload()
+            page.wait_for_load_state("networkidle")
+            assert preview.locator("img").evaluate("image => image.complete && image.naturalWidth > 0")
+            assert preview.get_by_text("Preview unavailable", exact=True).count() == 0
+            assert "Repository preview, blob" in preview.locator("figcaption").inner_text()
+            assert page.locator("[data-detail-copy]").count() == 1
+            page.close()
+
+
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=True)
     desktop_context = browser.new_context(
@@ -156,6 +204,7 @@ with sync_playwright() as playwright:
         responsive.close()
 
     assert_nonlisted_edge_case(desktop_context)
+    assert_detail_preview_recovery(browser)
 
     social = browser.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
     mock_live_metrics(social)
