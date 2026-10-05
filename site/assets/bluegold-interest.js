@@ -6,7 +6,12 @@
   const confirmation = document.querySelector("#bluegold-confirmation");
   const confirmationButton = document.querySelector("#bluegold-confirm-button");
   const confirmationStatus = document.querySelector("#bluegold-confirmation-status");
-  if (!form || !status || !confirmation || !confirmationButton || !confirmationStatus) return;
+  const receipt = document.querySelector("#bluegold-receipt");
+  const receiptTitle = document.querySelector("#bluegold-receipt-title");
+  const receiptEmail = document.querySelector("#bluegold-receipt-email");
+  const restartButton = document.querySelector("#bluegold-restart-button");
+  if (!form || !status || !confirmation || !confirmationButton || !confirmationStatus
+    || !receipt || !receiptTitle || !receiptEmail || !restartButton) return;
 
   const endpoint = "https://intentsolutions.io/api/forms/bluegold-interest";
   const confirmationEndpoint = "https://intentsolutions.io/api/forms/bluegold-confirm";
@@ -15,6 +20,32 @@
   const submit = form.querySelector('button[type="submit"]');
   const defaultLabel = submit.textContent;
   const defaultConfirmationLabel = confirmationButton.textContent;
+  let interestAccepted = false;
+
+  async function postJson(url, payload, expectedStatus) {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 30000);
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      const result = await response.json().catch((error) => {
+        if (error.name === "AbortError") throw error;
+        return {};
+      });
+      if (!response.ok) throw new Error(result?.error || "The service could not accept your request.");
+      if (result?.status !== expectedStatus) throw new Error("We could not verify the service response.");
+      return result;
+    } catch (error) {
+      if (error.name === "AbortError") throw new Error("The request took too long to respond.");
+      throw error;
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
 
   function source() {
     const value = new URLSearchParams(window.location.search).get("utm_source")?.toLowerCase() || "website";
@@ -28,7 +59,7 @@
 
   function revealOutcome(focusTarget) {
     window.requestAnimationFrame(() => {
-      document.querySelector("#interest")?.scrollIntoView({ block: "start" });
+      focusTarget.scrollIntoView({ block: "center", behavior: "instant" });
       focusTarget.focus({ preventScroll: true });
     });
   }
@@ -38,7 +69,8 @@
   let confirmationCredential = null;
 
   function resetConfirmationView() {
-    form.hidden = false;
+    form.hidden = interestAccepted;
+    receipt.hidden = !interestAccepted;
     confirmation.hidden = true;
     confirmationButton.hidden = false;
     confirmationButton.disabled = false;
@@ -62,6 +94,7 @@
         revealOutcome(status);
       } else {
         form.hidden = true;
+        receipt.hidden = true;
         confirmation.hidden = false;
         revealOutcome(confirmationButton);
       }
@@ -81,21 +114,22 @@
   readConfirmationRoute();
   window.addEventListener("hashchange", readConfirmationRoute);
 
+  restartButton.addEventListener("click", () => {
+    interestAccepted = false;
+    resetConfirmationView();
+    setState(status, "", "idle");
+    revealOutcome(form.querySelector('[name="email"]'));
+  });
+
   confirmationButton.addEventListener("click", async () => {
     if (!confirmationCredential) return;
     confirmationButton.disabled = true;
     confirmationButton.textContent = "Confirming...";
     setState(confirmationStatus, "Confirming your BLUE GOLD BLUE interest.", "loading");
     try {
-      const response = await fetch(confirmationEndpoint, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(confirmationCode
-          ? { code: confirmationCode }
-          : { token: legacyConfirmationToken }),
-      });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || "The confirmation service did not respond.");
+      await postJson(confirmationEndpoint, confirmationCode
+        ? { code: confirmationCode }
+        : { token: legacyConfirmationToken }, "confirmed");
       confirmationButton.hidden = true;
       setState(confirmationStatus, "Your interest is confirmed. We will only contact you about BLUE GOLD BLUE.", "success");
       window.history.replaceState({}, "", "?interest=confirmed#interest");
@@ -133,17 +167,16 @@
     setState(status, "Sending a confirmation link to the email provided.", "loading");
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || "The interest service did not respond.");
+      await postJson(endpoint, payload, "confirmation-required");
       form.reset();
-      setState(status, "Check your email and confirm within 48 hours. Nothing is added to the interest list until you confirm.", "success");
+      interestAccepted = true;
+      receiptEmail.textContent = `We sent a confirmation link to ${payload.email}.`;
+      form.hidden = true;
+      receipt.hidden = false;
+      revealOutcome(receiptTitle);
     } catch (error) {
-      setState(status, `${error.message} Your information was not added. Please try again.`, "error");
+      setState(status, `${error.message} We could not confirm this submission. Your entries are still here. Check your inbox before trying again, or contact support@intentsolutions.io.`, "error");
+      revealOutcome(status);
     } finally {
       submit.disabled = false;
       submit.textContent = defaultLabel;

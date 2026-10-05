@@ -28,6 +28,10 @@ Collect only name, email, one preferred offer concept, and bounded optional sign
 
 The verified backend must validate every enum, suppress honeypot submissions, rate-limit requests, encrypt pending records, and keep that sealed payload server-side. Email links carry only a 22-character base64url code whose digest maps to the 48-hour type-bound confirmation record. Confirmation is explicit and idempotent, already-issued token links remain compatible through their original expiry, and confirmed evidence survives CRM delivery failure.
 
+An accepted submission replaces the form with a visible, focused thank-you receipt and the next email-confirmation step. Only the expected response contract can show that receipt. Failed, malformed, and timed-out requests keep the entries available, explain that acceptance is unconfirmed, and provide a recovery path. The browser does not store responses in local storage or analytics.
+
+The server sends a redacted pending-confirmation notice to the private Buzz leads channel after accepting the confirmation email for delivery. Contact details remain in the encrypted pending record; only explicit confirmation activates the Twenty CRM projection and verified-interest notification. Owner-notification failures retain durable evidence for automatic retry and must not be marked delivered. The operational contract lives in Intent OS at `ops/host/services/forms-api/README.md`.
+
 ## Completion Evidence
 
 - All 93 FAQ entries carry exactly one canonical status label and no duplicate

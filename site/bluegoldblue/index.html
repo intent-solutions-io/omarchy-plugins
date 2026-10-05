@@ -17,8 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/estate-bar/estate-bar.css">
-  <link rel="stylesheet" href="../assets/styles.css">
-  <script src="../assets/bluegold-interest.js" defer></script>
+  <link rel="stylesheet" href="../assets/styles.css?v=20261004-receipt">
+  <script src="../assets/bluegold-interest.js?v=20261004-receipt" defer></script>
   <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571" data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"></script>
 </head>
 <body class="bluegold-page">
@@ -576,7 +576,7 @@
             </details>
             <details>
               <summary><span class="bluegold-answer-state state-now">Current fact</span><span>What happens to my information before and after I confirm?</span></summary>
-              <div><p>You submit your name, email, and optional product preferences. They are held server-side as an encrypted pending record and are not added to the confirmed interest list until you explicitly confirm within 48 hours. After confirmation, Intent Solutions may contact you only for the listed purposes. An exact expired-record retention period is not published yet. The form has no file upload and does not ask for passwords. Website analytics are described in the <a href="../privacy/">Privacy Policy</a>; form answers are not intentionally sent as custom analytics events.</p></div>
+              <div><p>You submit your name, email, and optional product preferences. They are held server-side as an encrypted pending record and are not added to the confirmed interest list until you explicitly confirm within 48 hours. Internal team chat notices contain selected preferences and a receipt reference, without your name or email address. After confirmation, your response is recorded in our customer relationship system and Intent Solutions may contact you only for the listed purposes. An exact expired-record retention period is not published yet. The form has no file upload and does not ask for passwords. Website analytics are described in the <a href="../privacy/">Privacy Policy</a>; form answers are not intentionally sent as custom analytics events.</p></div>
             </details>
             <details>
               <summary><span class="bluegold-answer-state state-now">Current fact</span><span>How can I recognize the confirmation email, and what does its link do?</span></summary>
@@ -684,6 +684,16 @@
         <p class="bluegold-form-status" id="bluegold-form-status" role="status" aria-live="polite" tabindex="-1"></p>
         <p class="bluegold-legal-note">Submitting opts you into only the communications described above. Your use of this site is subject to the <a href="../terms/">Terms</a>, <a href="../privacy/">Privacy Policy</a>, and <a href="../acceptable-use/">Acceptable Use Policy</a>. These are not future product purchase or migration-service terms. You can unsubscribe from email at any time.</p>
       </form>
+
+      <div class="bluegold-receipt" id="bluegold-receipt" aria-labelledby="bluegold-receipt-title" hidden>
+        <p class="bluegold-receipt-label">Information received</p>
+        <h3 id="bluegold-receipt-title" tabindex="-1">Thank you. We have your information.</h3>
+        <p id="bluegold-receipt-email"></p>
+        <p><strong>Check your email and confirm within 48 hours.</strong> Open the link, then press Confirm to join the interest list. Check spam or junk if the message is missing.</p>
+        <p>Your response is saved securely while confirmation is pending. You have not placed an order or reserved a product.</p>
+        <button class="button bluegold-button" id="bluegold-restart-button" type="button">Use a different email</button>
+        <p class="bluegold-confirm-restart">Need help? <a href="mailto:support@intentsolutions.io">Contact Intent Solutions</a>.</p>
+      </div>
 
       <div class="bluegold-confirmation" id="bluegold-confirmation" hidden>
         <h3>Confirm your interest.</h3>
