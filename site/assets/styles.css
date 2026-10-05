@@ -3594,6 +3594,7 @@ footer a {
 }
 
 .bluegold-form,
+.bluegold-receipt,
 .bluegold-confirmation {
   padding: clamp(24px, 4vw, 44px);
   border: 1px solid #8da6b2;
@@ -3601,6 +3602,7 @@ footer a {
 }
 
 .bluegold-form[hidden],
+.bluegold-receipt[hidden],
 .bluegold-confirmation[hidden] {
   display: none;
 }
@@ -3705,6 +3707,7 @@ footer a {
 }
 
 .bluegold-form .bluegold-button,
+.bluegold-receipt .bluegold-button,
 .bluegold-confirmation .bluegold-button {
   min-height: 50px;
 }
@@ -3721,6 +3724,9 @@ footer a {
 
 .bluegold-form-status[data-state="error"] {
   color: #9b2e20;
+  padding: 16px;
+  border: 2px solid currentColor;
+  background: #fff4ef;
 }
 
 .bluegold-form-status[data-state="loading"] {
@@ -3745,6 +3751,33 @@ footer a {
 .bluegold-confirmation h3 {
   margin-bottom: 14px;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.bluegold-receipt {
+  align-self: start;
+  border-top: 6px solid var(--bluegold-blue-deep);
+  overflow-wrap: anywhere;
+}
+
+.bluegold-receipt-label {
+  color: var(--bluegold-blue-deep);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.bluegold-receipt h3 {
+  margin: 14px 0 20px;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.bluegold-receipt > p {
+  margin-bottom: 20px;
+}
+
+#bluegold-receipt-title,
+.bluegold-form-status {
+  scroll-margin-block: 100px;
 }
 
 .bluegold-confirm-restart {

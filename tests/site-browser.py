@@ -468,8 +468,74 @@ with sync_playwright() as playwright:
     interest_failure.locator('[name="consent"]').check()
     interest_failure.get_by_role("button", name="Send my confirmation").click()
     interest_failure.get_by_text("Interest intake is temporarily unavailable.", exact=False).wait_for()
-    assert "Your information was not added" in interest_failure.locator("#bluegold-form-status").inner_text()
+    assert "We could not confirm this submission" in interest_failure.locator("#bluegold-form-status").inner_text()
+    assert interest_failure.locator('[name="email"]').input_value() == "jordan@example.test"
+    assert interest_failure.locator("#bluegold-receipt").is_hidden()
     interest_failure.close()
+
+    # The acknowledgement must be in the viewport on both layouts, not below
+    # a reset form. These requests are intercepted; no real email is sent.
+    for viewport, device in [({"width": 1440, "height": 1000}, "desktop"), ({"width": 390, "height": 844}, "mobile")]:
+        receipt_page = desktop_context.new_page()
+        receipt_page.set_viewport_size(viewport)
+        receipt_page.route(
+            "https://intentsolutions.io/api/forms/bluegold-interest",
+            lambda route: route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"})),
+        )
+        receipt_page.goto(f"{BASE_URL}/bluegoldblue/#interest")
+        receipt_page.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
+        receipt_page.get_by_label("Email Required", exact=True).fill("jordan@example.test")
+        receipt_page.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
+        receipt_page.locator('[name="consent"]').check()
+        receipt_page.get_by_role("button", name="Send my confirmation").click()
+        receipt_page.get_by_role("heading", name="Thank you. We have your information.").wait_for()
+        receipt_page.wait_for_function("document.activeElement.id === 'bluegold-receipt-title'")
+        assert receipt_page.locator("#bluegold-interest-form").is_hidden()
+        assert "jordan@example.test" in receipt_page.locator("#bluegold-receipt-email").inner_text()
+        assert receipt_page.locator("#bluegold-receipt-title").evaluate("element => { const r = element.getBoundingClientRect(); return r.top >= 0 && r.bottom <= window.innerHeight; }")
+        assert_no_overflow(receipt_page)
+        receipt_page.screenshot(path=OUTPUT_DIR / f"bluegold-receipt-{device}.png")
+        receipt_page.get_by_role("button", name="Use a different email").click()
+        assert receipt_page.locator("#bluegold-interest-form").is_visible()
+        assert receipt_page.locator("#bluegold-receipt").is_hidden()
+        receipt_page.close()
+
+    # A 200 HTML/error response must not be mistaken for a saved submission.
+    for response_body in ["<html>Proxy error</html>", '{"status":"unexpected"}']:
+        malformed = desktop_context.new_page()
+        malformed.route(
+            "https://intentsolutions.io/api/forms/bluegold-interest",
+            lambda route: route.fulfill(status=200, body=response_body),
+        )
+        malformed.goto(f"{BASE_URL}/bluegoldblue/#interest")
+        malformed.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
+        malformed.get_by_label("Email Required", exact=True).fill("jordan@example.test")
+        malformed.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
+        malformed.locator('[name="consent"]').check()
+        malformed.get_by_role("button", name="Send my confirmation").click()
+        malformed.get_by_text("We could not verify the service response.", exact=False).wait_for()
+        assert malformed.locator("#bluegold-receipt").is_hidden()
+        assert malformed.locator('[name="email"]').input_value() == "jordan@example.test"
+        malformed.close()
+
+    timed_out = desktop_context.new_page()
+    held_requests = []
+    timed_out.route("https://intentsolutions.io/api/forms/bluegold-interest", lambda route: held_requests.append(route))
+    timed_out.goto(f"{BASE_URL}/bluegoldblue/#interest")
+    timed_out.clock.install()
+    timed_out.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
+    timed_out.get_by_label("Email Required", exact=True).fill("jordan@example.test")
+    timed_out.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
+    timed_out.locator('[name="consent"]').check()
+    timed_out.get_by_role("button", name="Send my confirmation").click()
+    timed_out.clock.fast_forward(30001)
+    timed_out.get_by_text("The request took too long to respond.", exact=False).wait_for()
+    assert timed_out.locator("#bluegold-receipt").is_hidden()
+    assert timed_out.locator('[name="email"]').input_value() == "jordan@example.test"
+    assert timed_out.get_by_role("button", name="Send my confirmation").is_enabled()
+    for request in held_requests:
+        request.abort()
+    timed_out.close()
 
     incomplete_confirmation = desktop_context.new_page()
     incomplete_confirmation.goto(f"{BASE_URL}/bluegoldblue/?interest=confirm")
