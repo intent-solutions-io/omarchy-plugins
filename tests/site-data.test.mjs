@@ -282,7 +282,7 @@ test("BLUE GOLD BLUE is an honest product page with bounded interest collection"
   assert.match(bluegold, /WELCOME local assistant/);
   assert.match(bluegold, /id="faq"/);
   const faqDetails = bluegold.match(/<details>[\s\S]*?<\/details>/g) || [];
-  assert.equal(faqDetails.length, 93);
+  assert.equal(faqDetails.length, 96); // 93 migration FAQs plus 3 AI-computer disclosures.
   const faqStates = new Map([
     ["state-now", "Current fact"],
     ["state-planned", "Planned behavior"],
@@ -431,5 +431,26 @@ test("BLUE GOLD BLUE is an honest product page with bounded interest collection"
   assert.match(bluegoldInterest, /\{ code: confirmationCode \}/);
   assert.match(bluegoldInterest, /\{ token: legacyConfirmationToken \}/);
   assert.match(bluegoldInterest, /Try confirmation again/);
+  const aiSection = bluegold.match(/<section[^>]*id="local-ai-computer"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(aiSection);
+  assert.match(aiSection, /A local-AI computer, configured for you\./);
+  assert.match(aiSection, /Proposed offer\. In development, not for sale\./);
+  assert.match(aiSection, /Migration would be optional/);
+  assert.match(aiSection, /old computer would stay intact/);
+  for (const tier of ["Personal", "Workspace", "Creator"]) {
+    assert.match(aiSection, new RegExp(`<strong>${tier}</strong>`));
+  }
+  assert.match(aiSection, /research directions, not tested product specifications/);
+  assert.match(aiSection, /BLUE capacity is how much you can store/);
+  assert.match(aiSection, /Owning the hardware alone does not establish privacy/);
+  assert.match(aiSection, /None is offered today/);
+  assert.match(bluegold, /leave all optional migration preferences unanswered/);
+  assert.match(bluegold, /not a tier selection/);
+  const offers = bluegold.match(/<select name="offer"[\s\S]*?<\/select>/)[0];
+  assert.deepEqual([...offers.matchAll(/<option value="([^"]*)"/g)].map((match) => match[1]), [
+    "", "software-only", "blue-gold-kit", "premium-blue-kit", "assisted-migration",
+    "preconfigured-computer", "not-sure",
+  ]);
+  assert.match(bluegoldInterest, /if \(interestAccepted \|\| confirmationCredential\) \{\s*event\.preventDefault\(\)/);
   assert.doesNotMatch(bluegold, /buy now|reserve your|guaranteed|official Omarchy|works on every|available now/i);
 });

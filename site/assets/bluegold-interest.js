@@ -114,6 +114,23 @@
   readConfirmationRoute();
   window.addEventListener("hashchange", readConfirmationRoute);
 
+  document.querySelectorAll('[data-bluegold-offer="preconfigured-computer"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      // Keep an accepted receipt or pending confirmation intact. Interest is
+      // still only submitted by the form, with the existing explicit consent.
+      if (interestAccepted || confirmationCredential) {
+        event.preventDefault();
+        revealOutcome(confirmationCredential
+          ? (confirmationButton.hidden ? confirmationStatus : confirmationButton)
+          : receiptTitle);
+        return;
+      }
+      const offer = form.querySelector('[name="offer"]');
+      offer.value = "preconfigured-computer";
+      revealOutcome(offer);
+    });
+  });
+
   restartButton.addEventListener("click", () => {
     interestAccepted = false;
     resetConfirmationView();

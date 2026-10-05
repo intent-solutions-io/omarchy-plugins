@@ -16,6 +16,12 @@ bash scripts/check-site.sh
 Include desktop and mobile screenshots for visible changes. Documentation-only
 changes do not need a plugin test suite.
 
+With the static preview running on port 4173 and Playwright/Chromium installed,
+run `python3 tests/bluegold_browser.py` for the focused local-AI computer
+interest journeys, or `python3 tests/site-browser.py` for the full portfolio.
+The focused checks use synthetic data and mock both form endpoints; they do
+not send email or create CRM records. Screenshots go to `/tmp/oma-site-browser`.
+
 Never hand-edit the generated metrics block in `README.md`,
 `site/data/plugins.json`, or generated plugin detail pages. Follow the commands
 and ownership rules in `CLAUDE.md`.
