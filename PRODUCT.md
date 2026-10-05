@@ -8,7 +8,7 @@ web
 
 ## Users
 
-The public portfolio serves Omarchy users, contributors, and prospective maintainers who need verified links to Intent Solutions plugins. The Beacon Wakes surface also serves parents and guardians evaluating a child-safe keyboard adventure and its release updates. The BLUE GOLD BLUE surface serves adults evaluating an evidence-first migration concept and registering bounded product interest.
+The public portfolio serves Omarchy users, contributors, and prospective maintainers who need verified links to Intent Solutions plugins. The Beacon Wakes surface also serves parents and guardians evaluating a child-safe keyboard adventure and its release updates. The BLUE GOLD BLUE surface serves adults evaluating an evidence-first migration concept or a proposed preconfigured local-AI computer, with migration optional, and registering bounded product interest.
 
 ## Product Purpose
 

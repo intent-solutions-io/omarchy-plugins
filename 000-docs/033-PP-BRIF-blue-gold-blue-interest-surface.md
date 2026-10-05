@@ -6,7 +6,13 @@ Publish an honest research page at `/bluegoldblue/` for people asking about the 
 
 ## Audience and Action
 
-The primary audience is an adult Windows user considering a future move to a supported open-source environment. The single primary action is to register interest and confirm an email address. Registration is research participation, not a purchase, reservation, waitlist position, or eligibility decision.
+The audience includes adult Windows users considering a future move to a supported open-source environment and adults interested in a preconfigured local-AI computer with optional migration. The single primary action is to register interest and confirm an email address. Registration is research participation, not a purchase, reservation, waitlist position, or eligibility decision.
+
+## Proposed Local-AI Computer
+
+Give the computer a dedicated section and a hero link, not only a future-ideas row. Personal, Workspace, and Creator describe proposed tasks, not measured capabilities or final SKUs. Keep BLUE backup capacity separate from AI capability. Explain the old-computer-preserved journey, optional migration, selected-document access, offline-testing requirement, no AI safety authority, and unresolved updates, recovery, support, and costs. Do not publish vendor partnerships, prices, benchmarks, hardware qualification, blanket privacy, model-license clearance, or Omarchy distribution claims.
+
+The computer CTA selects the existing `preconfigured-computer` offer and focuses that field without submitting, consenting, changing migration preferences, or disturbing an accepted receipt or confirmation. This remains a broad computer-interest signal, including historical non-AI interest, not an AI tier measurement. No new fields or backend enum values are introduced. Three additional local-AI disclosures sit outside the existing 93-question FAQ.
 
 ## Direction
 

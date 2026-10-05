@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+from bluegold_browser import check_ai_interest
 
 
 BASE_URL = os.environ.get("OMA_SITE_BASE_URL", "http://127.0.0.1:4173")
@@ -455,6 +456,8 @@ with sync_playwright() as playwright:
             assert mobile_interest.get_attribute("href") == "#interest"
             page.screenshot(path=OUTPUT_DIR / filename, full_page=True)
         page.close()
+
+    check_ai_interest(browser, BASE_URL, OUTPUT_DIR)
 
     interest_failure = desktop_context.new_page()
     interest_failure.route(

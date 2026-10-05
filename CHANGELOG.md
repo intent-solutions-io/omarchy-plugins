@@ -33,6 +33,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- A prominent proposed local-AI computer section for BLUE GOLD BLUE, with
+  Personal, Workspace, and Creator research directions, optional migration,
+  and three disclosures on privacy, recovery, updates, and support.
+- A keyboard-accessible computer-interest link using the existing form
+  contract, with desktop/mobile tests for AI-only interest and preserved
+  consent, receipt, and confirmation states.
 - A BLUE GOLD BLUE research and interest page with explicit product boundaries,
   bounded preference collection, and a consent-confirmation path.
 - Full Perception product experience at `/perception/`, replacing the temporary
