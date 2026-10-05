@@ -102,10 +102,11 @@ def check_ai_interest(browser, base_url, output_dir):
         assert page.locator("#bluegold-receipt").is_hidden()
         page.close()
 
-    page = browser.new_page(java_script_enabled=False)
+    page = browser.new_page(java_script_enabled=False, reduced_motion="reduce")
     page.goto(f"{base_url}/bluegoldblue/#local-ai-computer")
     assert page.locator("#local-ai-title").is_visible()
-    page.locator('[data-bluegold-offer="preconfigured-computer"]').click()
+    page.locator('[data-bluegold-offer="preconfigured-computer"]').focus()
+    page.locator('[data-bluegold-offer="preconfigured-computer"]').press("Enter")
     page.locator('[name="offer"]').select_option("preconfigured-computer")
     assert page.locator('[name="offer"]').input_value() == "preconfigured-computer"
     page.close()
