@@ -3,6 +3,7 @@
 
   const form = document.querySelector("#beacon-signup");
   const status = document.querySelector("#beacon-form-status");
+  const signupReceipt = document.querySelector("#beacon-signup-receipt");
   const confirmation = document.querySelector("#beacon-confirmation");
   const confirmationButton = document.querySelector("#beacon-confirm-button");
   const confirmationStatus = document.querySelector("#beacon-confirmation-status");
@@ -94,8 +95,8 @@
     };
 
     submit.disabled = true;
-    submit.textContent = "Sending confirmation...";
-    setState("Sending a confirmation link to the parent email provided.", "loading");
+    submit.textContent = "Saving signup...";
+    setState("Saving your parent or guardian release-update signup.", "loading");
 
     try {
       const response = await fetch(endpoint, {
@@ -106,7 +107,20 @@
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "The signup service did not respond.");
       form.reset();
-      window.location.assign("thanks/");
+      if (result.status === "accepted") {
+        if (signupReceipt) {
+          form.hidden = true;
+          signupReceipt.hidden = false;
+          revealOutcome(signupReceipt);
+        } else {
+          setState("You are signed up for release updates. No confirmation email is required. You can unsubscribe at any time.", "success");
+          revealOutcome();
+        }
+      } else if (result.status === "confirmation-required") {
+        window.location.assign("thanks/");
+      } else {
+        throw new Error("The signup service returned an unexpected response.");
+      }
     } catch (error) {
       setState(`${error.message} Your information was not added. Please try again.`, "error");
     } finally {

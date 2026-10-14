@@ -266,10 +266,11 @@ with sync_playwright() as playwright:
         (browser.new_page(viewport={"width": 390, "height": 844}), {"width": 390, "height": 844}, "beacon-mobile.png"),
     ):
         submitted_signup = {}
+        signup_result = {"status": "confirmation-required"}
         if filename == "beacon-desktop.png":
             def capture_signup(route):
                 submitted_signup.update(json.loads(route.request.post_data))
-                route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"}))
+                route.fulfill(status=200, content_type="application/json", body=json.dumps(signup_result))
 
             page.route("https://intentsolutions.io/api/forms/beacon-signup", capture_signup)
             confirmed_token = {}
@@ -292,7 +293,7 @@ with sync_playwright() as playwright:
             page.locator('[name="lastName"]').fill("Rivera")
             page.locator('[name="email"]').fill("parent@example.test")
             page.locator('[name="consent"]').check()
-            page.get_by_role("button", name="Send my confirmation").click()
+            page.get_by_role("button", name="Sign up for updates").click()
             page.wait_for_url(f"{BASE_URL}/the-beacon-wakes/thanks/")
             assert page.get_by_role("heading", name="Check your email.").count() == 1
             assert page.get_by_text("Nothing is added to the release list", exact=False).count() == 1
@@ -317,6 +318,16 @@ with sync_playwright() as playwright:
             page.get_by_text("You are confirmed.", exact=False).wait_for()
             assert confirmed_token == {"token": "sealed-test-token"}
             assert "sealed-test-token" not in page.url
+            signup_result["status"] = "accepted"
+            page.goto(f"{BASE_URL}/the-beacon-wakes/")
+            page.locator('[name="firstName"]').fill("Jordan")
+            page.locator('[name="lastName"]').fill("Rivera")
+            page.locator('[name="email"]').fill("parent@example.test")
+            page.locator('[name="consent"]').check()
+            page.get_by_role("button", name="Sign up for updates").click()
+            page.locator("#beacon-signup-receipt").wait_for(state="visible")
+            assert page.locator("#beacon-signup").is_hidden()
+            assert "No confirmation email is required" in page.locator("#beacon-signup-receipt").inner_text()
             page.goto(f"{BASE_URL}/the-beacon-wakes/?signup=invalid")
             page.get_by_text("That confirmation link is invalid or expired.", exact=False).wait_for()
             assert page.locator("#beacon-form-status").evaluate("element => document.activeElement === element")
@@ -396,7 +407,7 @@ with sync_playwright() as playwright:
             page.get_by_label("Estimated data to keep").select_option("512gb-1tb")
             page.get_by_label("When would this matter?").select_option("when-proven")
             page.locator('[name="consent"]').check()
-            page.get_by_role("button", name="Send my confirmation").click()
+            page.get_by_role("button", name="Register my interest").click()
             page.get_by_text("Check your email and confirm within 48 hours.", exact=False).wait_for()
             assert submitted_interest == {
                 "name": "Jordan Rivera",
@@ -469,9 +480,9 @@ with sync_playwright() as playwright:
     interest_failure.get_by_label("Email Required", exact=True).fill("jordan@example.test")
     interest_failure.get_by_label("Which concept interests you most?").select_option("assisted-migration")
     interest_failure.locator('[name="consent"]').check()
-    interest_failure.get_by_role("button", name="Send my confirmation").click()
+    interest_failure.get_by_role("button", name="Register my interest").click()
     interest_failure.get_by_text("Interest intake is temporarily unavailable.", exact=False).wait_for()
-    assert "We could not confirm this submission" in interest_failure.locator("#bluegold-form-status").inner_text()
+    assert "We could not save this submission" in interest_failure.locator("#bluegold-form-status").inner_text()
     assert interest_failure.locator('[name="email"]').input_value() == "jordan@example.test"
     assert interest_failure.locator("#bluegold-receipt").is_hidden()
     interest_failure.close()
@@ -490,7 +501,7 @@ with sync_playwright() as playwright:
         receipt_page.get_by_label("Email Required", exact=True).fill("jordan@example.test")
         receipt_page.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
         receipt_page.locator('[name="consent"]').check()
-        receipt_page.get_by_role("button", name="Send my confirmation").click()
+        receipt_page.get_by_role("button", name="Register my interest").click()
         receipt_page.get_by_role("heading", name="Thank you. We have your information.").wait_for()
         receipt_page.wait_for_function("document.activeElement.id === 'bluegold-receipt-title'")
         assert receipt_page.locator("#bluegold-interest-form").is_hidden()
@@ -515,7 +526,7 @@ with sync_playwright() as playwright:
         malformed.get_by_label("Email Required", exact=True).fill("jordan@example.test")
         malformed.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
         malformed.locator('[name="consent"]').check()
-        malformed.get_by_role("button", name="Send my confirmation").click()
+        malformed.get_by_role("button", name="Register my interest").click()
         malformed.get_by_text("We could not verify the service response.", exact=False).wait_for()
         assert malformed.locator("#bluegold-receipt").is_hidden()
         assert malformed.locator('[name="email"]').input_value() == "jordan@example.test"
@@ -530,12 +541,12 @@ with sync_playwright() as playwright:
     timed_out.get_by_label("Email Required", exact=True).fill("jordan@example.test")
     timed_out.get_by_label("Which concept interests you most?").select_option("blue-gold-kit")
     timed_out.locator('[name="consent"]').check()
-    timed_out.get_by_role("button", name="Send my confirmation").click()
+    timed_out.get_by_role("button", name="Register my interest").click()
     timed_out.clock.fast_forward(30001)
     timed_out.get_by_text("The request took too long to respond.", exact=False).wait_for()
     assert timed_out.locator("#bluegold-receipt").is_hidden()
     assert timed_out.locator('[name="email"]').input_value() == "jordan@example.test"
-    assert timed_out.get_by_role("button", name="Send my confirmation").is_enabled()
+    assert timed_out.get_by_role("button", name="Register my interest").is_enabled()
     for request in held_requests:
         request.abort()
     timed_out.close()

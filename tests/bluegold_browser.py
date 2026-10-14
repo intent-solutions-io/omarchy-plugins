@@ -16,7 +16,7 @@ def check_ai_interest(browser, base_url, output_dir):
 
         def capture_interest(route):
             submissions.append(json.loads(route.request.post_data))
-            route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "confirmation-required"}))
+            route.fulfill(status=200, content_type="application/json", body=json.dumps({"status": "accepted"}))
 
         def capture_confirmation(route):
             confirmations.append(json.loads(route.request.post_data))
@@ -52,10 +52,10 @@ def check_ai_interest(browser, base_url, output_dir):
         assert submissions == []
         page.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
         page.get_by_label("Email Required", exact=True).fill("jordan@example.test")
-        page.get_by_role("button", name="Send my confirmation").click()
+        page.get_by_role("button", name="Register my interest").click()
         assert submissions == []  # Consent is required even with a selected offer.
         page.locator('[name="consent"]').check()
-        page.get_by_role("button", name="Send my confirmation").click()
+        page.get_by_role("button", name="Register my interest").click()
         page.locator("#bluegold-receipt").wait_for(state="visible")
         assert submissions == [{
             "name": "Jordan Rivera", "email": "jordan@example.test",
@@ -68,6 +68,8 @@ def check_ai_interest(browser, base_url, output_dir):
         assert page.locator("#bluegold-receipt").is_visible()
         assert page.locator("#bluegold-interest-form").is_hidden()
         assert len(submissions) == 1
+        assert "No confirmation email is required" in page.locator("#bluegold-receipt").inner_text()
+        assert confirmations == []
         code = "AbCdEfGhIjKlMnOpQrStUv"
         page.goto(f"{base_url}/bluegoldblue/#c={code}")
         page.locator("#bluegold-confirmation").wait_for(state="visible")
@@ -96,8 +98,8 @@ def check_ai_interest(browser, base_url, output_dir):
         page.get_by_label("Name Required", exact=True).fill("Jordan Rivera")
         page.get_by_label("Email Required", exact=True).fill("jordan@example.test")
         page.locator('[name="consent"]').check()
-        page.get_by_role("button", name="Send my confirmation").click()
-        page.get_by_text("We could not confirm this submission", exact=False).wait_for()
+        page.get_by_role("button", name="Register my interest").click()
+        page.get_by_text("We could not save this submission", exact=False).wait_for()
         assert page.locator('[name="offer"]').input_value() == "preconfigured-computer"
         assert page.locator("#bluegold-receipt").is_hidden()
         page.close()

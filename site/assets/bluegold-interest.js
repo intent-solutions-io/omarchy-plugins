@@ -37,7 +37,7 @@
         return {};
       });
       if (!response.ok) throw new Error(result?.error || "The service could not accept your request.");
-      if (result?.status !== expectedStatus) throw new Error("We could not verify the service response.");
+      if (!(Array.isArray(expectedStatus) ? expectedStatus : [expectedStatus]).includes(result?.status)) throw new Error("We could not verify the service response.");
       return result;
     } catch (error) {
       if (error.name === "AbortError") throw new Error("The request took too long to respond.");
@@ -180,19 +180,25 @@
     };
 
     submit.disabled = true;
-    submit.textContent = "Sending confirmation...";
-    setState(status, "Sending a confirmation link to the email provided.", "loading");
+    submit.textContent = "Saving interest...";
+    setState(status, "Saving your product interest and update preferences.", "loading");
 
     try {
-      await postJson(endpoint, payload, "confirmation-required");
+      const result = await postJson(endpoint, payload, ["accepted", "confirmation-required"]);
       form.reset();
       interestAccepted = true;
-      receiptEmail.textContent = `We sent a confirmation link to ${payload.email}.`;
+      receiptEmail.textContent = result.status === "accepted"
+        ? `Your interest is registered using ${payload.email}. No confirmation email is required.`
+        : `We sent a confirmation link to ${payload.email}.`;
+      const instructions = document.querySelector("#bluegold-receipt-instructions");
+      if (instructions) instructions.textContent = result.status === "accepted"
+        ? "Your interest and update preferences have been saved. No confirmation email is required."
+        : "Check your email and confirm within 48 hours. Open the link, then press Confirm to join the interest list.";
       form.hidden = true;
       receipt.hidden = false;
       revealOutcome(receiptTitle);
     } catch (error) {
-      setState(status, `${error.message} We could not confirm this submission. Your entries are still here. Check your inbox before trying again, or contact support@intentsolutions.io.`, "error");
+      setState(status, `${error.message} We could not save this submission. Your entries are still here. Please try again, or contact support@intentsolutions.io.`, "error");
       revealOutcome(status);
     } finally {
       submit.disabled = false;
