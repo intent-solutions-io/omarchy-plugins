@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-13T06:41:46.006Z",
+  "generatedAt": "2026-10-14T11:52:31.058Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 5454,
+  "catalogSize": 5495,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -35,7 +35,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.0.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "preview": {
@@ -46,7 +46,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:16Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:33Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -58,8 +58,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 371,
-        "copies": 47,
+        "views": 372,
+        "copies": 48,
         "hearts": 0
       }
     },
@@ -96,7 +96,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:22:43Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -143,7 +143,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:22:54Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -190,7 +190,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:22:30Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -236,7 +236,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:23:06Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -282,7 +282,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:41Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -328,7 +328,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:28Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 1
+        "openIssues": 2
       },
       "manifest": {
         "status": "aligned",
@@ -378,7 +378,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:22:16Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 6
+        "openIssues": 7
       },
       "manifest": {
         "status": "aligned",
@@ -424,7 +424,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:35Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -433,7 +433,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 235,
+        "views": 236,
         "copies": 16,
         "hearts": 2
       }
@@ -471,7 +471,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:56Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 1
       },
       "manifest": {
         "status": "aligned",
@@ -503,7 +503,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-loose-ends-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.1.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
       "preview": {
@@ -514,7 +514,7 @@
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:23Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:46Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -560,7 +560,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:22Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:37Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -607,7 +607,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:59Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:41:09Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -653,7 +653,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:48Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:58Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -688,7 +688,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-flow-boundary-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "0.2.0",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "preview": {
@@ -699,7 +699,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:49Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:42Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -746,7 +746,7 @@
       },
       "github": {
         "stars": 2,
-        "defaultBranchUpdatedAt": "2026-10-12T17:48:56Z",
+        "defaultBranchUpdatedAt": "2026-10-14T04:40:53Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 271,
+        "views": 273,
         "copies": 26,
         "hearts": 4
       }
@@ -771,7 +771,7 @@
     "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing.",
     "github": {
       "stars": 0,
-      "defaultBranchUpdatedAt": "2026-09-20T22:22:05Z",
+      "defaultBranchUpdatedAt": "2026-10-14T04:41:05Z",
       "archived": false
     },
     "preview": {
