@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/estate-bar/estate-bar.css">
   <link rel="stylesheet" href="../assets/styles.css?v=20261004-receipt">
-  <script src="../assets/bluegold-interest.js?v=20261004-ai-computer" defer></script>
+  <script src="../assets/bluegold-interest.js?v=20261014-signup" defer></script>
   <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="474bce85-f97d-409c-aba5-1e1ff36ee571" data-domains="intentsolutions.io,oma.intentsolutions.io,learn.intentsolutions.io,demo.intentsolutions.io,demos.intentsolutions.io"></script>
   <link rel="stylesheet" href="/assets/intent-partner.css">
 </head>
@@ -621,16 +621,16 @@
               <div><p>None is offered today because nothing is for sale. Warranty coverage, return windows, refund eligibility, replacement steps, costs, and failure recourse must be published before purchase. Do not infer future product terms from this site's general Terms.</p></div>
             </details>
             <details>
-              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>What am I agreeing to when I submit and confirm?</span></summary>
+              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>What am I agreeing to when I submit?</span></summary>
               <div><p>You consent only to the listed BLUE GOLD BLUE research, interview, product-update, or future-pilot communications. It creates no order, reservation, eligibility decision, purchase obligation, service agreement, support entitlement, or permission to attempt the migration.</p></div>
             </details>
             <details>
-              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>What happens to my information before and after I confirm?</span></summary>
-              <div><p>You submit your name, email, and optional product preferences. They are held server-side as an encrypted pending record and are not added to the confirmed interest list until you explicitly confirm within 48 hours. Internal team chat notices contain selected preferences and a receipt reference, without your name or email address. After confirmation, your response is recorded in our customer relationship system and Intent Solutions may contact you only for the listed purposes. An exact expired-record retention period is not published yet. The form has no file upload and does not ask for passwords. Website analytics are described in the <a href="../privacy/">Privacy Policy</a>; form answers are not intentionally sent as custom analytics events.</p></div>
+              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>What happens to my information when I submit?</span></summary>
+              <div><p>You submit your name, email, and optional product preferences. They are held server-side as an encrypted record with the consent you submitted. No confirmation email is required, and we do not claim to have verified ownership of your email address. Internal team chat notices contain selected preferences and a receipt reference, without your name or email address. After submission, your response is recorded in our customer relationship system and Intent Solutions may contact you only for the listed purposes. An exact expired-record retention period is not published yet. The form has no file upload and does not ask for passwords. Website analytics are described in the <a href="../privacy/">Privacy Policy</a>; form answers are not intentionally sent as custom analytics events.</p></div>
             </details>
             <details>
-              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>How can I recognize the confirmation email, and what does its link do?</span></summary>
-              <div><p>It is sent only after this form is submitted, uses the subject “Confirm your BLUE GOLD BLUE interest,” and links back to this page on oma.intentsolutions.io. The link contains a short opaque confirmation code, not your answers, and expires after 48 hours. Opening it does not confirm automatically. You must press the confirmation button on this page. If you did not request it, do not confirm.</p></div>
+              <summary><span class="bluegold-answer-state state-now">Current fact</span><span>Do I need to confirm my email?</span></summary>
+              <div><p>No. New submissions are registered directly with the update consent you select. Confirmation links sent under the earlier workflow remain supported until they expire; opening those links does not confirm automatically.</p></div>
             </details>
             <details>
               <summary><span class="bluegold-answer-state state-now">Current fact</span><span>Can I unsubscribe, withdraw my interest, or ask you to delete my information?</span></summary>
@@ -645,7 +645,7 @@
     <section class="bluegold-interest" id="interest" aria-labelledby="interest-title">
       <div class="bluegold-interest-copy">
         <h2 id="interest-title">Which version should we prove first?</h2>
-        <p>Registering interest does not place an order or reserve a product. We will send a confirmation email first. After you confirm, Intent Solutions may contact you about research updates, interviews, or a future pilot.</p>
+        <p>Registering interest does not place an order or reserve a product. No confirmation email is required. After you submit, Intent Solutions may contact you about research updates, interviews, or a future pilot.</p>
         <p id="ai-interest-help">Interested only in the local-AI computer? Choose the preconfigured-computer option. You can leave all optional migration preferences unanswered. We are recording interest in the computer concept, not a tier selection.</p>
         <p class="bluegold-data-boundary"><strong>Please do not send files, passwords, license keys, health details, financial information, or machine serial numbers.</strong> This form only needs contact and bounded preference information.</p>
       </div>
@@ -731,7 +731,7 @@
           <span>Website</span>
           <input name="website" type="text" tabindex="-1" autocomplete="off">
         </label>
-        <button class="button bluegold-button" type="submit">Send my confirmation</button>
+        <button class="button bluegold-button" type="submit">Register my interest</button>
         <p class="bluegold-form-status" id="bluegold-form-status" role="status" aria-live="polite" tabindex="-1"></p>
         <p class="bluegold-legal-note">Submitting opts you into only the communications described above. Your use of this site is subject to the <a href="../terms/">Terms</a>, <a href="../privacy/">Privacy Policy</a>, and <a href="../acceptable-use/">Acceptable Use Policy</a>. These are not future product purchase or migration-service terms. You can unsubscribe from email at any time.</p>
       </form>
@@ -740,8 +740,8 @@
         <p class="bluegold-receipt-label">Information received</p>
         <h3 id="bluegold-receipt-title" tabindex="-1">Thank you. We have your information.</h3>
         <p id="bluegold-receipt-email"></p>
-        <p><strong>Check your email and confirm within 48 hours.</strong> Open the link, then press Confirm to join the interest list. Check spam or junk if the message is missing.</p>
-        <p>Your response is saved securely while confirmation is pending. You have not placed an order or reserved a product.</p>
+        <p id="bluegold-receipt-instructions">Your interest and update preferences have been saved. No confirmation email is required.</p>
+        <p>You have not placed an order or reserved a product. You can unsubscribe from updates at any time.</p>
         <button class="button bluegold-button" id="bluegold-restart-button" type="button">Use a different email</button>
         <p class="bluegold-confirm-restart">Need help? <a href="mailto:support@intentsolutions.io">Contact Intent Solutions</a>.</p>
       </div>

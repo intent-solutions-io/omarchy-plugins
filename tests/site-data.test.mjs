@@ -385,13 +385,13 @@ test("BLUE GOLD BLUE is an honest product page with bounded interest collection"
   assert.match(bluegold, /Are these real product tiers, and what will they cost\?/);
   assert.match(bluegold, /Where would it ship, and when would it arrive\?/);
   assert.match(bluegold, /What warranty, return, refund, or damaged-item replacement would apply\?/);
-  assert.match(bluegold, /What am I agreeing to when I submit and confirm\?/);
-  assert.match(bluegold, /What happens to my information before and after I confirm\?/);
-  assert.match(bluegold, /How can I recognize the confirmation email, and what does its link do\?/);
-  assert.match(bluegold, /short opaque confirmation code/);
+  assert.match(bluegold, /What am I agreeing to when I submit\?/);
+  assert.match(bluegold, /What happens to my information when I submit\?/);
+  assert.match(bluegold, /Do I need to confirm my email\?/);
+  assert.match(bluegold, /No confirmation email is required/);
   assert.match(bluegold, /Can I unsubscribe, withdraw my interest, or ask you to delete my information\?/);
   assert.match(bluegold, /form answers are not intentionally sent as custom analytics events/);
-  assert.match(bluegold, /held server-side as an encrypted pending record/);
+  assert.match(bluegold, /held server-side as an encrypted record/);
   assert.match(bluegold, /aria-label="Intent Solutions portfolio home"/);
   assert.match(bluegold, /physical local storage that stays with you, not an internet cloud/i);
   assert.match(bluegold, /BLUE GOLD BLUE is an active product build/);
