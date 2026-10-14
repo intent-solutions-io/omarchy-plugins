@@ -1,5 +1,12 @@
 # Intent Solutions Omarchy Plugins
 
+<!-- intent-select-partner:start -->
+<p><a href="https://intentsolutions.io/"><img src="assets/brand/claude-select-partner.svg" alt="Intent Solutions: Claude Partner Network Select Services Partner" width="300" height="95" /></a></p>
+
+Intent Solutions is a Claude Partner Network Select Services Partner.
+<!-- intent-select-partner:end -->
+
+
 > Sixteen plugins for **Omarchy Quattro**, plus the widget template they are all built from. All sixteen are live in the marketplace. Every repository ships the same security lane, and every network body parses in a file a unit test can load without a shell.
 
 **Built and maintained by [Jeremy Longshore](https://github.com/jeremylongshore) / [Intent Solutions](https://intentsolutions.io).**
