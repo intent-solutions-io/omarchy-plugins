@@ -1,19 +1,18 @@
 # Changelog
 
-## 2026-10-14: Register release and product interest in one submission
-
-- Remove confirmation-email steps from new Beacon and BLUE GOLD BLUE signup journeys.
-- Keep the existing consent checkboxes and accurately describe direct, email-unverified submissions.
-- Preserve confirmation screens for previously issued links and show an accessible success receipt.
-- Update the privacy description to match processing; retain existing product and demo boundaries.
-
-
 All notable changes to the Omarchy plugin portfolio and its public site are
 recorded here.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## Unreleased
+
+## 2026-10-14: Register release and product interest in one submission
+
+- Remove confirmation-email steps from new Beacon and BLUE GOLD BLUE signup journeys.
+- Keep the existing consent checkboxes and accurately describe direct, email-unverified submissions.
+- Preserve confirmation screens for previously issued links and show an accessible success receipt.
+- Update the privacy description to match processing; retain existing product and demo boundaries.
 
 ### Fixed
 
