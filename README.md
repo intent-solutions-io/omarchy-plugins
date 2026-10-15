@@ -34,7 +34,7 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-10-14T11:52:31.058Z`, across 5495 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-10-15T10:18:41.475Z`, across 5540 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
@@ -44,7 +44,7 @@ Marketplace data generated at `2026-10-14T11:52:31.058Z`, across 5495 listed plu
 | **MLB Booth** | Sports | Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 1 | 136 | 10 | 2 |
 | **X Files** | Signals and Feeds | Replies to your own X posts as a drainable queue of questions, gripes, and asks, with representative quotes and a hard API-spend cap. | [repo](https://github.com/jeremylongshore/omarchy-x-files-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.x-files) | 0 | 181 | 2 | 1 |
 | **Docket** | Focus and Delivery | GitHub pull requests as an obligation queue: reviews waiting on you, your blocked work, and branches ready to merge, oldest first. | [repo](https://github.com/jeremylongshore/omarchy-docket-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.docket) | 0 | 187 | 4 | 1 |
-| **Crew Chief** | Focus and Delivery | Claude Code, Codex, Herdr, and other agent sessions as a local attention queue. See working, blocked, and done, then focus the project that needs you. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.crew-chief) | 0 | 212 | 19 | 3 |
+| **Crew Chief** | Focus and Delivery | Claude Code, Codex, Herdr, and other agent sessions as a local attention queue. See working, blocked, and done, then focus the project that needs you. | [repo](https://github.com/jeremylongshore/omarchy-crew-chief-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.crew-chief) | 0 | 213 | 19 | 3 |
 | **Listening Post** | Signals and Feeds | Twenty-nine curated AI-vendor feeds in a four-lane radar for model releases, price changes, status incidents, and engineering posts. | [repo](https://github.com/jeremylongshore/omarchy-listening-post-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.listening-post) | 0 | 498 | 22 | 0 |
 | **Desk Transition** | System Awareness | Two safe Hyprland display actions: arrange active outputs left-to-right or focus the built-in panel, with a preview before anything changes. | [repo](https://github.com/jeremylongshore/omarchy-desk-transition-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.desk-transition) | 0 | 236 | 16 | 2 |
 | **Foundry** | Discovery and Building | Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates. | [repo](https://github.com/jeremylongshore/omarchy-foundry-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.foundry) | 0 | 159 | 6 | 0 |
@@ -56,7 +56,7 @@ Marketplace data generated at `2026-10-14T11:52:31.058Z`, across 5495 listed plu
 | **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 273 | 26 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3634 views, 226 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3635 views, 226 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 
