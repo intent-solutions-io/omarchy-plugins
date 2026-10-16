@@ -3974,3 +3974,13 @@ footer a {
 /* Accent for the vendored estate bar (site/assets/estate-bar, never edited here).
    The accent of the current-property link is the one thing a site may set. */
 .is-estate-bar { --estate-accent: var(--orange); }
+
+/* Keep the product routes available on narrow screens, not only the first link. */
+.portfolio-header { flex-wrap: wrap; }
+.portfolio-header nav { flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .portfolio-header { align-items: flex-start; gap: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .portfolio-header nav { width: 100%; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .portfolio-header nav a:not(:first-child) { display: inline-flex; }
+  .portfolio-header nav a { min-height: 36px; align-items: center; }
+}
