@@ -34,7 +34,7 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-10-16T09:00:42.855Z`, across 5551 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-10-17T09:17:14.264Z`, across 5643 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
@@ -50,13 +50,13 @@ Marketplace data generated at `2026-10-16T09:00:42.855Z`, across 5551 listed plu
 | **Foundry** | Discovery and Building | Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates. | [repo](https://github.com/jeremylongshore/omarchy-foundry-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.foundry) | 0 | 159 | 6 | 0 |
 | **Loose Ends** | Focus and Delivery | Scan local Git repositories for uncommitted edits, unpushed commits, old stashes, detached heads, and interrupted operations, oldest first. | [repo](https://github.com/jeremylongshore/omarchy-loose-ends-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.loose-ends) | 1 | 105 | 5 | 1 |
 | **Capture Conveyor** | Desktop Workflow | Turn Omarchy screenshots into a keyboard-first inbox: view recent captures, capture or OCR a region, copy paths, and reveal files. | [repo](https://github.com/jeremylongshore/omarchy-capture-conveyor-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.capture-conveyor) | 0 | 158 | 8 | 1 |
-| **Workspace Storyboard** | Desktop Workflow | Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard) | 0 | 289 | 8 | 2 |
+| **Workspace Storyboard** | Desktop Workflow | Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard) | 0 | 290 | 8 | 2 |
 | **Quiet Queue** | Focus and Delivery | A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session. | [repo](https://github.com/jeremylongshore/omarchy-quiet-queue-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.quiet-queue) | 0 | 142 | 4 | 1 |
 | **Flow Boundary** | Focus and Delivery | Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history. | [repo](https://github.com/jeremylongshore/omarchy-flow-boundary-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.flow-boundary) | 0 | 314 | 6 | 1 |
 | **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 275 | 26 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3641 views, 226 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3642 views, 226 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 

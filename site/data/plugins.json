@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-16T09:00:42.855Z",
+  "generatedAt": "2026-10-17T09:17:14.264Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 5551,
+  "catalogSize": 5643,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -375,7 +375,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:16Z",
+        "defaultBranchUpdatedAt": "2026-10-16T20:10:33Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 7
@@ -619,7 +619,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 289,
+        "views": 290,
         "copies": 8,
         "hearts": 2
       }
