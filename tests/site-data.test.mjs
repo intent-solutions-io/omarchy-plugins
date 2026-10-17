@@ -160,8 +160,9 @@ test("About page publishes the complete semantic entity brief", () => {
   for (const field of [
     "Company Name", "Type", "Founded", "Founder", "Headquarters", "Website",
     "Core Offering", "Pricing", "Contract Terms", "Services", "Communication",
-    "Notable Clients", "Customers Served", "Projects Delivered", "Competitors", "Social", "Part of",
+    "Social", "Part of",
   ]) assert.match(about, new RegExp(`<th scope="row">${field}</th>`));
+  assert.doesNotMatch(about, /\[\[[A-Z_]+\]\]/, "unfilled template placeholder on the About page");
   assert.match(about, /"@type": "FAQPage"/);
   assert.match(about, /href="https:\/\/intentsolutions\.io\/"/);
   assert.match(about, /href="https:\/\/demos\.intentsolutions\.io\/"/);
