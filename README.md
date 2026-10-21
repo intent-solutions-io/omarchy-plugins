@@ -34,11 +34,11 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-10-20T09:24:25.832Z`, across 5742 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-10-21T12:30:35.801Z`, across 5807 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
-| **Bazaar** | Discovery and Building | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 0 | 374 | 48 | 0 |
+| **Bazaar** | Discovery and Building | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 0 | 375 | 49 | 0 |
 | **Pit Wall** | Sports | A Formula 1 race-weekend command post with countdowns, live order, gaps, flags, safety-car state, local-time schedules, and championship standings. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.pit-wall) | 0 | 195 | 31 | 4 |
 | **Wait State** | System Awareness | CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.wait-state) | 0 | 185 | 11 | 0 |
 | **MLB Booth** | Sports | Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 1 | 137 | 10 | 2 |
@@ -56,7 +56,7 @@ Marketplace data generated at `2026-10-20T09:24:25.832Z`, across 5742 listed plu
 | **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 279 | 26 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3655 views, 226 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3656 views, 227 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 
