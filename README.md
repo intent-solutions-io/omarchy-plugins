@@ -34,7 +34,7 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-11-01T12:19:03.940Z`, across 6223 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-11-02T12:10:22.076Z`, across 6225 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |

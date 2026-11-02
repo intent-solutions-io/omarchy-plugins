@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T12:19:03.940Z",
+  "generatedAt": "2026-11-02T12:10:22.076Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 6223,
+  "catalogSize": 6225,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -96,7 +96,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:22:43Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 2
       },
       "manifest": {
         "status": "aligned",
@@ -236,7 +236,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:23:06Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 2
       },
       "manifest": {
         "status": "aligned",
@@ -328,7 +328,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:28Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 1
+        "openIssues": 3
       },
       "manifest": {
         "status": "aligned",
@@ -378,7 +378,7 @@
         "defaultBranchUpdatedAt": "2026-10-16T20:10:33Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 6
+        "openIssues": 9
       },
       "manifest": {
         "status": "aligned",
@@ -424,7 +424,7 @@
         "defaultBranchUpdatedAt": "2026-09-24T23:19:35Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 2
       },
       "manifest": {
         "status": "aligned",
@@ -517,7 +517,7 @@
         "defaultBranchUpdatedAt": "2026-10-14T04:40:46Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 2
       },
       "manifest": {
         "status": "aligned",
@@ -749,7 +749,7 @@
         "defaultBranchUpdatedAt": "2026-10-14T04:40:53Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 0
+        "openIssues": 4
       },
       "manifest": {
         "status": "aligned",
