@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-08T23:43:16.276Z",
+  "generatedAt": "2026-11-10T12:03:41.721Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 6432,
+  "catalogSize": 6455,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -58,7 +58,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 386,
+        "views": 387,
         "copies": 52,
         "hearts": 0
       }
@@ -93,7 +93,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:43Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:09:31Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -140,7 +140,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:54Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:00:43Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -187,7 +187,7 @@
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-09-24T23:22:30Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:08:59Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -199,8 +199,8 @@
         "issues": []
       },
       "metrics": {
-        "views": 139,
-        "copies": 10,
+        "views": 140,
+        "copies": 11,
         "hearts": 2
       }
     },
@@ -233,7 +233,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:23:06Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:09:20Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -279,7 +279,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:41Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:07:11Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -325,7 +325,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:28Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:07:29Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 3
@@ -375,7 +375,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-16T20:10:33Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:10:28Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 9
@@ -421,7 +421,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:35Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:06:54Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -468,7 +468,7 @@
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-09-24T23:19:56Z",
+        "defaultBranchUpdatedAt": "2026-11-10T11:03:41Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 2
@@ -572,7 +572,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 164,
+        "views": 165,
         "copies": 8,
         "hearts": 1
       }
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 291,
+        "views": 293,
         "copies": 26,
         "hearts": 4
       }
