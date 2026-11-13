@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-12T08:19:15.678Z",
+  "generatedAt": "2026-11-13T11:57:31.889Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 6497,
+  "catalogSize": 6525,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -176,7 +176,7 @@
       "submissionUrl": null,
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-mlb-booth-entry.git --enable",
-      "verificationStatus": "verified",
+      "verificationStatus": "unverified",
       "version": "1.1.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-mlb-booth-entry/main/preview.png",
       "preview": {
@@ -245,7 +245,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 187,
+        "views": 188,
         "copies": 2,
         "hearts": 1
       }
@@ -572,7 +572,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 165,
+        "views": 166,
         "copies": 8,
         "hearts": 1
       }
@@ -758,7 +758,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 295,
+        "views": 296,
         "copies": 27,
         "hearts": 4
       }
