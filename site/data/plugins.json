@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T11:56:15.844Z",
+  "generatedAt": "2026-11-16T08:50:57.541Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 6661,
+  "catalogSize": 6677,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -42,20 +42,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "e4e60f81918a7701c5773ff380fa0dea73fd8d2c"
+        "sha": "04641917a928108199053998bed2b5e6b26b7e74"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-14T04:40:33Z",
+        "defaultBranchUpdatedAt": "2026-11-15T15:04:12Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "1.0.1",
-        "sha": "03c6754ce8c47145fab9e6690a000de1f3a8437f",
-        "issues": []
+        "status": "drift",
+        "version": "1.0.2",
+        "sha": "fa683846d7975ddf89feb6b1bc1d66f69e623ca2",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 388,
@@ -105,7 +107,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 201,
+        "views": 202,
         "copies": 31,
         "hearts": 4
       }
@@ -245,7 +247,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 188,
+        "views": 193,
         "copies": 2,
         "hearts": 1
       }
@@ -291,7 +293,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 192,
+        "views": 193,
         "copies": 4,
         "hearts": 1
       }
@@ -337,7 +339,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 222,
+        "views": 223,
         "copies": 19,
         "hearts": 3
       }
@@ -387,7 +389,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 501,
+        "views": 502,
         "copies": 22,
         "hearts": 0
       }
@@ -417,20 +419,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "79f24a7536325b870626d1cebcbdcb6145ce8188"
+        "sha": "0347f0d9f7d7a123478c5fe8de529cead92e9f5b"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-11-15T08:44:07Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:20:46Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.1",
-        "sha": "cf6986d0d627762b8b978557c3d7f8cceb276835",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.2",
+        "sha": "fc2f3eb114fc3d9f2026640a13aaf5355871ac63",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 238,
@@ -464,20 +468,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "ca0418450c39ca3cfbeebc41f53fa89d388ed118"
+        "sha": "20ecc208d86c20d187cdb490844bb045d6ad6f2d"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-11-15T08:59:05Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:25:54Z",
         "defaultBranch": "main",
         "archived": false,
         "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.0",
-        "sha": "7601b2e67037719a8f9ab3e6d8e9d0bcd0c0c79b",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.1",
+        "sha": "47bf2a9a1c07e7da08317b620fd2bb880bfc3ca8",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 161,
@@ -510,20 +516,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "aa71536f84311dc04a3d59ef5c0e58912cb58074"
+        "sha": "a1672ef9eb15dac6645bef77c7d4c50d1c96498e"
       },
       "github": {
         "stars": 1,
-        "defaultBranchUpdatedAt": "2026-10-14T04:40:46Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:36:43Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.1.0",
-        "sha": "c977ab35d6923d523995c1adbdb54f200f5edf4f",
-        "issues": []
+        "status": "drift",
+        "version": "0.1.2",
+        "sha": "f8b778e9bf0b3921b0fc4c397974efc33605dda8",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 108,
@@ -556,23 +564,25 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "184b38cf58daec8631a9ac4721abeb59d912b790"
+        "sha": "7626b0b04f3e738dce32049507b72d3ef8ff7fcd"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-14T04:40:37Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:29:39Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.0",
-        "sha": "6cf92b67120bdec3d8a3e309a4ed41844bca5aae",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.2",
+        "sha": "431af0558fdc8ceffd3702ecba1060004947a0e0",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
-        "views": 166,
+        "views": 167,
         "copies": 8,
         "hearts": 1
       }
@@ -603,20 +613,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "dc94a350a716c567503d5c14bfdb9008787be5f0"
+        "sha": "326e71295c94ba1248519ee02104e9e1cfe803de"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-14T04:41:09Z",
+        "defaultBranchUpdatedAt": "2026-11-15T15:04:41Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.0",
-        "sha": "aa4f05162f3e8a7cd49a10f033e2c61631b62396",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.1",
+        "sha": "2618a3b5a6f876c62db064870de311cc4327be46",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 301,
@@ -649,20 +661,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "1d97bdbb7f69fdc4868dd159bb3c129b3d337e07"
+        "sha": "fe0ce6119b76d61d773009b7026a672ac9411c28"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-14T04:40:58Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:34:39Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.0",
-        "sha": "e4fbb7e206a484f8132358071d56e57fbd4a8ceb",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.2",
+        "sha": "064971c5b95e7a2650024078ffb59059fc484c65",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 151,
@@ -695,20 +709,22 @@
         "status": "verified",
         "url": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
         "path": "preview.png",
-        "sha": "db9c2feb40da27dc432d7216eacb5d2dc9b1eb44"
+        "sha": "72746792490586086e8a7c404b74a9d6cd29b379"
       },
       "github": {
         "stars": 0,
-        "defaultBranchUpdatedAt": "2026-10-14T04:40:42Z",
+        "defaultBranchUpdatedAt": "2026-11-16T00:16:39Z",
         "defaultBranch": "main",
         "archived": false,
-        "openIssues": 3
+        "openIssues": 0
       },
       "manifest": {
-        "status": "aligned",
-        "version": "0.2.0",
-        "sha": "e2b528bfb124073a82263a0ca5a053956ade9301",
-        "issues": []
+        "status": "drift",
+        "version": "0.2.2",
+        "sha": "054e49b4899c9f6b1acceeadc82d9128382a81fc",
+        "issues": [
+          "version differs from the official marketplace"
+        ]
       },
       "metrics": {
         "views": 315,
@@ -771,7 +787,7 @@
     "pitch": "The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing.",
     "github": {
       "stars": 0,
-      "defaultBranchUpdatedAt": "2026-10-14T04:41:05Z",
+      "defaultBranchUpdatedAt": "2026-11-15T15:04:47Z",
       "archived": false
     },
     "preview": {
