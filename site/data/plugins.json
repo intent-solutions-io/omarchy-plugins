@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-16T08:50:57.541Z",
+  "generatedAt": "2026-11-17T08:29:27.047Z",
   "marketplaceStatsUrl": "https://api.omarchyplugins.com/v1/stats",
-  "catalogSize": 6677,
+  "catalogSize": 6711,
   "publisher": {
     "name": "Jeremy Longshore",
     "githubUrl": "https://github.com/jeremylongshore",
@@ -36,7 +36,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-bazaar-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-bazaar-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -52,12 +52,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "1.0.2",
         "sha": "fa683846d7975ddf89feb6b1bc1d66f69e623ca2",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 388,
@@ -154,7 +152,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 190,
+        "views": 191,
         "copies": 11,
         "hearts": 0
       }
@@ -339,7 +337,7 @@
         "issues": []
       },
       "metrics": {
-        "views": 223,
+        "views": 224,
         "copies": 19,
         "hearts": 3
       }
@@ -413,7 +411,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-desk-transition-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-desk-transition-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -429,15 +427,13 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.2",
         "sha": "fc2f3eb114fc3d9f2026640a13aaf5355871ac63",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
-        "views": 238,
+        "views": 239,
         "copies": 16,
         "hearts": 2
       }
@@ -462,7 +458,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-foundry-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-foundry-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -478,12 +474,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.1",
         "sha": "47bf2a9a1c07e7da08317b620fd2bb880bfc3ca8",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 161,
@@ -510,7 +504,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-loose-ends-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.1.0",
+      "version": "0.1.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-loose-ends-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -526,12 +520,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.1.2",
         "sha": "f8b778e9bf0b3921b0fc4c397974efc33605dda8",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 108,
@@ -558,7 +550,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-capture-conveyor-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.0",
+      "version": "0.2.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-capture-conveyor-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -574,12 +566,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.2",
         "sha": "431af0558fdc8ceffd3702ecba1060004947a0e0",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 167,
@@ -607,7 +597,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-workspace-storyboard-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -623,15 +613,13 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.1",
         "sha": "2618a3b5a6f876c62db064870de311cc4327be46",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
-        "views": 301,
+        "views": 303,
         "copies": 9,
         "hearts": 2
       }
@@ -655,7 +643,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-quiet-queue-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.0",
+      "version": "0.2.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-quiet-queue-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -671,12 +659,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.2",
         "sha": "064971c5b95e7a2650024078ffb59059fc484c65",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 151,
@@ -703,7 +689,7 @@
       "project": null,
       "installCommand": "omarchy plugin add https://github.com/jeremylongshore/omarchy-flow-boundary-entry.git --enable",
       "verificationStatus": "unverified",
-      "version": "0.2.0",
+      "version": "0.2.2",
       "previewUrl": "https://raw.githubusercontent.com/jeremylongshore/omarchy-flow-boundary-entry/main/preview.png",
       "preview": {
         "status": "verified",
@@ -719,12 +705,10 @@
         "openIssues": 0
       },
       "manifest": {
-        "status": "drift",
+        "status": "aligned",
         "version": "0.2.2",
         "sha": "054e49b4899c9f6b1acceeadc82d9128382a81fc",
-        "issues": [
-          "version differs from the official marketplace"
-        ]
+        "issues": []
       },
       "metrics": {
         "views": 315,
