@@ -34,7 +34,7 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-11-23T12:20:19.154Z`, across 6931 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-11-24T12:18:07.734Z`, across 7027 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
@@ -53,10 +53,10 @@ Marketplace data generated at `2026-11-23T12:20:19.154Z`, across 6931 listed plu
 | **Workspace Storyboard** | Desktop Workflow | Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard) | 0 | 305 | 9 | 2 |
 | **Quiet Queue** | Focus and Delivery | A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session. | [repo](https://github.com/jeremylongshore/omarchy-quiet-queue-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.quiet-queue) | 0 | 151 | 4 | 1 |
 | **Flow Boundary** | Focus and Delivery | Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history. | [repo](https://github.com/jeremylongshore/omarchy-flow-boundary-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.flow-boundary) | 0 | 315 | 6 | 1 |
-| **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 298 | 28 | 4 |
+| **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 299 | 28 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3784 views, 234 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3785 views, 234 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 
