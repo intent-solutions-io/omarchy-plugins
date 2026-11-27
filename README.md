@@ -34,7 +34,7 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-11-26T11:31:16.315Z`, across 7131 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-11-27T11:47:32.054Z`, across 7162 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
@@ -49,14 +49,14 @@ Marketplace data generated at `2026-11-26T11:31:16.315Z`, across 7131 listed plu
 | **Desk Transition** | System Awareness | Two safe Hyprland display actions: arrange active outputs left-to-right or focus the built-in panel, with a preview before anything changes. | [repo](https://github.com/jeremylongshore/omarchy-desk-transition-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.desk-transition) | 0 | 239 | 16 | 2 |
 | **Foundry** | Discovery and Building | Turn an ID, name, and pitch into a proof-ready Omarchy bar-widget draft with matched manifest copy, a unique banner, offline tests, CI, and security gates. | [repo](https://github.com/jeremylongshore/omarchy-foundry-entry) | [Developer Tools](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.foundry) | 0 | 163 | 6 | 0 |
 | **Loose Ends** | Focus and Delivery | Scan local Git repositories for uncommitted edits, unpushed commits, old stashes, detached heads, and interrupted operations, oldest first. | [repo](https://github.com/jeremylongshore/omarchy-loose-ends-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.loose-ends) | 1 | 110 | 5 | 1 |
-| **Capture Conveyor** | Desktop Workflow | Turn Omarchy screenshots into a keyboard-first inbox: view recent captures, capture or OCR a region, copy paths, and reveal files. | [repo](https://github.com/jeremylongshore/omarchy-capture-conveyor-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.capture-conveyor) | 0 | 167 | 8 | 1 |
+| **Capture Conveyor** | Desktop Workflow | Turn Omarchy screenshots into a keyboard-first inbox: view recent captures, capture or OCR a region, copy paths, and reveal files. | [repo](https://github.com/jeremylongshore/omarchy-capture-conveyor-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.capture-conveyor) | 0 | 169 | 8 | 1 |
 | **Workspace Storyboard** | Desktop Workflow | Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard) | 0 | 305 | 9 | 2 |
 | **Quiet Queue** | Focus and Delivery | A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session. | [repo](https://github.com/jeremylongshore/omarchy-quiet-queue-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.quiet-queue) | 0 | 151 | 4 | 1 |
 | **Flow Boundary** | Focus and Delivery | Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history. | [repo](https://github.com/jeremylongshore/omarchy-flow-boundary-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.flow-boundary) | 0 | 315 | 6 | 1 |
 | **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 300 | 28 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3789 views, 234 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3791 views, 234 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 
