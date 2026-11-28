@@ -34,11 +34,11 @@ This repository owns the **Intent Solutions public portfolio** for the Omarchy p
 ## The catalog
 
 <!-- METRICS:START -->
-Marketplace data generated at `2026-11-27T11:47:32.054Z`, across 7162 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
+Marketplace data generated at `2026-11-27T17:25:05.346Z`, across 7178 listed plugins. GitHub stars, default-branch freshness, root manifest, and preview metadata are derived during the same refresh.
 
 | Plugin | Family | What it does | Source | Marketplace | Stars | Views | Copies | Hearts |
 | --- | --- | --- | --- | --- | --: | --: | --: | --: |
-| **Bazaar** | Discovery and Building | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 0 | 389 | 52 | 0 |
+| **Bazaar** | Discovery and Building | The Omarchy marketplace in your bar. Search every listing, filter by category or kind, rank what is trending, save a private shortlist, inspect source, and copy safe install commands. | [repo](https://github.com/jeremylongshore/omarchy-bazaar-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.bazaar) | 0 | 389 | 53 | 0 |
 | **Pit Wall** | Sports | A Formula 1 race-weekend command post with countdowns, live order, gaps, flags, safety-car state, local-time schedules, and championship standings. | [repo](https://github.com/jeremylongshore/omarchy-pit-wall-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.pit-wall) | 0 | 205 | 31 | 4 |
 | **Wait State** | System Awareness | CPU, memory, and I/O pressure stalls in the bar, with bounded history and practical guidance so busy is not mistaken for blocked. | [repo](https://github.com/jeremylongshore/omarchy-wait-state-entry) | [System](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.wait-state) | 0 | 191 | 11 | 0 |
 | **MLB Booth** | Sports | Follow one MLB club from first-pitch countdown through the final out with score, inning, count, outs, bases, schedule, and division race. | [repo](https://github.com/jeremylongshore/omarchy-mlb-booth-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.mlb-booth) | 1 | 140 | 11 | 2 |
@@ -53,10 +53,10 @@ Marketplace data generated at `2026-11-27T11:47:32.054Z`, across 7162 listed plu
 | **Workspace Storyboard** | Desktop Workflow | Turn live Hyprland workspaces into a local re-entry map with window counts, active titles, keyboard jumps, and a private context history. | [repo](https://github.com/jeremylongshore/omarchy-workspace-storyboard-entry) | [Widgets](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.workspace-storyboard) | 0 | 305 | 9 | 2 |
 | **Quiet Queue** | Focus and Delivery | A trustworthy 25- or 50-minute focus switch that uses native Do Not Disturb and restores notification delivery only when it owns the session. | [repo](https://github.com/jeremylongshore/omarchy-quiet-queue-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.quiet-queue) | 0 | 151 | 4 | 1 |
 | **Flow Boundary** | Focus and Delivery | Mark intentional starts and stops from the bar with a live FLOW or PAUSE state and a bounded local transition history. | [repo](https://github.com/jeremylongshore/omarchy-flow-boundary-entry) | [Productivity](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.flow-boundary) | 0 | 315 | 6 | 1 |
-| **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 300 | 28 | 4 |
+| **omaTrail** | Play and Learning | An offline frontier survival game for Omarchy with hunting, river crossings, resource management, and a choice of Green Monitor or Color Deluxe graphics. | [repo](https://github.com/jeremylongshore/omarchy-omatrail-entry) | [Kids](https://plugins.omarchy.org/plugin.html?id=io.github.jeremylongshore.omatrail) | 2 | 301 | 29 | 4 |
 | **Widget Template** | Build system | The skeleton every entry above is built from. BarWidget, Panel, a node-testable Model.js, the 12-gate pre-submit lane and CI, so a new widget starts already passing. | [repo](https://github.com/jeremylongshore/omarchy-widget-template) | not a listing | 0 | n/a | n/a | n/a |
 
-**16 of 16 listed** on the marketplace, 3791 views, 234 copies, 23 hearts, and 4 GitHub stars.
+**16 of 16 listed** on the marketplace, 3792 views, 236 copies, 23 hearts, and 4 GitHub stars.
 
 ### Install
 
